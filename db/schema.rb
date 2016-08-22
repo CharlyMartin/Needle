@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822132928) do
+ActiveRecord::Schema.define(version: 20160822145537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "batch_size"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.text     "spec"
+    t.integer  "price"
+    t.string   "category"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
+  end
+
+  create_table "followings", force: :cascade do |t|
+    t.integer  "designer_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["designer_id"], name: "index_followings_on_designer_id", using: :btree
+    t.index ["follower_id"], name: "index_followings_on_follower_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "model_size"
+    t.string   "delivery_address"
+    t.integer  "user_id"
+    t.integer  "campaign_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["campaign_id"], name: "index_orders_on_campaign_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +62,16 @@ ActiveRecord::Schema.define(version: 20160822132928) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.binary   "gender"
+    t.date     "date_of_birth"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "campaigns", "users"
+  add_foreign_key "orders", "campaigns"
+  add_foreign_key "orders", "users"
 end
