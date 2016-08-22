@@ -5,6 +5,7 @@ class CreateCampaigns < ActiveRecord::Migration[5.0]
       t.integer :batch_size
       t.date :date_start
       t.date :date_end
+      t.text :description
       t.text :spec
       t.integer :price
       t.string :category
