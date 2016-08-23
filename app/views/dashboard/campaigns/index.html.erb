@@ -1,0 +1,7 @@
+<% @campaigns.each do |campaign| %>
+
+<% if campaign.photo? %>
+  <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
+
+<% end %>
