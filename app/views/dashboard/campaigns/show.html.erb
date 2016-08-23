@@ -9,5 +9,9 @@
   <p> <strong> Price : </strong> <%= @campaign.price %> $ </p>
   <p> <strong> Category : </strong> <%= @campaign.category %></p>
   <p> <strong> For : </strong> <%= @campaign.gender %></p>
+  <% if @campaign.photo? %>
+    <%= cl_image_tag @campaign.photo.path, width: 200, height: 300, crop: :fill %>
+  <% end %>
+
     <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
 </div>
