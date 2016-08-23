@@ -12,6 +12,7 @@
     <%= f.input :price %>
     <%= f.input :category %>
     <%= f.input :gender, collection: ["Men", "Women", "Unisex"] %>
+    <%= f.input :photo, as: :attachinary %>
      <div class="text-center">
        <%= f.button :submit, class: "btn btn-primary" %>
      </div>

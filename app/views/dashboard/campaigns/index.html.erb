@@ -1,4 +1,5 @@
 <% @campaigns.each do |campaign| %>
+
   <h2><%= campaign.title.upcase %></h2>
   <p> <strong> Batch size : </strong> <%= campaign.batch_size %></p>
   <p> <strong> From : </strong> <%= campaign.date_start %></p>
@@ -9,6 +10,9 @@
   <p> <strong> Price : </strong> <%= campaign.price %> $ </p>
   <p> <strong> Category : </strong> <%= campaign.category %></p>
   <p> <strong> For : </strong> <%= campaign.gender %></p>
+  <% if campaign.photo? %>
+    <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
+  <% end %>
   <%= link_to "Details", dashboard_campaign_path(campaign), {class: "btn btn-primary"} %>
   <br>
   <hr>
