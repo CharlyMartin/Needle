@@ -9,4 +9,5 @@ class Campaign < ApplicationRecord
   validates :spec, presence: true
   validates :price, presence: true
   validates :category, presence: true
+  validates :gender, presence: true
 end
