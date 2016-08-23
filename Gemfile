@@ -10,6 +10,7 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'redis'
 
 gem 'omniauth-facebook'
+gem 'faker'
 
 gem 'sass-rails'
 gem 'jquery-rails'
