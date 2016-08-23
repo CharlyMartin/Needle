@@ -9,6 +9,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', github: 'plataformatec/devise'
 gem 'redis'
 
+gem 'omniauth-facebook'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
@@ -20,7 +22,7 @@ gem 'autoprefixer-rails'
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
-  
+
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
