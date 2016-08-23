@@ -1,7 +1,40 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+###########################################################
+# CREATING A DESIGNER
+
+User.destroy_all
+puts "destroying users (and linked tables)"
+
+designer = User.new(
+  first_name: "Yves",
+  last_name: "Saint-Laurent",
+  address: "3, Rue Léonce Reynaud 75000 Paris",
+  date_of_birth: "1936-08-01",
+  gender: "male",
+  email: "ysl@needle.com",
+  password: "jesuisyves"
+)
+puts "new designer"
+
+designer.save
+puts "saving designer"
+
+
+###########################################################
+# CREATING CAMPAINGS FOR THE DESIGNER
+
+5.times do
+  Campaign.create(
+    title: Faker::Book.title,
+    batch_size: [100, 110, 150, 180, 200, 210, 250, 300].sample,
+    date_start: Faker::Date.between(15.days.ago, Date.today),
+    date_end: Faker::Date.forward(15),
+    description: Faker::Lorem.sentences(1),
+    spec: Faker::Lorem.paragraph(2),
+    price: rand(80...500),
+    category: ["denim", "dress", "shoes", "top", "coat"].sample,
+    gender: ["man", "woman", "unisex"].sample,
+    status: ["submitted", "pending", "accepted", "rejected"].sample,
+    user: User.last
+  )
+  puts "creating a campaign"
+end
