@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160822145537) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "item_size"
-    t.integer  "number_of_item",   default: 1
+    t.integer  "number_of_items",  default: 1
     t.string   "delivery_address"
     t.integer  "user_id"
     t.integer  "campaign_id"
