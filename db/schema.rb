@@ -18,14 +18,15 @@ ActiveRecord::Schema.define(version: 20160822145537) do
   create_table "campaigns", force: :cascade do |t|
     t.string   "title"
     t.integer  "batch_size"
-    t.date     "date_start"
-    t.date     "date_end"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.text     "description"
     t.text     "spec"
     t.integer  "price"
     t.string   "category"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
   end
 
@@ -39,12 +40,13 @@ ActiveRecord::Schema.define(version: 20160822145537) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "model_size"
+    t.string   "item_size"
+    t.integer  "number_of_item",   default: 1
     t.string   "delivery_address"
     t.integer  "user_id"
     t.integer  "campaign_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["campaign_id"], name: "index_orders_on_campaign_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -65,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160822145537) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "address"
-    t.binary   "gender"
+    t.string   "gender"
     t.date     "date_of_birth"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
