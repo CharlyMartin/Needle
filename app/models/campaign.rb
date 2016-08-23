@@ -10,4 +10,5 @@ class Campaign < ApplicationRecord
   validates :price, presence: true
   validates :category, presence: true
   validates :gender, presence: true
+  has_attachment :photo
 end
