@@ -20,7 +20,7 @@ puts "saving designer"
 
 
 ###########################################################
-# CREATING CAMPAINGS FOR THE DESIGNER
+# CREATING ON-GOING CAMPAINGS FOR THE DESIGNER
 
 5.times do
   Campaign.create(
@@ -38,3 +38,25 @@ puts "saving designer"
   )
   puts "creating a campaign"
 end
+
+###########################################################
+# CREATING ON-GOING CAMPAINGS FOR THE DESIGNER
+
+5.times do
+  Campaign.create(
+    title: Faker::Book.title,
+    batch_size: [100, 110, 150, 180, 200, 210, 250, 300].sample,
+    date_start: Faker::Date.between(150.days.ago, 100.days.ago),
+    date_end: Faker::Date.between(75.days.ago, 50.days.ago),
+    description: Faker::Lorem.sentences(1),
+    spec: Faker::Lorem.paragraph(2),
+    price: rand(80...500),
+    category: ["denim", "dress", "shoes", "top", "coat"].sample,
+    gender: ["man", "woman", "unisex"].sample,
+    status: ["submitted", "pending", "accepted", "rejected"].sample,
+    user: User.last
+  )
+  puts "creating a campaign"
+end
+
+
