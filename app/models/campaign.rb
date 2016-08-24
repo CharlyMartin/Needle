@@ -6,6 +6,7 @@ class Campaign < ApplicationRecord
   validates :batch_size, presence: true
   validates :date_start, presence: true
   validates :date_end, presence: true
+  #validates :duration, presence: true
   validates :spec, presence: true
   validates :price, presence: true
   validates :category, presence: true
