@@ -27,6 +27,14 @@ class Dashboard::CampaignsController < ApplicationController
   def update
   end
 
+  # def finished?
+  #   if Date.today.to_time - @campaign.date_end < 0
+  #     true
+  #   else
+  #     false
+  #   end
+  # end
+
   private
 
   def campaign_params
