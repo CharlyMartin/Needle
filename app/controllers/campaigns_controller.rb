@@ -2,6 +2,7 @@ class CampaignsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
+    @campaigns = Campaign.all
   end
   def show
   end

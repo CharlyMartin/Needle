@@ -1,35 +1,35 @@
 
 <div class="container">
   <% @campaigns.each do |campaign| %>
+    <% if campaign.user == current_user %>
+      <h2><%= campaign.title.upcase %></h2>
+      <% if campaign.photo? %>
+        <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
+      <p> <strong> Batch size : </strong> <%= campaign.batch_size %></p>
+      <p> <strong> From : </strong> <%= campaign.date_start %></p>
+      <p> <strong> To :  </strong> <%= campaign.date_end %></p>
+      <br>
+      <p> <strong> Description : </strong> <%= campaign.description %></p>
+      <p> <strong> Specs : </strong> <%= campaign.spec %></p>
+      <p> <strong> Price : </strong> <%= campaign.price %> $ </p>
+      <p> <strong> Category : </strong> <%= campaign.category %></p>
+      <p> <strong> For : </strong> <%= campaign.gender %></p>
 
-    <h2><%= campaign.title.upcase %></h2>
-    <p> <strong> Batch size : </strong> <%= campaign.batch_size %></p>
-    <p> <strong> From : </strong> <%= campaign.date_start %></p>
-    <p> <strong> To :  </strong> <%= campaign.date_end %></p>
-    <br>
-    <p> <strong> Description : </strong> <%= campaign.description %></p>
-    <p> <strong> Specs : </strong> <%= campaign.spec %></p>
-    <p> <strong> Price : </strong> <%= campaign.price %> $ </p>
-    <p> <strong> Category : </strong> <%= campaign.category %></p>
-    <p> <strong> For : </strong> <%= campaign.gender %></p>
-    <% if campaign.photo? %>
-      <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
+      <!-- status_private correspond a l'etat du traitement de la demande de publication de la campagne -> [pending(default), accepted, declined] -->
+
+      <!-- status_public correspond à l'etat de la campagne, qu'on affiche sur sa show, par rapport à sa durée [on-going, failed, succeeded (soit quand ca arrive au max de batch, soit que y'a plus de 75% de batch quand le temps est écoulé.)]-->
+
+      <% if campaign.accepted? %>
+        <%= link_to "launch", campaign_path(campaign), method: :patch %>
+      <% end %>
+
+
+      <%= link_to "Details", dashboard_campaign_path(campaign), {class: "btn btn-primary"} %>
+      <br>
+      <hr>
+    <% else %>
     <% end %>
-
-    <!-- status_private correspond a l'etat du traitement de la demande de publication de la campagne -> [pending(default), accepted, declined] -->
-
-    <!-- status_public correspond à l'etat de la campagne, qu'on affiche sur sa show, par rapport à sa durée [on-going, failed, succeeded (soit quand ca arrive au max de batch, soit que y'a plus de 75% de batch quand le temps est écoulé.)]-->
-
-    <!-- si status_private = accepted alors on affiche un bouton "launch" qui, quand il est cliqué fait un date_start = Time.now et un date_end = date_start + @campaign.duration et permet d'afficher la campagne dans celles en cours (index) et change son status_public pr qu'il passe à on-going -->
-
-    <% if campaign.accepted? %>
-      <%= link_to "launch", campaign_path(campaign), method: :patch %>
-    <% end %>
-
-
-    <%= link_to "Details", dashboard_campaign_path(campaign), {class: "btn btn-primary"} %>
-    <br>
-    <hr>
   <% end %>
   <%= link_to "Create a new campaign", new_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
 </div>
