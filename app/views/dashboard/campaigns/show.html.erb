@@ -14,6 +14,7 @@
   <% end %>
 
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
+  <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
 
   <%= simple_form_for [@campaign, @order], url: dashboard_campaign_orders_path(@campaign), method: :post do |f| %>
      <%= f.error_notification %>
