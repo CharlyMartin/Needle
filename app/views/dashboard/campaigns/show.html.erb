@@ -12,7 +12,7 @@
   <% if @campaign.photo? %>
     <%= cl_image_tag @campaign.photo.path, width: 200, height: 300, crop: :fill %>
   <% end %>
-  <p> <strong> Status : </strong> <%= @campaign.status %></p>
+  <p> <strong> Status : </strong> <%= @campaign.status_private %></p>
 
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
   <% if not @campaign.finished? %>
