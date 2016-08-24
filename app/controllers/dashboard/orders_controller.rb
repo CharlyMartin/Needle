@@ -1,15 +1,17 @@
 class Dashboard::OrdersController < ApplicationController
-  before_action :find_campaign, only: [ :create ]
 
   def index
+    @campaign = Campaign.find(params[:campaign_id])
     @orders = Order.all
   end
 
   def show
+    @campaign = Campaign.find(params[:campaign_id])
     @order = Order.find(params[:id])
   end
 
   def create
+    @campaign = Campaign.find(params[:campaign_id])
     @order = @campaign.orders.new(order_params)
     @order.user = current_user
     @order.save
@@ -17,6 +19,10 @@ class Dashboard::OrdersController < ApplicationController
   end
 
   def destroy
+    @campaign = Campaign.find(params[:id])
+    order = @campaign.orders.find_by_user_id(current_user.id)
+    order.destroy
+    redirect_to dashboard_campaign_path(@campaign)
   end
 
   private
@@ -25,7 +31,4 @@ class Dashboard::OrdersController < ApplicationController
     params.require(:order).permit([:item_size, :number_of_items, :delivery_address, :user_id, :campaign_id])
   end
 
-  def find_campaign
-    @campaign = Campaign.find(params[:campaign_id])
-  end
 end
