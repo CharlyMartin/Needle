@@ -3,6 +3,14 @@
 </div>
 
 <div>
+  <% if @user.photo? %>
+     <%= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
+  <% else %>
+    <%= image_tag('avatar.png') %>
+  <% end %>
+</div>
+
+<div>
   <p>FOLLOW ME</p>
 </div>
 

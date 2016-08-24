@@ -40,7 +40,7 @@ puts "saving designer"
 end
 
 ###########################################################
-# CREATING ON-GOING CAMPAINGS FOR THE DESIGNER
+# CREATING PAST CAMPAINGS FOR THE DESIGNER
 
 5.times do
   Campaign.create(
