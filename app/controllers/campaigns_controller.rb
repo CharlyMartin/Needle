@@ -5,4 +5,11 @@ class CampaignsController < ApplicationController
   end
   def show
   end
+
+  def update
+    @campaign = Campaign.find(params[:id])
+    @campaign.launch!
+    redirect_to campaign_path(@campaign)
+
+  end
 end

@@ -13,8 +13,12 @@ class Campaign < ApplicationRecord
   validates :gender, presence: true
   has_attachment :photo
 
-  def finished!
+  enum status_private: [:pending, :accepted, :declined]
+  enum status_public: [:active, :in_production, :succesful, :failed]
 
+
+  def close!
+    succes? ? succesful! : failed!
   end
 
   def finished?
@@ -33,4 +37,24 @@ class Campaign < ApplicationRecord
     end
   end
 
+  def success?
+    self.orders.count == self.batch_size  #-> closed
+  end
+
+  def funded?
+    self.orders.count >= (self.batch_size*3)/4 #-> pas closed
+  end
+
+  def launch!
+    self.date_start = Time.now
+    self.date_end = self.date_start + self.duration.days
+    self.active!
+  end
 end
+
+
+ # si status_private = accepted alors on affiche un bouton
+ # "launch" qui, quand il est cliqué fait un date_start = Time.now
+ # et un date_end = date_start + @campaign.duration et permet d'afficher
+ #  la campagne dans celles en cours (index) et change son status_public pr
+ #   qu'il passe à on-going

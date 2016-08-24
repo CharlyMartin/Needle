@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 20160824132200) do
     t.integer  "price"
     t.string   "category"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "gender"
-    t.string   "status_private"
-    t.string   "status_public"
+    t.integer  "status_private", default: 0
+    t.integer  "status_public"
     t.integer  "duration"
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
   end
