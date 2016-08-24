@@ -11,4 +11,25 @@ class Campaign < ApplicationRecord
   validates :category, presence: true
   validates :gender, presence: true
   has_attachment :photo
+
+  def finished!
+
+  end
+
+  def finished?
+    if Time.now > self.date_end
+      true
+    else
+      false
+    end
+  end
+
+  def live?
+    if self.date_start <= Time.now && Time.now <= self.date_end
+      true
+    else
+      false
+    end
+  end
+
 end

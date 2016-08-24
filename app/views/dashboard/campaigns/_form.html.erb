@@ -4,9 +4,8 @@
      <%= simple_form_for @campaign, url: dashboard_campaigns_path, method: :post do |f| %>
       <%= f.error_notification %>
       <%= f.input :title %>
-      <%= f.input :batch_size, collection: ["150", "250", "300"] %>
-      <%= f.input :date_start, as: :date %>
-      <%= f.input :date_end, as: :date %>
+      <%= f.input :batch_size, collection: [150, 250, 300] %>
+     <p>(number of days)<%= f.input :duration, collection: [10, 20, 30] %></p>
       <%= f.input :description %>
       <%= f.input :spec %>
       <%= f.input :price %>
@@ -20,3 +19,5 @@
      </div>
   </div>
 </div>
+
+<p> <strong> Description :  <%= @campaign.description %></p>
