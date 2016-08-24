@@ -15,7 +15,10 @@
   <p> <strong> Status : </strong> <%= @campaign.status %></p>
 
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
-  <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
+  <% if not @campaign.finished? %>
+    <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
+  <% else %>
+  <% end %>
 
   <% if @campaign.live? %>
     <% if not @campaign.orders.empty? %>
