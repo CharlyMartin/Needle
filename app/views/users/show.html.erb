@@ -20,9 +20,12 @@
 
 <div>
   <p>DESCRIPTION</p>
+  <%= link_to "edit", edit_user_registration_path(@user) %>
+  <%= @user.description %>
 </div>
 
 <p>Current campaigns</p>
+<%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
 <% @current_campaigns.each do |campaign| %>
   <div>
     <hr>
@@ -37,6 +40,7 @@
 <hr>
 
 <p>Past campaigns</p>
+<%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
 <% @past_campaigns.each do |campaign| %>
   <div>
     <hr>
@@ -47,4 +51,5 @@
     <%= campaign.price %> €
   </div>
 <% end %>
+
 
