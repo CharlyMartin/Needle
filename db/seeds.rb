@@ -22,7 +22,7 @@ puts "saving designer"
 ###########################################################
 # CREATING ON-GOING CAMPAINGS FOR THE DESIGNER
 
-5.times do
+2.times do
   Campaign.create(
     title: Faker::Book.title,
     batch_size: [100, 110, 150, 180, 200, 210, 250, 300].sample,
@@ -42,7 +42,7 @@ end
 ###########################################################
 # CREATING PAST CAMPAINGS FOR THE DESIGNER
 
-5.times do
+10.times do
   Campaign.create(
     title: Faker::Book.title,
     batch_size: [100, 110, 150, 180, 200, 210, 250, 300].sample,
