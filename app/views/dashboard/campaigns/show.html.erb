@@ -15,7 +15,7 @@
 
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
 
-  <% if Date.today.to_time - @campaign.date_end < 0 %>
+  <% if @campaign.live? %>
     <% if not @campaign.orders.empty? %>
       <%= link_to "Cancel my order", dashboard_order_path, method: :delete, data: "Are you sure" %>
     <% else %>

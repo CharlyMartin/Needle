@@ -1,10 +1,12 @@
 class Dashboard::OrdersController < ApplicationController
 
   def index
+    @campaign = Campaign.find(params[:campaign_id])
     @orders = Order.all
   end
 
   def show
+    @campaign = Campaign.find(params[:campaign_id])
     @order = Order.find(params[:id])
   end
 
