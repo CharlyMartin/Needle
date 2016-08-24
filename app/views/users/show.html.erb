@@ -1,0 +1,50 @@
+<div>
+  <%= @user.first_name + " " + @user.last_name %>
+</div>
+
+<div>
+  <% if @user.photo? %>
+     <%= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
+  <% else %>
+    <%= image_tag('avatar.png') %>
+  <% end %>
+</div>
+
+<div>
+  <p>FOLLOW ME</p>
+</div>
+
+<div>
+  <p>Social links</p>
+</div>
+
+<div>
+  <p>DESCRIPTION</p>
+</div>
+
+<p>Current campaigns</p>
+<% @current_campaigns.each do |campaign| %>
+  <div>
+    <hr>
+    <%= campaign.photo %>
+    <%= campaign.title %> /
+    <%= campaign.batch_size %> /
+    <%= campaign.date_end %> /
+    <%= campaign.price %> €
+  </div>
+<% end %>
+
+<hr>
+
+<p>Past campaigns</p>
+<% @past_campaigns.each do |campaign| %>
+  <div>
+    <hr>
+    <%= campaign.photo %>
+    <%= campaign.title %> /
+    <%= campaign.batch_size %> /
+    <%= campaign.date_end %> /
+    <%= campaign.price %> €
+  </div>
+<% end %>
+
