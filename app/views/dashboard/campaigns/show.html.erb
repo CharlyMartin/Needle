@@ -12,6 +12,7 @@
   <% if @campaign.photo? %>
     <%= cl_image_tag @campaign.photo.path, width: 200, height: 300, crop: :fill %>
   <% end %>
+  <p> <strong> Status : </strong> <%= @campaign.status %></p>
 
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
   <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
