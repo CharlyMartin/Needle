@@ -7,6 +7,7 @@ class Dashboard::CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:id])
+    @order = Order.new
   end
 
   def new
@@ -14,12 +15,10 @@ class Dashboard::CampaignsController < ApplicationController
   end
 
   def create
-
-  @campaign = current_user.campaigns.new(campaign_params)
+    @campaign = current_user.campaigns.new(campaign_params)
     @campaign.save
 
     redirect_to dashboard_campaigns_path(), notice: "Your campaign has been created !"
-
   end
 
   def edit
