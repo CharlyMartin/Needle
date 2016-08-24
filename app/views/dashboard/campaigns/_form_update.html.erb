@@ -5,9 +5,9 @@
    <div class="col-md-6 col-md-offset-3">
      <%= simple_form_for @campaign, url: dashboard_campaign_path, method: :patch do |f| %>
       <%= f.error_notification %>
-      <%= f.input :description %>
-      <%= f.input :spec %>
-      <%= f.input :photo, as: :attachinary %>
+      <%= f.input :description, label: "Give the best description you can" %>
+      <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
+      <%= f.input :photo, label: "Provide your best shots", as: :attachinary %>
        <div class="text-center">
          <%= f.button :submit, class: "btn btn-primary" %>
        </div>
@@ -21,15 +21,16 @@
    <div class="col-md-6 col-md-offset-3">
      <%= simple_form_for @campaign, url: dashboard_campaign_path, method: :patch do |f| %>
       <%= f.error_notification %>
-      <%= f.input :title %>
+      <%= f.input :title, label: "Your campaign's title" %>
       <%= f.input :batch_size, collection: [150, 250, 300] %>
-      <p>(number of days)<%= f.input :duration, collection: [10, 20, 30] %></p>
-      <%= f.input :description %>
-      <%= f.input :spec %>
+      <%= f.input :date_start, as: :date %>
+      <%= f.input :date_end, as: :date %>
+      <%= f.input :description, label: "Give the best description you can" %>
+      <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
       <%= f.input :price %>
-      <%= f.input :category %>
-      <%= f.input :gender, collection: ["Men", "Women", "Unisex"] %>
-      <%= f.input :photo, as: :attachinary %>
+      <%= f.input :category,  placeholder: 'ex: Shirts, Shoes, Dresses, ...' %>
+      <%= f.input :gender, label: "Who cares ?", collection: ["Men", "Women", "Both"] %>
+      <%= f.input :photo, label: "Provide your best shots", as: :attachinary %>
        <div class="text-center">
          <%= f.button :submit, class: "btn btn-primary" %>
        </div>
