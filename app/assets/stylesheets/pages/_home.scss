@@ -55,26 +55,57 @@
 }
 
 .block-1 {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
   height: 420px;
-  background-color: $light-green;
+  // background-color: $light-green;
+  background-image: url('home/dress.jpg');
+
+
 }
 
 .block-2 {
+  display: flex;
+  justify-content: center;
   height: 210px;
-  background-color: white;
+  background-image: url('home/designer.jpg');
+  background-size: cover;
+
 }
 
 .block-3 {
+  display: flex;
+  justify-content: center;
   height: 210px;
   background-color: $light-taupe;
 }
 
 .block-4 {
   height: 210px;
-  background-color: $light-blue;
+  display: flex;
+  justify-content: center;
+  // background-color: $light-blue;
+  background-image: url('home/coat.jpg');
+  background-size: cover;
 }
 
 .block-5 {
+  display: flex;
+  justify-content: center;
   height: 210px;
   background-color: $light-cream;
 }
+
+.home-btn {
+  background-color: transparent;
+  border-color: #8E8C96;
+  border-radius: 50px;
+  color: #8E8C96;
+  position: absolute;
+  top: 80%;
+
+
+}
+
+
