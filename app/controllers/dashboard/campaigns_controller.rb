@@ -1,9 +1,9 @@
 class Dashboard::CampaignsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  # skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_campaign, only: [:show, :edit, :update]
 
   def index
-    @campaigns = Campaign.all
+    @campaigns = Campaign.where(user: current_user)
   end
 
   def show

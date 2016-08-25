@@ -1,11 +1,12 @@
 
 <div class="container">
   <% @campaigns.each do |campaign| %>
-    <% if campaign.user == current_user %>
       <h2><%= campaign.title.upcase %></h2>
       <% if campaign.photo? %>
         <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
       <% end %>
+      <%= campaign.user.first_name %>
+      <%= campaign.user.last_name %>
       <p> <strong> Batch size : </strong> <%= campaign.batch_size %></p>
       <p> <strong> From : </strong> <%= campaign.date_start %></p>
       <p> <strong> To :  </strong> <%= campaign.date_end %></p>
@@ -27,8 +28,6 @@
       <%= link_to "Details", dashboard_campaign_path(campaign), {class: "btn btn-primary"} %>
       <br>
       <hr>
-    <% else %>
-    <% end %>
   <% end %>
   <%= link_to "Create a new campaign", new_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
 </div>

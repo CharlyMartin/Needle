@@ -40,16 +40,21 @@ class Campaign < ApplicationRecord
   end
 
   def success?
-    self.orders.count == self.batch_size  #-> closed
+    items_sold = 0
+    self.orders.each do |order|
+      items_sold += order.number_of_items
+    end
+
+    items_sold == self.batch_size  #-> closed
   end
 
   def funded?
+    items_sold = 0
     self.orders.each do |order|
-      @items_sold = 0
-      @items_sold += order.number_of_items
+      items_sold += order.number_of_items
     end
 
-    @items_sold >= (self.batch_size*3)/4 #-> pas closed
+    items_sold >= (self.batch_size*3)/4 #-> pas closed
   end
 
   def launch!
