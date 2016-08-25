@@ -22,14 +22,16 @@ class Campaign < ApplicationRecord
   end
 
   def finished?
+    return false if not self.date_end
     if Time.now > self.date_end
-
+      true
     else
       false
     end
   end
 
   def live?
+    return false if not self.date_end || self.date_start
     if self.date_start <= Time.now && Time.now <= self.date_end
       true
     else
