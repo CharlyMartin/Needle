@@ -33,7 +33,6 @@ puts "saving designer"
     price: rand(80...500),
     category: ["denim", "dress", "shoes", "top", "coat"].sample,
     gender: ["man", "woman", "unisex"].sample,
-    status: ["submitted", "pending", "accepted", "rejected"].sample,
     user: User.last
   )
   puts "creating a campaign"
@@ -53,7 +52,6 @@ end
     price: rand(80...500),
     category: ["denim", "dress", "shoes", "top", "coat"].sample,
     gender: ["man", "woman", "unisex"].sample,
-    status: ["submitted", "pending", "accepted", "rejected"].sample,
     user: User.last
   )
   puts "creating a campaign"
