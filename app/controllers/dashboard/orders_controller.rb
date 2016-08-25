@@ -15,14 +15,14 @@ class Dashboard::OrdersController < ApplicationController
     @order = @campaign.orders.new(order_params)
     @order.user = current_user
     @order.save
-    redirect_to dashboard_campaign_path(@campaign)
+    redirect_to campaigns_path, notice: "Your order has been registered!"
   end
 
   def destroy
-    @campaign = Campaign.find(params[:id])
-    order = @campaign.orders.find_by_user_id(current_user.id)
+    order = Order.find(params[:id])
+    campaign = order.campaign
     order.destroy
-    redirect_to dashboard_campaign_path(@campaign)
+    redirect_to campaign_path(campaign)
   end
 
   private
