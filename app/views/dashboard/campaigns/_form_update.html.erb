@@ -23,8 +23,7 @@
       <%= f.error_notification %>
       <%= f.input :title, label: "Your campaign's title" %>
       <%= f.input :batch_size, collection: [150, 250, 300] %>
-      <%= f.input :date_start, as: :date %>
-      <%= f.input :date_end, as: :date %>
+      <%= f.input :duration, label: 'Number of days', collection: [10, 20, 30] %>
       <%= f.input :description, label: "Give the best description you can" %>
       <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
       <%= f.input :price %>

@@ -1,6 +1,9 @@
+
+
 <div class="container">
   <div class="row">
     <% @campaigns.each do |campaign| %>
+    <% if campaign.status_public %>
       <h2><%= campaign.title.upcase %></h2>
       <% if campaign.photo? %>
         <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
@@ -15,14 +18,14 @@
       <p> <strong> Category : </strong> <%= campaign.category %></p>
       <p> <strong> For : </strong> <%= campaign.gender %></p>
 
-      <% if campaign.accepted? %>
-        <%= link_to "launch", campaign_path(campaign), method: :patch %>
-      <% end %>
-
 
       <%= link_to "Details", dashboard_campaign_path(campaign), {class: "btn btn-primary"} %>
       <br>
       <hr>
+      <% else %>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+

@@ -4,9 +4,9 @@ class Campaign < ApplicationRecord
 
   validates :title, presence: true
   validates :batch_size, presence: true
-  validates :date_start, presence: true
-  validates :date_end, presence: true
-  #validates :duration, presence: true
+  #validates :date_start, presence: true
+  #validates :date_end, presence: true
+  validates :duration, presence: true
   validates :spec, presence: true
   validates :price, presence: true
   validates :category, presence: true
@@ -14,16 +14,16 @@ class Campaign < ApplicationRecord
   has_attachment :photo
 
   enum status_private: [:pending, :accepted, :declined]
-  enum status_public: [:active, :in_production, :succesful, :failed]
+  enum status_public: [:active, :in_production, :successful, :failed]
 
 
   def close!
-    succes? ? succesful! : failed!
+    success? ? successful! : failed!
   end
 
   def finished?
     if Time.now > self.date_end
-      true
+
     else
       false
     end
