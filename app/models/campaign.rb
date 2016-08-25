@@ -22,7 +22,7 @@ class Campaign < ApplicationRecord
   end
 
   def finished?
-    return false if not self.date_end
+    return false unless self.date_end
     if Time.now > self.date_end
       true
     else
@@ -31,7 +31,7 @@ class Campaign < ApplicationRecord
   end
 
   def live?
-    return false if not self.date_end || self.date_start
+    return false unless self.date_end || self.date_start
     if self.date_start <= Time.now && Time.now <= self.date_end
       true
     else
@@ -44,7 +44,12 @@ class Campaign < ApplicationRecord
   end
 
   def funded?
-    self.orders.count >= (self.batch_size*3)/4 #-> pas closed
+    self.orders.each do |order|
+      @items_sold = 0
+      @items_sold += order.number_of_items
+    end
+
+    @items_sold >= (self.batch_size*3)/4 #-> pas closed
   end
 
   def launch!
@@ -52,6 +57,7 @@ class Campaign < ApplicationRecord
     self.date_end = self.date_start + self.duration.days
     self.active!
   end
+
 end
 
 

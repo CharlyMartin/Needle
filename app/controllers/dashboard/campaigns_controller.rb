@@ -17,7 +17,6 @@ class Dashboard::CampaignsController < ApplicationController
   def create
     @campaign = current_user.campaigns.new(campaign_params)
     @campaign.save
-
     redirect_to dashboard_campaigns_path(), notice: "Your campaign has been created !"
   end
 
@@ -25,10 +24,8 @@ class Dashboard::CampaignsController < ApplicationController
   end
 
   def update
-
     @campaign.update(campaign_params)
-
-   redirect_to dashboard_campaign_path(), notice: "Your campaign has been updated !"
+    redirect_to dashboard_campaign_path(), notice: "Your campaign has been updated !"
   end
 
   private
@@ -38,7 +35,7 @@ class Dashboard::CampaignsController < ApplicationController
   end
 
   def campaign_params
-     params.require(:campaign).permit(:title, :batch_size, :duration, :date_start, :date_end, :description, :spec, :price, :category, :gender, :photo)
+    params.require(:campaign).permit(:title, :batch_size, :duration, :date_start, :date_end, :description, :spec, :price, :category, :gender, :photo)
   end
 
   # def campaign_update_params

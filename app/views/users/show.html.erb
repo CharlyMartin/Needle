@@ -31,7 +31,7 @@
 
   <p>Current campaigns</p>
   <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-  <% @current_campaigns.each do |campaign| %>
+  <% @campaigns.active.each do |campaign| %>
     <div>
       <hr>
       <%= campaign.photo %>
