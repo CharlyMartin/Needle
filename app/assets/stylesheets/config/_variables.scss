@@ -2,7 +2,8 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500|Pacifico:400");
+@import url('https://fonts.googleapis.com/css?family=Marck+Script');
 $base-font: "Open Sans", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
 $logo-font: 'Pacifico', "Helvetica", "sans-serif";
@@ -16,6 +17,12 @@ $logo-font: 'Pacifico', "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// Personnal colors
+$light-green: #DCEEE9;
+$light-taupe: #E8E1DB;
+$light-cream: #F6EFE0;
+$light-blue: #D8E2EA;
 
 // Font-size and line-height
 $base-size: 16px;

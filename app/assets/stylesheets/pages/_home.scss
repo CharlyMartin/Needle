@@ -2,3 +2,79 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+.carousel {
+  height: 550px;
+  background-color: #F1F0F6;
+
+  .carousel-indicators {
+    top: 100px;
+    bottom: 0;
+
+    li {
+      margin: 0 5px;
+      border-color: #8E8C96;
+    }
+  }
+
+  .carousel-indicators .active {
+    background-color: #8E8C96;
+  }
+
+  .carousel-inner {
+    overflow: visible;
+
+    .item {
+      h2 {
+        text-transform: uppercase;
+        text-shadow: none;
+        font-size: 4.3rem;
+        font-family: $base-font;
+        font-weight: 100;
+        color: #8E8C96;
+      }
+
+      img {
+        //width: 100%;
+        //max-height: 550px;
+      }
+
+      .carousel-caption {
+        top: 115px;
+        bottom: 0;
+
+        img {
+          position: relative;
+          max-width: 100%;
+          max-height: 400px;
+          bottom: -45px;
+        }
+      }
+    }
+  }
+}
+
+.block-1 {
+  height: 420px;
+  background-color: $light-green;
+}
+
+.block-2 {
+  height: 210px;
+  background-color: white;
+}
+
+.block-3 {
+  height: 210px;
+  background-color: $light-taupe;
+}
+
+.block-4 {
+  height: 210px;
+  background-color: $light-blue;
+}
+
+.block-5 {
+  height: 210px;
+  background-color: $light-cream;
+}
