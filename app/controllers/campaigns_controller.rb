@@ -5,6 +5,9 @@ class CampaignsController < ApplicationController
     @campaigns = Campaign.all
   end
   def show
+    @campaign = Campaign.find(params[:id])
+    @order = Order.new
+
   end
 
   def update

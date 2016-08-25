@@ -38,7 +38,7 @@ class Dashboard::CampaignsController < ApplicationController
   end
 
   def campaign_params
-     params.require(:campaign).permit(:title, :batch_size, :date_start, :date_end, :description, :spec, :price, :category, :gender, :photo)
+     params.require(:campaign).permit(:title, :batch_size, :duration, :date_start, :date_end, :description, :spec, :price, :category, :gender, :photo)
   end
 
   # def campaign_update_params

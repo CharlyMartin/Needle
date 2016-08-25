@@ -3,8 +3,8 @@ class CreateCampaigns < ActiveRecord::Migration[5.0]
     create_table :campaigns do |t|
       t.string :title
       t.integer :batch_size
-      t.datetime :date_start
-      t.datetime :date_end
+      t.datetime :date_start, :null => true
+      t.datetime :date_end, :null => true
       t.text :description
       t.text :spec
       t.integer :price
