@@ -140,6 +140,9 @@
     z-index: 1;
     text-align: center;
   }
+  p {
+    margin: 13px 0 11px;
+  }
 }
 
 .block-4 {
@@ -158,6 +161,9 @@
     color: #514751;
     z-index: 1;
     text-align: center;
+  }
+  p {
+    margin: 13px 0 11px;
   }
 }
 
@@ -178,8 +184,12 @@
     color: #514751;
     z-index: 1;
   }
+
 }
 
 
+i:hover {
+  color: white;
+}
 
 
