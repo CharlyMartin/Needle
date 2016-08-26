@@ -1,49 +1,66 @@
-<div class="container">
-  <div class="header-wrapper">
-    <div class="main-text">
-      <%= @user.first_name + " " + @user.last_name %>
-    </div>
+<div class="profile-background", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.8) 60%), url('https://static.pexels.com/photos/92961/pexels-photo-92961.jpeg'); ">
 
-    <div>
+  <div class="profile-picture">
     <% if current_user.facebook_picture_url %>
-      <%= image_tag current_user.facebook_picture_url, class: "profile-picture" %>
+    <%= image_tag current_user.facebook_picture_url  %>
     <% else %>
       <% if @user.photo %>
-         <%= cl_image_tag @user.photo.path, class: "profile-picture", transformation: [ width: 300, height: 300 ] %>
+        <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
       <% else %>
-        <%= image_tag('avatar.png', class: "profile-picture") %>
+        <%= image_tag('avatar.png') %>
       <% end %>
     <% end %>
   </div>
 
+  <div class="profile-text">
+    <div class="profile-name">
+      <%= @user.first_name + " " + @user.last_name.upcase %>
+    </div>
+    <div class="profile-description">
+      <%= @user.description %>
+    </div>
   </div>
+</div>
 
-  <div>
-    <p>FOLLOW ME</p>
-  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-  <div>
-    <p>Social links</p>
-  </div>
+<div class="text">
+  <div class="container">
+    <div>
+      <p>DESCRIPTION</p>
+      <%= link_to "edit", edit_user_registration_path(@user) %>
+      <%= @user.description %>
+    </div>
+    <hr>
+    <p>Current campaigns</p>
+      <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
+      <% @campaigns.active.each do |campaign| %>
+        <div>
+          <hr>
+          <%= campaign.photo %>
+          <%= campaign.title %> /
+          <%= campaign.batch_size %> /
+          <%= campaign.date_end %> /
+          <%= campaign.price %> €
+        </div>
+      <% end %>
+    <hr>
 
-  <div>
-    <p>DESCRIPTION</p>
-    <%= link_to "edit", edit_user_registration_path(@user) %>
-    <%= @user.description %>
-  </div>
-
-  <p>Current campaigns</p>
-    <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-    <% @campaigns.active.each do |campaign| %>
-      <div>
-        <hr>
-        <%= cl_image_tag(campaign.photo.path, {size: "150x150"}) %>
-        <%= campaign.title %> /
-        <%= campaign.batch_size %> /
-        <%= campaign.date_end %> /
-        <%= campaign.price %> €
-      </div>
-    <% end %>
 
   <p>My orders</p>
   <!-- past campaigns à refaire -->
@@ -56,6 +73,12 @@
       <%= campaign.batch_size %> /
       <%= campaign.date_end %> /
       <%= campaign.price %> €
+    <hr>
+      <div>
+      <p>FOLLOW ME</p>
     </div>
-  <% end %>
+      <div>
+      <p>Social links</p>
+    </div>
+  </div>
 </div>

@@ -18,6 +18,9 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
+
+      <%= link_to "Discover", campaigns_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
@@ -61,6 +64,8 @@
       </div>
 
     <% else %>
+
+      <%= link_to "Discover", campaigns_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
