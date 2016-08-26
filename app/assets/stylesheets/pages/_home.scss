@@ -19,6 +19,7 @@
 
   .carousel-indicators .active {
     background-color: #8E8C96;
+
   }
 
   .carousel-inner {
@@ -48,6 +49,7 @@
           max-width: 100%;
           max-height: 400px;
           bottom: -45px;
+
         }
       }
     }
@@ -62,15 +64,18 @@
   // background-color: $light-green;
   background-image: url('home/dress.jpg');
 
-
 }
 
 .block-2 {
   display: flex;
-  justify-content: center;
+
   height: 210px;
   background-image: url('home/designer.jpg');
   background-size: cover;
+    .btn-primary {
+      right: 5%;
+    }
+
 
 }
 
@@ -79,6 +84,10 @@
   justify-content: center;
   height: 210px;
   background-color: $light-taupe;
+  img {
+          max-width: 100%;
+    }
+
 }
 
 .block-4 {
@@ -97,15 +106,24 @@
   background-color: $light-cream;
 }
 
-.home-btn {
+.btn-primary {
   background-color: transparent;
-  border-color: #8E8C96;
+  border-color: #bdbcc4;
   border-radius: 50px;
-  color: #8E8C96;
+  color: #bdbcc4;
   position: absolute;
   top: 75%;
+  border-width: 2px;
 
 
 }
+
+.btn-primary:hover {
+      background-color: transparent;
+      border-color: white;
+    }
+
+
+
 
 
