@@ -79,6 +79,12 @@
   justify-content: center;
   height: 210px;
   background-color: $light-taupe;
+    img {
+
+          max-width: 100%;
+
+    }
+
 }
 
 .block-4 {
@@ -97,15 +103,24 @@
   background-color: $light-cream;
 }
 
-.home-btn {
+.btn-primary {
   background-color: transparent;
-  border-color: #8E8C96;
+  border-color: #bdbcc4;
   border-radius: 50px;
-  color: #8E8C96;
+  color: #bdbcc4;
   position: absolute;
   top: 75%;
+  border-width: 2px;
 
 
 }
+
+.btn-primary:hover {
+      background-color: transparent;
+      border-color: white;
+    }
+
+
+
 
 
