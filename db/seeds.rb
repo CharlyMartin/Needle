@@ -13,7 +13,8 @@ Ysl = User.new(
   date_of_birth: "1936-08-01",
   gender: "male",
   email: "ysl@needle.com",
-  password: "jesuisyves"
+  password: "jesuisyves",
+  photo_url: "http://www.fondation-pb-ysl.net/medias/images/ysl_c_maurice_hogenboom_1964.jpg"
 )
 puts "new designer"
 
@@ -27,7 +28,8 @@ Felix = User.new(
   date_of_birth: "1994-12-17",
   gender: "male",
   email: "fbungener@needle.com",
-  password: "jesuisfelix"
+  password: "jesuisfelix",
+  photo_url: "https://pbs.twimg.com/profile_images/451235383221948416/-wxM5g9r.jpeg"
 )
 puts "new designer"
 
