@@ -17,8 +17,6 @@
 
 </div>
 
-
-
 <div>
   <p>FOLLOW ME</p>
 </div>
@@ -34,19 +32,17 @@
 </div>
 
 <p>Current campaigns</p>
-<%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-<% @current_campaigns.each do |campaign| %>
-  <div>
-    <hr>
-    <%= campaign.photo %>
-    <%= campaign.title %> /
-    <%= campaign.batch_size %> /
-    <%= campaign.date_end %> /
-    <%= campaign.price %> €
-  </div>
-<% end %>
-
-<hr>
+  <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
+  <% @campaigns.active.each do |campaign| %>
+    <div>
+      <hr>
+      <%= campaign.photo %>
+      <%= campaign.title %> /
+      <%= campaign.batch_size %> /
+      <%= campaign.date_end %> /
+      <%= campaign.price %> €
+    </div>
+  <% end %>
 
 <p>Past campaigns</p>
 <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
