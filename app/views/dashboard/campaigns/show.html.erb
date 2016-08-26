@@ -4,7 +4,7 @@
   <% if @campaign.active? %>
     <p> <strong> From : </strong> <%= @campaign.date_start %></p>
     <p> <strong> To :  </strong> <%= @campaign.date_end %></p>
-    <p> <strong> Duration :  </strong> <%= @campaign.duration %></p>
+    <p> <strong> Duration :  </strong> <%= @campaign.duration %> days</p>
   <% else %>
     <p> <strong> Duration :  </strong> <%= @campaign.duration %></p>
   <% end %>
