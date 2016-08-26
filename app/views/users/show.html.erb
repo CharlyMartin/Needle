@@ -1,39 +1,53 @@
-<div class="header-wrapper">
-  <div class="main-text">
-    <%= @user.first_name + " " + @user.last_name %>
+<div class="container">
+  <div class="header-wrapper">
+    <div class="main-text">
+      <%= @user.first_name + " " + @user.last_name %>
+    </div>
+
+    <div>
+    <% if current_user.facebook_picture_url %>
+      <%= image_tag current_user.facebook_picture_url, class: "profile-picture" %>
+    <% else %>
+      <% if @user.photo %>
+         <%= cl_image_tag @user.photo.path, class: "profile-picture", transformation: [ width: 300, height: 300 ] %>
+      <% else %>
+        <%= image_tag('avatar.png', class: "profile-picture") %>
+      <% end %>
+    <% end %>
+  </div>
+
   </div>
 
   <div>
-  <% if current_user.facebook_picture_url %>
-    <%= image_tag current_user.facebook_picture_url, class: "profile-picture" %>
-  <% else %>
-    <% if @user.photo %>
-       <%= cl_image_tag @user.photo.path, class: "profile-picture", transformation: [ width: 300, height: 300 ] %>
-    <% else %>
-      <%= image_tag('avatar.png', class: "profile-picture") %>
+    <p>FOLLOW ME</p>
+  </div>
+
+  <div>
+    <p>Social links</p>
+  </div>
+
+  <div>
+    <p>DESCRIPTION</p>
+    <%= link_to "edit", edit_user_registration_path(@user) %>
+    <%= @user.description %>
+  </div>
+
+  <p>Current campaigns</p>
+    <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
+    <% @campaigns.active.each do |campaign| %>
+      <div>
+        <hr>
+        <%= campaign.photo %>
+        <%= campaign.title %> /
+        <%= campaign.batch_size %> /
+        <%= campaign.date_end %> /
+        <%= campaign.price %> €
+      </div>
     <% end %>
-  <% end %>
-</div>
 
-</div>
-
-<div>
-  <p>FOLLOW ME</p>
-</div>
-
-<div>
-  <p>Social links</p>
-</div>
-
-<div>
-  <p>DESCRIPTION</p>
-  <%= link_to "edit", edit_user_registration_path(@user) %>
-  <%= @user.description %>
-</div>
-
-<p>Current campaigns</p>
+  <p>Past campaigns</p>
   <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-  <% @campaigns.active.each do |campaign| %>
+  <% @past_campaigns.each do |campaign| %>
     <div>
       <hr>
       <%= campaign.photo %>
@@ -43,17 +57,4 @@
       <%= campaign.price %> €
     </div>
   <% end %>
-
-<p>Past campaigns</p>
-<%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-<% @past_campaigns.each do |campaign| %>
-  <div>
-    <hr>
-    <%= campaign.photo %>
-    <%= campaign.title %> /
-    <%= campaign.batch_size %> /
-    <%= campaign.date_end %> /
-    <%= campaign.price %> €
-  </div>
-<% end %>
-
+</div>

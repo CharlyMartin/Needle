@@ -16,8 +16,11 @@ class Dashboard::CampaignsController < ApplicationController
 
   def create
     @campaign = current_user.campaigns.new(campaign_params)
-    @campaign.save
-    redirect_to dashboard_campaigns_path(), notice: "Your campaign has been created !"
+    if @campaign.save
+      redirect_to dashboard_campaigns_path(), notice: "Your campaign has been created !"
+    else
+      render :new
+    end
   end
 
   def edit
