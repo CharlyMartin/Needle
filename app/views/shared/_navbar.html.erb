@@ -35,8 +35,8 @@
           <% if current_user.facebook_picture_url %>
             <% avatar_url = current_user.facebook_picture_url %>
           <% else %>
-            <% if @user.photo %>
-               <% avatar_url = @user.photo.path%>
+            <% if current_user.photo %>
+               <% avatar_url = current_user.photo.path%>
             <% else %>
               <% avatar_url = image_tag('avatar.png') %>
             <% end %>
