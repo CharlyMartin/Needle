@@ -1,16 +1,17 @@
 /* Main class */
 .navbar-wagon {
-  position: absolute;
+
   z-index: 10;
   width: 100%;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: #45414e;
   transition: all 0.3s ease;
   display: flex;
-  height: 70px;
-  padding: 0px 30px;
+  height: 120px;
+  padding: 0px 10px;
   align-items: center;
   justify-content: space-between;
+
 }
 
 /* Optional class to fix the navbar on top */
@@ -26,7 +27,9 @@
 .navbar-brand {
   font-family: pacifico;
   font-size: 30px;
-  color: $brand-color;
+  color: #bbbbbf;
+
+
 }
 
 /* Navbar right section (with form, links, button) */
