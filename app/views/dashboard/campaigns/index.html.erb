@@ -22,7 +22,7 @@
 
       <!-- status_public correspond à l'etat de la campagne, qu'on affiche sur sa show, par rapport à sa durée [on-going, failed, succeeded (soit quand ca arrive au max de batch, soit que y'a plus de 75% de batch quand le temps est écoulé.)]-->
 
-      <% if campaign.accepted? %>
+      <% if campaign.accepted? && campaign.status_public == nil %>
         <%= link_to "launch", campaign_path(campaign), method: :patch %>
       <% end %>
 

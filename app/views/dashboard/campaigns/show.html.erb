@@ -25,7 +25,7 @@
   <% else %>
   <% end %>
 
-  <% if @campaign.accepted? %>
+  <% if  @campaign.accepted? && @campaign.status_public == nil %>
     <%= link_to "launch", campaign_path(@campaign), method: :patch %>
   <% end %>
 
