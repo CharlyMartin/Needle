@@ -6,15 +6,16 @@
       <% if campaign.photo? %>
         <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
       <% end %>
+      <p> <strong> Duration :  </strong> <%= campaign.duration %></p>
       <p> <strong> Batch size : </strong> <%= campaign.batch_size %></p>
+      <% if campaign.status_public != nil %>
       <p> <strong> From : </strong> <%= campaign.date_start %></p>
       <p> <strong> To :  </strong> <%= campaign.date_end %></p>
-      <br>
-      <p> <strong> Description : </strong> <%= campaign.description %></p>
-      <p> <strong> Specs : </strong> <%= campaign.spec %></p>
+      <% end %>
       <p> <strong> Price : </strong> <%= campaign.price %> $ </p>
       <p> <strong> Category : </strong> <%= campaign.category %></p>
       <p> <strong> For : </strong> <%= campaign.gender %></p>
+      <p> <strong> Status : </strong> <%= campaign.status_private %></p>
 
       <!-- status_private correspond a l'etat du traitement de la demande de publication de la campagne -> [pending(default), accepted, declined] -->
 
