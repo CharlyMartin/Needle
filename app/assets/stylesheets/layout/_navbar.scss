@@ -1,16 +1,17 @@
 /* Main class */
 .navbar-wagon {
-  position: absolute;
+
   z-index: 10;
   width: 100%;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: #45414e;
   transition: all 0.3s ease;
   display: flex;
-  height: 70px;
-  padding: 0px 30px;
+  height: 120px;
+  padding: 0px 10px;
   align-items: center;
   justify-content: space-between;
+
 }
 
 /* Optional class to fix the navbar on top */
@@ -26,7 +27,9 @@
 .navbar-brand {
   font-family: pacifico;
   font-size: 30px;
-  color: $brand-color;
+  color: #bbbbbf;
+
+
 }
 
 /* Navbar right section (with form, links, button) */
@@ -45,11 +48,11 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
+  color: #bbbbbf;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: $brand-color;
+  color: #949496;
   text-decoration: none;
 }
 
@@ -57,22 +60,22 @@
 .navbar-wagon-button {
   margin-left: 10px;
   padding: 0 20px;
-  border-radius: 10em;
+  border-radius: 8px;
   line-height: 40px;
   background-color: white;
-  color: $brand-color;
+  color: #bbbbbf;
   font-size: 14px;
-  border: 2px solid $brand-color;
+  border: 2px solid #bbbbbf;
 }
 .navbar-wagon-button:hover {
-  color: white;
-  background: $brand-color;
-  border-color: $brand-color;
+  color: #949496;
+  background: white;
+  border-color: #949496;
 }
 
 /* Navbar search form */
 .navbar-wagon-search {
-  flex: 0 1 300px;
+  flex: 0 1 400px;
   display: flex;
   justify-content: flex-end;
   padding: 0 10px;
@@ -113,7 +116,7 @@
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: #999999 !important;
+  color: #bbbbbf !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
