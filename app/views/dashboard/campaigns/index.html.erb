@@ -5,9 +5,7 @@
       <% if campaign.photo? %>
         <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
       <% end %>
-      <p> <strong> Duration :  </strong> <%= campaign.duration %></p>
-      <p> <%= campaign.user.first_name %></p>
-      <p> <%= campaign.user.last_name %></p>
+      <p> <strong> Duration :  </strong> <%= campaign.duration %> days</p>
       <p> <strong> Batch size : </strong> <%= campaign.batch_size %></p>
       <% if campaign.status_public != nil %>
       <p> <strong> From : </strong> <%= campaign.date_start %></p>
