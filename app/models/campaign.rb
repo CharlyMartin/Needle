@@ -18,7 +18,8 @@ class Campaign < ApplicationRecord
 
 
   def close!
-    success? ? successful! : failed!
+    self.success? ? self.successful! : self.failed!
+
   end
 
   def finished?
@@ -38,13 +39,7 @@ class Campaign < ApplicationRecord
       false
     end
   end
-  # def items_sold
-  #   items_sold = 0
-  #   self.orders.each do |order|
-  #     items_sold += order.number_of_items
-  #   end
-  #   items_sold
-  # end
+
 
   # def items_left
   #   items_left = self.batch_size - items_sold
@@ -56,7 +51,12 @@ class Campaign < ApplicationRecord
   # end
 
   def success?
-    items_sold == self.batch_size  #-> closed
+    items_sold = 0
+    self.orders.each do |order|
+      items_sold += order.number_of_items
+    end
+    items_sold == self.batch_size
+
   end
 
   def funded?
