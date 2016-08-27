@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <% @campaigns.each do |campaign| %>
-    <% if campaign.status_public %>
+    <% if campaign.active? || campaign.in_production? %>
       <h2><%= campaign.title.upcase %></h2>
       <% if campaign.photo? %>
         <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>

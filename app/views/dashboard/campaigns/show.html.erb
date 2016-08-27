@@ -20,7 +20,8 @@
   <p> <strong> Status : </strong> <%= @campaign.status_private %></p>
 
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
-  <% unless @campaign.successful? || @campaign.failed? %>
+
+  <% if @campaign.active? || @campaign.in_production? %>
     <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
   <% else %>
   <% end %>

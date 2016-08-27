@@ -45,3 +45,5 @@ class Dashboard::CampaignsController < ApplicationController
   #   params.require(:campaign).permit(:title, :description, :spec, :category, :gender, :photo)
   # end
 end
+
+
