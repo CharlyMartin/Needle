@@ -1,6 +1,10 @@
  <div class="container">
    <% if @campaign.active? || @campaign.in_production? %>
     <h2><%= @campaign.title.upcase %></h2>
+    <% @campaign.photos.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+    <% end %>
+
     <p> <strong> Batch size : </strong> <%= @campaign.batch_size %></p>
       <p> <strong> From : </strong> <%= @campaign.date_start %></p>
       <p> <strong> To :  </strong> <%= @campaign.date_end %></p>
@@ -11,9 +15,7 @@
     <p> <strong> Price : </strong> <%= @campaign.price %> $ </p>
     <p> <strong> Category : </strong> <%= @campaign.category %></p>
     <p> <strong> For : </strong> <%= @campaign.gender %></p>
-    <% if @campaign.photo? %>
-      <%= cl_image_tag @campaign.photo.path, width: 200, height: 300, crop: :fill %>
-    <% end %>
+
     <p> <strong> Status : </strong> <%= @campaign.status_public %></p>
 
     <% if @campaign.user == current_user %>
