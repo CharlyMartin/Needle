@@ -55,7 +55,7 @@ class Campaign < ApplicationRecord
     self.orders.each do |order|
       items_sold += order.number_of_items
     end
-    items_sold == self.batch_size
+    items_sold >= self.batch_size
 
   end
 
