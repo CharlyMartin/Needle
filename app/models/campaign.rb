@@ -38,13 +38,24 @@ class Campaign < ApplicationRecord
       false
     end
   end
+  # def items_sold
+  #   items_sold = 0
+  #   self.orders.each do |order|
+  #     items_sold += order.number_of_items
+  #   end
+  #   items_sold
+  # end
+
+  # def items_left
+  #   items_left = self.batch_size - items_sold
+  #   if items_left > 0
+  #     items_left
+  #   elsif items_left == 0
+
+  #   end
+  # end
 
   def success?
-    items_sold = 0
-    self.orders.each do |order|
-      items_sold += order.number_of_items
-    end
-
     items_sold == self.batch_size  #-> closed
   end
 
