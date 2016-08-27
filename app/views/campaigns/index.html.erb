@@ -1,12 +1,10 @@
-
-
 <div class="container">
   <div class="row">
     <% @campaigns.each do |campaign| %>
     <% if campaign.active? || campaign.in_production? %>
       <h2><%= campaign.title.upcase %></h2>
-      <% if campaign.photo? %>
-        <%= cl_image_tag campaign.photo.path, width: 200, height: 300, crop: :fill %>
+      <% if campaign.photos? %>
+        <%= cl_image_tag campaign.photos.last.path, width: 400, height: 200, crop: :fill %>
       <% end %>
       <%= campaign.user.first_name %>
       <%= campaign.user.last_name %>

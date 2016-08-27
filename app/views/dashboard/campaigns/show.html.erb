@@ -1,5 +1,9 @@
 <div class="container">
   <h2><%= @campaign.title.upcase %></h2>
+  <% @campaign.photos.each do |photo| %>
+    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+  <% end %>
+
   <p> <strong> Batch size : </strong> <%= @campaign.batch_size %></p>
   <% if @campaign.active? %>
     <p> <strong> From : </strong> <%= @campaign.date_start %></p>
@@ -14,9 +18,7 @@
   <p> <strong> Price : </strong> <%= @campaign.price %> $ </p>
   <p> <strong> Category : </strong> <%= @campaign.category %></p>
   <p> <strong> For : </strong> <%= @campaign.gender %></p>
-  <% if @campaign.photo? %>
-    <%= cl_image_tag @campaign.photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
+
   <p> <strong> Status : </strong> <%= @campaign.status_private %></p>
 
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>

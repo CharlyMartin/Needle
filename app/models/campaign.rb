@@ -11,7 +11,7 @@ class Campaign < ApplicationRecord
   validates :price, presence: true
   validates :category, presence: true
   validates :gender, presence: true
-  has_attachment :photo
+  has_attachments :photos, maximum: 5
 
   enum status_private: [:pending, :accepted, :declined]
   enum status_public: [:active, :in_production, :successful, :failed]
