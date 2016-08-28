@@ -40,7 +40,6 @@ class Campaign < ApplicationRecord
     end
   end
 
-
   # def items_left
   #   items_left = self.batch_size - items_sold
   #   if items_left > 0
@@ -56,7 +55,6 @@ class Campaign < ApplicationRecord
       items_sold += order.number_of_items
     end
     items_sold >= self.batch_size
-
   end
 
   def funded?
@@ -75,10 +73,3 @@ class Campaign < ApplicationRecord
   end
 
 end
-
-
- # si status_private = accepted alors on affiche un bouton
- # "launch" qui, quand il est cliqué fait un date_start = Time.now
- # et un date_end = date_start + @campaign.duration et permet d'afficher
- #  la campagne dans celles en cours (index) et change son status_public pr
- #   qu'il passe à on-going
