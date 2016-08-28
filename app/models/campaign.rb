@@ -71,5 +71,8 @@ class Campaign < ApplicationRecord
     self.date_end = self.date_start + self.duration.days
     self.active!
   end
+  def days_left
+    ((self.date_end - Time.now) /60000).to_i
+  end
 
 end
