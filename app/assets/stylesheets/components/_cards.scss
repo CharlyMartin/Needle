@@ -1,0 +1,50 @@
+.progress {
+  margin: 0px 15px;
+}
+.cards-vertical {
+  background: white;
+  height: 445px;
+  box-shadow: 0px 1px 4px lightgrey;
+  margin-bottom: 25px;
+  .top {
+    height: 275px;
+    img {
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 100%;
+      min-height: 100%;
+      background-image: contain;
+    }
+  }
+  .bottom {
+    padding: 0px 15px 15px 15px;
+    margin-top: 5px;
+    .left {
+      text-align: end;
+    }
+    h3 {
+      font-size: 14px;
+      font-weight: bolder;
+      line-height: 1px;
+    }
+    p {
+      font-size: 13px;
+      margin: 5px 0 11px;
+    }
+    .button {
+      padding: 10px 20px;
+      border-radius: 4px;
+      line-height: 40px;
+      background-color: white;
+      color: #bbbbbf;
+      font-size: 14px;
+      border: 1px solid #bbbbbf;
+      &:hover {
+        text-decoration: none;
+        color: black;
+        background: white;
+        border-color: black;
+      }
+    }
+  }
+}

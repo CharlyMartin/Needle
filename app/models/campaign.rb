@@ -40,15 +40,6 @@ class Campaign < ApplicationRecord
     end
   end
 
-  # def items_left
-  #   items_left = self.batch_size - items_sold
-  #   if items_left > 0
-  #     items_left
-  #   elsif items_left == 0
-
-  #   end
-  # end
-
   def success?
     items_sold = 0
     self.orders.each do |order|
@@ -71,8 +62,17 @@ class Campaign < ApplicationRecord
     self.date_end = self.date_start + self.duration.days
     self.active!
   end
+
   def days_left
     ((self.date_end - Time.now) /60000).to_i
+  end
+
+  def items_sold
+  items_sold = 0
+  self.orders.each do |order|
+    items_sold += order.number_of_items
+  end
+  items_sold
   end
 
 end
