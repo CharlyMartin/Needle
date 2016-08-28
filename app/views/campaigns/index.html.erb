@@ -1,31 +1,32 @@
-<div class="container">
-  <div class="row">
-    <% @campaigns.each do |campaign| %>
-    <% if campaign.active? || campaign.in_production? %>
-      <h2><%= campaign.title.upcase %></h2>
-      <% if campaign.photos? %>
-        <%= cl_image_tag campaign.photos.last.path, width: 400, height: 200, crop: :fill %>
-      <% end %>
-      <%= campaign.user.first_name %>
-      <%= campaign.user.last_name %>
-      <p> <strong> Batch size : </strong> <%= campaign.batch_size %></p>
-      <p> <strong> From : </strong> <%= campaign.date_start %></p>
-      <p> <strong> To :  </strong> <%= campaign.date_end %></p>
-      <br>
-      <p> <strong> Description : </strong> <%= campaign.description %></p>
-      <p> <strong> Specs : </strong> <%= campaign.spec %></p>
-      <p> <strong> Price : </strong> <%= campaign.price %> $ </p>
-      <p> <strong> Category : </strong> <%= campaign.category %></p>
-      <p> <strong> For : </strong> <%= campaign.gender %></p>
+<% @campaigns.each do |campaign| %>
+  <% if campaign.active? || campaign.in_production? %>
 
+    <div class="fluif-container">
+      <div class="row">
 
-      <%= link_to "Details", campaign_path(campaign), {class: "btn btn-primary"} %>
-      <br>
-      <hr>
-      <% else %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+        <div class="col-md-4">
+          <div class="card-image">
+            <% if campaign.photos? %>
+              <%= cl_image_tag campaign.photos.last.path, width: 400, height: 200, crop: :fill %>
+            <% end %>
+          </div>
+        </div>
 
+        <div class="col-md-6">
+          <div class="card-text">
+            <h2><%= link_to campaign.title, campaign_path(campaign) %></h2>
+            <%= campaign.user.first_name + " " + campaign.user.last_name %>
+            <p> <strong> Description : </strong> <%= campaign.description %></p>
+            <p> <strong> To :  </strong> <%= campaign.date_end %></p>
+            <p> <strong> Price : </strong> <%= campaign.price %> $ </p>
+            <p> <strong> Category : </strong> <%= campaign.category %></p>
+            <p> <strong> For : </strong> <%= campaign.gender %></p>
+            <p> <strong> Batch size : </strong> <%= campaign.batch_size %></p>
+          </div>
+        </div>
 
+      </div>
+    </div>
+
+  <% end %>
+<% end %>
