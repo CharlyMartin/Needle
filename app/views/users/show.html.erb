@@ -49,7 +49,7 @@
     <hr>
     <p>Current campaigns</p>
       <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-      <% @campaigns.active.each do |campaign| %>
+      <% @campaigns.active.last(3).each do |campaign| %>
         <div>
           <hr>
           <%= campaign.photos %>
@@ -65,10 +65,10 @@
   <p>My orders</p>
   <!-- past campaigns à refaire -->
   <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-  <% @past_campaigns.each do |campaign| %>
+  <% @campaigns.successful.last(3).each do |campaign| %>
     <div>
       <hr>
-      <%= campaign.photo %>
+      <%= campaign.photos %>
       <%= campaign.title %> /
       <%= campaign.batch_size %> /
       <%= campaign.date_end %> /

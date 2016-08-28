@@ -7,6 +7,7 @@ class Dashboard::CampaignsController < ApplicationController
   end
 
   def show
+
     @order = Order.new
   end
 

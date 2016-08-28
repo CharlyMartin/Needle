@@ -1,7 +1,7 @@
 <%= simple_form_for [campaign, order], url: dashboard_campaign_orders_path(campaign), method: :post do |f| %>
   <%= f.error_notification %>
   <%= f.input :item_size, collection: ["XS", "S", "M", "L", "XL"] %>
-  <%= f.input :number_of_items, collection: (1..10).to_a %>
+  <%= f.input :number_of_items, collection: (1..((campaign.batch_size - @items_sold) > 10 ? campaign.batch_size - @items_sold : campaign.batch_size - @items_sold)).to_a %>
   <%= f.input :delivery_address %>
   <%= f.button :submit, class: "btn btn-primary", value: "Buy this product" %>
 <% end %>
