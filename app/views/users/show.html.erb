@@ -1,55 +1,44 @@
 <div class="profile-background", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.8) 60%), url('https://static.pexels.com/photos/92961/pexels-photo-92961.jpeg'); ">
-  <div class="card"></div>
-  <div class="profile-picture">
-    <% if current_user.facebook_picture_url %>
-    <%= image_tag current_user.facebook_picture_url  %>
-    <% else %>
-      <% if @user.photo %>
-        <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
+  <div class="profile-container">
+    <div class="profile-picture text-center">
+      <% if current_user.facebook_picture_url %>
+      <%= image_tag current_user.facebook_picture_url  %>
       <% else %>
-        <%= image_tag('avatar.png') %>
+        <% if @user.photo %>
+          <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
+        <% else %>
+          <%= image_tag('avatar.png') %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+    <div class="profile-name text-center">
+        <%= @user.first_name + " " + @user.last_name.upcase %>
+    </div>
+    <div class="profile-description text-center">
+      <p> " <%= @user.description %> " </p>
+        <%= link_to "edit", edit_user_registration_path(@user) %>
+    </div>
 
-  <div class="profile-text">
-    <div class="profile-name">
-      <%= @user.first_name + " " + @user.last_name.upcase %>
+    <div class="share-links">
+      <a href="#" class="share-link bg-facebook">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a href="#" class="share-link bg-twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="#" class="share-link bg-email">
+        <i class="fa fa-envelope-o"></i>
+      </a>
+      <a href="#" class="share-link bg-text">
+        <i class="fa fa-mobile"></i>
+      </a>
     </div>
-    <div class="profile-description">
-      <%= @user.description %>
-    </div>
+    <button type="button" class="btn btn-lg text-center btn-follow">Follow</button>
+    <div class="profile-text"> </div>
   </div>
 </div>
 
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div class="text">
-  <div class="container">
-    <div>
-      <p>DESCRIPTION</p>
-      <%= link_to "edit", edit_user_registration_path(@user) %>
-      <%= @user.description %>
-    </div>
-    <hr>
-    <p>Current campaigns</p>
+<p>Current campaigns</p>
       <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
       <% @campaigns.active.last(3).each do |campaign| %>
         <div>
@@ -82,6 +71,6 @@
       <div>
       <p>Social links</p>
     </div>
-  </div>
   <% end %>
-</div>
+
+
