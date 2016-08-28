@@ -1,41 +1,16 @@
-
-<% if @campaign.live? %>
 <div class="container">
   <div class="row">
-   <div class="col-md-6 col-md-offset-3">
-     <%= simple_form_for @campaign, url: dashboard_campaign_path, method: :patch do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :description, label: "Give the best description you can" %>
-      <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
-      <%= f.input :photo, label: "Provide your best shots", as: :attachinary %>
-       <div class="text-center">
-         <%= f.button :submit, class: "btn btn-primary" %>
-       </div>
-       <% end %>
-     </div>
+    <div class="col-md-6 col-md-offset-3">
+      <%= simple_form_for @campaign, url: dashboard_campaign_path, method: :patch do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :title, label: "Your campaign's title" %>
+      <%= f.input :description, label: "Give the best description you can" %>
+      <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
+      <%= f.input :photos, label: "Provide your best shots", as: :attachinary %>
+      <div class="text-center">
+        <%= f.button :submit, class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
-<% else %>
-<div class="container">
-  <div class="row">
-   <div class="col-md-6 col-md-offset-3">
-     <%= simple_form_for @campaign, url: dashboard_campaign_path, method: :patch do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :title, label: "Your campaign's title" %>
-      <%= f.input :batch_size, collection: [150, 250, 300] %>
-      <%= f.input :duration, label: 'Number of days', collection: [10, 20, 30] %>
-      <%= f.input :description, label: "Give the best description you can" %>
-      <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
-      <%= f.input :price %>
-      <%= f.input :category,  placeholder: 'ex: Shirts, Shoes, Dresses, ...' %>
-      <%= f.input :gender, label: "Who cares ?", collection: ["Men", "Women", "Both"] %>
-      <%= f.input :photo, label: "Provide your best shots", as: :attachinary %>
-       <div class="text-center">
-         <%= f.button :submit, class: "btn btn-primary" %>
-       </div>
-       <% end %>
-     </div>
-  </div>
-</div>
-<% end %>
-

@@ -52,7 +52,6 @@ Campaign.create(
   price: 90,
   category: "Bag",
   gender: "Both",
-  photo_url: "http://images.asos-media.com/inv/media/0/1/7/5/6275710/black/image1xxl.jpg",
   status_public: "active",
   user: Ysl
   )
@@ -73,7 +72,6 @@ Campaign.create(
   price: 45,
   category: "Shirt",
   gender: "Women",
-  photo_url: "http://images.asos-media.com/inv/media/7/9/7/1/6911797/ivory/image1xxl.jpg",
   status_public: "successful",
   user: Ysl
   )
@@ -89,7 +87,6 @@ Campaign.create(
   price: 60,
   category: "T-shirt",
   gender: "Men",
-  photo_url: "http://images.asos-media.com/inv/media/8/5/0/5/6465058/rustwhite/image1xxl.jpg",
   status_public: "failed",
   user: Ysl
   )
@@ -108,7 +105,6 @@ Campaign.create(
   price: 35,
   category: "Tie",
   gender: "Men",
-  photo_url: "http://images.asos-media.com/inv/media/8/8/7/7/6457788/navy/image1xxl.jpg",
   status_private: "accepted",
   user: Felix
   )
@@ -121,7 +117,6 @@ Campaign.create(
   price: 250,
   category: "Shoes",
   gender: "Men",
-  photo_url: "http://designerswap.ca/wp-content/uploads/2015/11/stitching.jpg",
   status_private: "pending",
   user: Felix
   )
