@@ -2,10 +2,17 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-
 .carousel {
   height: 600px;
   background-color: #F1F0F6;
+
+  img {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // min-width: 100%;
+    // height: 100%;
+  }
 
   .carousel-indicators {
     top: 20px;
@@ -13,12 +20,12 @@
 
     li {
       margin: 0 5px;
-      border-color: #8E8C96;
+      border-color: white;
     }
   }
 
   .carousel-indicators .active {
-    background-color: #8E8C96;
+    background-color: white;
 
   }
 
@@ -31,13 +38,14 @@
         text-shadow: none;
         font-size: 4.3rem;
         font-family: $base-font;
-        font-weight: 100;
-        color: #8E8C96;
+        font-weight: 600;
+        color: white;
+        text-shadow: 1px 1px 3px black;
       }
 
       img {
-        //width: 100%;
-        //max-height: 550px;
+        width: 1280px;
+        height: 600px;
       }
 
       .carousel-caption {
@@ -64,7 +72,9 @@
   padding: 30px 50px;
   height: 520px;
   background-image: image-url('home/dress.jpg');
-
+  &:hover {
+    opacity: 0.7;
+  }
   &:after {
     content: "";
     position: absolute;
@@ -97,7 +107,9 @@
   height: 260px;
   background-image: image-url('home/designer.jpg');
   background-size: cover;
-
+  &:hover {
+    opacity: 0.7;
+  }
   &:after {
     content: "";
     position: absolute;
@@ -128,9 +140,13 @@
   align-items: center;
   justify-content: center;
   height: 260px;
+  width: 307px;
   background-color: $light-taupe;
-
-
+  position: relative;
+  right: 2px;
+  &:hover {
+    opacity: 0.7;
+  }
   span {
     margin-bottom: 15px;
     font-weight: 200;
@@ -152,7 +168,9 @@
   align-items: center;
   justify-content: center;
   background-color: $light-blue;
-
+  &:hover {
+    opacity: 0.7;
+  }
 
   span {
     margin-bottom: 15px;
@@ -173,10 +191,13 @@
   display: flex;
   padding: 20px;
   height: 260px;
+  width: 640px;
   background-color: $light-cream;
   background-image: image-url('home/sketch.png');
   background-size: cover;
-
+  &:hover {
+    opacity: 0.7;
+  }
   span {
     margin-bottom: 15px;
     font-weight: 200;
@@ -193,5 +214,6 @@
 i:hover {
   color: #bbbbbf;
 }
+
 
 

@@ -6,20 +6,33 @@
       <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
+          <%= image_tag 'home/atelier.jpg', alt:'' %>
           <div class="carousel-caption">
-            <h2>Your designer career starts here</h2>
-            <%= image_tag 'home/fashion-1.png', alt:'' %>
+            <div>
+              <h2>Your designer career starts here</h2>
+            </div>
           </div>
         </div>
         <div class="item">
+          <%= image_tag 'home/fashionworkshop-home-slider.jpg', alt:'' %>
           <div class="carousel-caption">
-            <h2>Design your products, make people happy</h2>
-            <%= image_tag 'home/fashion-2.png', alt:'' %>
+            <div>
+              <h2>Discover young up-and-coming talents from all over the world</h2>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag 'home/hands-people-woman-working.jpg', alt:'' %>
+          <div class="carousel-caption">
+            <div>
+              <h2>Design your products, make people happy</h2>
+            </div>
           </div>
         </div>
       </div>
