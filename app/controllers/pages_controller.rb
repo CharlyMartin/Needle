@@ -11,6 +11,7 @@ class PagesController < ApplicationController
       "https://static.pexels.com/photos/5251/coffee-cup-mug-desk.jpg",
       "https://static.pexels.com/photos/6409/pencils-crayons-crayon-colored-pencils.jpg"
     ]
+    @campaigns = Campaign.all
   end
 
 end

@@ -140,10 +140,9 @@
   align-items: center;
   justify-content: center;
   height: 260px;
-  width: 307px;
+  //width: 307px;
   background-color: $light-taupe;
   position: relative;
-  right: 2px;
   &:hover {
     opacity: 0.7;
   }
@@ -191,7 +190,6 @@
   display: flex;
   padding: 20px;
   height: 260px;
-  width: 640px;
   background-color: $light-cream;
   background-image: image-url('home/sketch.png');
   background-size: cover;
@@ -215,5 +213,11 @@ i:hover {
   color: #bbbbbf;
 }
 
-
+.wrapper-grey {
+  background: #FAFAFA;
+  h1 {
+    font-family: 'Amatic SC', cursive;
+    margin-top: 10px;
+  }
+}
 

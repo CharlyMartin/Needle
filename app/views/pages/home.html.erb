@@ -1,63 +1,36 @@
 <div class="fluid-container">
-  <div class="row">
-    <div class="col-sm-12">
-     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= image_tag 'home/atelier.jpg', alt:'' %>
+        <div class="carousel-caption">
+          <div>
+            <h2>Your designer career starts here</h2>
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%= image_tag 'home/atelier.jpg', alt:'' %>
-          <div class="carousel-caption">
-            <div>
-              <h2>Your designer career starts here</h2>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag 'home/fashionworkshop-home-slider.jpg', alt:'' %>
-          <div class="carousel-caption">
-            <div>
-              <h2>Discover young up-and-coming talents from all over the world</h2>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag 'home/hands-people-woman-working.jpg', alt:'' %>
-          <div class="carousel-caption">
-            <div>
-              <h2>Design your products, make people happy</h2>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-3 block-1">
-      <span>Who wears<br>what</span>
-    </div>
-    <div class="col-lg-9">
-      <div class="row">
-        <div class="col-lg-8 block-2">
-          <span><br>designer of<br>the month</span>
-        </div>
-        <div class="col-lg-4 block-3">
-          <span><i class="fa fa-clock-o" aria-hidden="true"></i><br><p>Last<br>minute</p></span>
+      <div class="item">
+        <%= image_tag 'home/fashionworkshop-home-slider.jpg', alt:'' %>
+        <div class="carousel-caption">
+          <div>
+            <h2>Discover young up-and-coming talents from all over the world</h2>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-4 block-4">
-          <span><i class="fa fa-instagram" aria-hidden="true"></i><br><p>Instagram gallery</p></span>
-        </div>
-        <div class="col-lg-8 block-5">
-          <span>Our<br>selection</span>
+      <div class="item">
+        <%= image_tag 'home/hands-people-woman-working.jpg', alt:'' %>
+        <div class="carousel-caption">
+          <div>
+            <h2>Design your products, make people happy</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -65,3 +38,31 @@
 </div>
 
 
+<div class="fluid-container">
+  <div class="col-lg-3 block-1">
+    <span>Who wears<br>what</span>
+  </div>
+  <div class="col-lg-9">
+    <div class="row">
+      <div class="col-lg-8 block-2">
+        <span><br>designer of<br>the month</span>
+      </div>
+      <div class="col-lg-4 block-3">
+        <span><i class="fa fa-clock-o" aria-hidden="true"></i><br><p>Last<br>minute</p></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 block-4">
+        <span><i class="fa fa-instagram" aria-hidden="true"></i><br><p>Instagram gallery</p></span>
+      </div>
+      <div class="col-lg-8 block-5">
+        <span>Our<br>selection</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper-grey">
+  <div class="text-center"><h1>Latest</h1></div>
+  <%= render "dashboard/campaigns/cards",  campaigns: @campaigns %>
+</div>

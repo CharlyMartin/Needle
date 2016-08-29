@@ -16,6 +16,13 @@ class Campaign < ApplicationRecord
   enum status_private: [:pending, :accepted, :declined]
   enum status_public: [:active, :in_production, :successful, :failed]
 
+  scope :ending_in_days, -> (days) { active.select {|c| c.days_left <= days  } }
+  scope :items_ordered, -> (items) { active.select {|c| c.items_sold > items  } }
+
+
+  # def self.ending_in_days(days)
+  #   Campaign.active.select {|c| c.days_left <= days  }
+  # end
 
   def close!
     self.success? ? self.successful! : self.failed!
@@ -40,15 +47,6 @@ class Campaign < ApplicationRecord
     end
   end
 
-  # def items_left
-  #   items_left = self.batch_size - items_sold
-  #   if items_left > 0
-  #     items_left
-  #   elsif items_left == 0
-
-  #   end
-  # end
-
   def success?
     items_sold = 0
     self.orders.each do |order|
@@ -70,6 +68,18 @@ class Campaign < ApplicationRecord
     self.date_start = Time.now
     self.date_end = self.date_start + self.duration.days
     self.active!
+  end
+
+  def days_left
+    ((self.date_end - Time.now) /86400).to_i
+  end
+
+  def items_sold
+  items_sold = 0
+  self.orders.each do |order|
+    items_sold += order.number_of_items
+  end
+  items_sold
   end
 
 end
