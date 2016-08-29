@@ -251,6 +251,7 @@ DEPENDENCIES
   bootstrap-sass
   cloudinary (= 1.1.0)
   coffee-rails
+  coffee-script
   devise!
   faker
   figaro
