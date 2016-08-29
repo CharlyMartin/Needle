@@ -10,13 +10,17 @@
   display: flex;
 }
 
+.mid-screen {
+  width: 25%
+}
+
 .profile-picture img {
   width: 120px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: white 3px solid;
   position: relative;
-  bottom: -30px;
+  margin-top: -60px;
 }
 
 .profile-text {
@@ -24,54 +28,87 @@
   bottom: 12px;
 }
 
+.profile-card {
+  background-color: white;
+  position: relative;
+  max-width: 300px;
+  height: 420px;
+  padding: 20px;
+  margin-top: 65px;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
 .profile-name {
   color: black;
-  font-size: 40px;
   position: relative;
-  top: 50px;
+  margin: 20px 0 10px;
   font-family: Raleway;
   font-weight: 100;
+  font-size: 23px;
 }
 
 .profile-description {
   color: $gray-lighter;
-  font-size: 22px;
+  font-size: 16px;
   position: relative;
-  top: 90px;
   font-family: Raleway;
   font-weight: 300;
-  width: 420px;
-  left: 15px;
+
 }
 
 .profile-container {
-  width: 450px;
-  height: 100%;
-  margin-left: 200px;
-  background: white;
-  position: absolute;
+  //width: 450px;
+  //height: 100%;
+  //margin-left: 200px;
+  //background: white;
+  //position: absolute;
 }
 
 .share-links {
   display: flex;
   position: relative;
-  top: 130px;
+  //top: 130px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
+
+
+
 .share-link {
   flex: 0 0 24%;
   color: black;
-  font-size: 35px;
+  max-width: 42px;
+  height: 42px;
+  font-size: 16px;
   padding: 10px 0;
   text-align: center;
   border-radius: 2px;
   cursor: pointer;
+  background-color: #f4f4f4;
+  border-radius: 50%;
   }
+
   .btn-follow {
-  position: relative;
-  top: 140px;
-  left: 170px;
-  background-color: $gray-dark;
-  color: white;
+    position: relative;
+    background-color: $gray-dark;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    border-radius: 0 0 3px 3px;
+    outline: none;
+
+    &:hover {
+      color: white;
+      background-color: $gray-lighter;
+    }
   }
+  .edit-link {
+  position: absolute;
+  right: 20px;
+  color: $gray-lighter;
+  }
+
+

@@ -12,6 +12,7 @@ class Campaign < ApplicationRecord
   validates :category, presence: true
   validates :gender, presence: true
   has_attachments :photos, maximum: 5
+  monetize :price_cents
 
   enum status_private: [:pending, :accepted, :declined]
   enum status_public: [:active, :in_production, :successful, :failed]
