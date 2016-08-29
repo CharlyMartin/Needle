@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829060518) do
+ActiveRecord::Schema.define(version: 20160829062552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20160829060518) do
     t.datetime "date_end"
     t.text     "description"
     t.text     "spec"
-    t.integer  "price"
     t.string   "category"
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
@@ -47,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160829060518) do
     t.integer  "status_public"
     t.integer  "duration"
     t.string   "sku"
+    t.integer  "price_cents",    default: 0, null: false
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
   end
 

@@ -12,7 +12,7 @@
     <br>
     <p> <strong> Description : </strong> <%= @campaign.description %></p>
     <p> <strong> Specs : </strong> <%= @campaign.spec %></p>
-    <p> <strong> Price : </strong> <%= @campaign.price %> $ </p>
+    <p> <strong> Price : </strong> <%= humanized_money_with_symbol(@campaign.price) %></p>
     <p> <strong> Category : </strong> <%= @campaign.category %></p>
     <p> <strong> For : </strong> <%= @campaign.gender %></p>
 

@@ -10,7 +10,7 @@
       <p> <strong> From : </strong> <%= campaign.date_start %></p>
       <p> <strong> To :  </strong> <%= campaign.date_end %></p>
       <% end %>
-      <p> <strong> Price : </strong> <%= campaign.price %> $ </p>
+      <p> <strong> Price : </strong> <%= humanized_money_with_symbol(campaign.price) %></p>
       <p> <strong> Category : </strong> <%= campaign.category %></p>
       <p> <strong> For : </strong> <%= campaign.gender %></p>
       <p> <strong> Status : </strong> <%= campaign.status_private %></p>
