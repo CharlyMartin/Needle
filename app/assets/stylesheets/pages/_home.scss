@@ -190,7 +190,6 @@
   display: flex;
   padding: 20px;
   height: 260px;
-  //width: 640px;
   background-color: $light-cream;
   background-image: image-url('home/sketch.png');
   background-size: cover;
@@ -214,5 +213,10 @@ i:hover {
   color: #bbbbbf;
 }
 
-
+.wrapper-grey {
+  background: #FAFAFA;
+  h1 {
+    font-family: 'Amatic SC', cursive;
+  }
+}
 
