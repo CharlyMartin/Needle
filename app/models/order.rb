@@ -11,6 +11,8 @@ class Order < ApplicationRecord
 
   validate :user_cannot_order_from_own_campaign
 
+  monetize :amount_cents
+
   def user_cannot_order_from_own_campaign
     if self.campaign.user == self.user
       errors.add(:user, "can't order from own campaign")
