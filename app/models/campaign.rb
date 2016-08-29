@@ -16,6 +16,12 @@ class Campaign < ApplicationRecord
   enum status_private: [:pending, :accepted, :declined]
   enum status_public: [:active, :in_production, :successful, :failed]
 
+  # scope :ending_in_days, -> (days) { active.select {|c| c.days_left <= days  } }
+
+
+  def self.ending_in_days(days)
+    Campaign.active.select {|c| c.days_left <= days  }
+  end
 
   def close!
     self.success? ? self.successful! : self.failed!

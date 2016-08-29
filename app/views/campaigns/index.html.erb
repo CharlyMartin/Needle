@@ -1,53 +1,19 @@
+
 <div class="container">
+  <h2>last minute<h2>
+
     <% @campaigns.each do |campaign| %>
       <% if campaign.active? || campaign.in_production? %>
-          <div class="col-lg-4">
-            <div class="cards-vertical">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="top">
-                    <% if campaign.photos? %>
-                      <%= cl_image_tag campaign.photos.last.path, width: 200, height: 300, crop: :fill %>
-                    <% else %>
-                      <%= image_tag 'home/fashion-design-illustration-lady-in-black-dress.jpg', alt:'' %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="bottom">
-                    <h3><%= campaign.title %></h3>
-                    <div class="row">
-                      <div class="col-lg-3">
-                        <p> <%= campaign.price %> $ </p>
-                      </div>
-                      <div class="col-lg-offset-6 col-lg-3 left">
-                        <p> <%= campaign.items_sold %> / <%= campaign.batch_size %></p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="progress" style="height: 10px;">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: <%= campaign.items_sold * 100 / campaign.batch_size %>%">
-                        <span class="sr-only">40% Complete (success)</span>
-                        </div>
-                      </div>
-                     </div>
-                    <p> <strong> Days left : </strong> <%= campaign.days_left %></p>
-                    <%= link_to "Details", dashboard_campaign_path(campaign), {class: "button"} %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <%#= render "shared/card" %>
-          </div>
+        <% if campaign.days_left <= 9 %>
+        <%= render "dashboard/campaigns/cards", campaigns: @last_minute_campaigns %>
       <% end %>
     <% end %>
-  </div>
+  <% end %>
+  <hr>
+
 </div>
 
-
-<%= render "dashboard/campaigns/cards" %>
+<%= render "dashboard/campaigns/cards", campaigns: @campaigns %>
 
 
 

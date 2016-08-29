@@ -1,5 +1,5 @@
 <div class="container">
-    <% @campaigns.each do |campaign| %>
+    <% campaigns.each do |campaign| %>
       <% if campaign.active? || campaign.in_production? %>
           <div class="col-lg-4">
             <div class="cards-vertical">
