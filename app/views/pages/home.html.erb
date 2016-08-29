@@ -39,15 +39,18 @@
 
 
 <div class="fluid-container">
+  <%= link_to campaigns_path(:anchor => "trends" )do %>
   <div class="col-lg-3 block-1">
     <span>Who wears<br>what</span>
   </div>
+  <% end %>
   <div class="col-lg-9">
     <div class="row">
       <div class="col-lg-8 block-2">
         <span><br>designer of<br>the month</span>
       </div>
-      <%= link_to campaigns_path do %>
+      <%= link_to campaigns_path(:anchor => "last") do %>
+
       <div class="col-lg-4 block-3">
         <span><i class="fa fa-clock-o" aria-hidden="true"></i><br><p>Last<br>minute</p></span>
       </div>
