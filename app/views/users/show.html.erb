@@ -36,7 +36,9 @@
           <i class="fa fa-mobile"></i>
         </a>
       </div>
+      <%= link_to user_create_following_path(@user), method: :post do %>
       <button type="button" class="btn btn-lg text-center btn-follow">Follow</button>
+      <% end %>
       <div class="profile-text"> </div>
     </div>
   </div>
