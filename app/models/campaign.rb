@@ -64,7 +64,7 @@ class Campaign < ApplicationRecord
   end
 
   def days_left
-    ((self.date_end - Time.now) /60000).to_i
+    ((self.date_end - Time.now) /86400).to_i
   end
 
   def items_sold
