@@ -65,11 +65,11 @@ ActiveRecord::Schema.define(version: 20160829071920) do
     t.string   "delivery_address"
     t.integer  "user_id"
     t.integer  "campaign_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "state"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "state",            default: "pending"
     t.string   "campaign_sku"
-    t.integer  "amount_cents",     default: 0, null: false
+    t.integer  "amount_cents",     default: 0,         null: false
     t.json     "payment"
     t.index ["campaign_id"], name: "index_orders_on_campaign_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree

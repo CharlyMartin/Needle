@@ -6,8 +6,8 @@ class Dashboard::OrdersController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find(params[:campaign_id])
-    @order = Order.find(params[:id])
+    @campaign = Campaign.find(params[:id])
+    @order = Order.where(state: 'paid').find(params[:id])
   end
 
   def create
@@ -15,11 +15,10 @@ class Dashboard::OrdersController < ApplicationController
     @order = @campaign.orders.new(order_params)
     @order.user = current_user
     @order.save
-
-    redirect_to campaigns_path, notice: "Your order has been registered!"
     if @campaign.success?
       @campaign.close!
     end
+    redirect_to new_dashboard_order_payment_path(@order)
   end
 
   def destroy
