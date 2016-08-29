@@ -1,37 +1,35 @@
-<div class="row">
-  <div class="col-sm-12">
-   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div class="fluid-container">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
-
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
     <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%= image_tag 'home/atelier.jpg', alt:'' %>
-          <div class="carousel-caption">
-            <div>
-              <h2>Your designer career starts here</h2>
-            </div>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= image_tag 'home/atelier.jpg', alt:'' %>
+        <div class="carousel-caption">
+          <div>
+            <h2>Your designer career starts here</h2>
+
           </div>
         </div>
-        <div class="item">
-          <%= image_tag 'home/fashionworkshop-home-slider.jpg', alt:'' %>
-          <div class="carousel-caption">
-            <div>
-              <h2>Discover young up-and-coming talents from all over the world</h2>
-            </div>
+      </div>
+      <div class="item">
+        <%= image_tag 'home/fashionworkshop-home-slider.jpg', alt:'' %>
+        <div class="carousel-caption">
+          <div>
+            <h2>Discover young up-and-coming talents from all over the world</h2>
           </div>
         </div>
-        <div class="item">
-          <%= image_tag 'home/hands-people-woman-working.jpg', alt:'' %>
-          <div class="carousel-caption">
-            <div>
-              <h2>Design your products, make people happy</h2>
-            </div>
+      </div>
+      <div class="item">
+        <%= image_tag 'home/hands-people-woman-working.jpg', alt:'' %>
+        <div class="carousel-caption">
+          <div>
+            <h2>Design your products, make people happy</h2>
           </div>
         </div>
       </div>
@@ -39,7 +37,8 @@
   </div>
 </div>
 
-<div class="row">
+
+<div class="fluid-container">
   <div class="col-lg-3 block-1">
     <span>Who wears<br>what</span>
   </div>
@@ -51,6 +50,7 @@
       <div class="col-lg-4 block-3">
         <span><i class="fa fa-clock-o" aria-hidden="true"></i><br><p>Last<br>minute</p></span>
       </div>
+
     </div>
     <div class="row">
       <div class="col-lg-4 block-4">
@@ -60,59 +60,12 @@
         <span>Our<br>selection</span>
       </div>
     </div>
-  </div>
 </div>
 
 <div class="wrapper-grey">
   <br>
+  <br>
   <div class="text-center"><h1>Latest</h1></div>
   <br>
-  <div class="container">
-    <% @campaigns.each do |campaign| %>
-      <% if campaign.active? || campaign.in_production? %>
-          <div class="col-lg-4">
-            <div class="cards-vertical">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="top">
-                    <% if campaign.photos? %>
-                      <%= cl_image_tag campaign.photos.last.path, width: 200, height: 300, crop: :fill %>
-                    <% else %>
-                      <%= image_tag 'home/fashion-design-illustration-lady-in-black-dress.jpg', alt:'' %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="bottom">
-                    <h3><%= campaign.title %></h3>
-                    <div class="row">
-                      <div class="col-lg-3">
-                        <p> <%= humanized_money_with_symbol(campaign.price) %></p>
-                      </div>
-                      <div class="col-lg-offset-6 col-lg-3 left">
-                        <p> <%= campaign.items_sold %> / <%= campaign.batch_size %></p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="progress" style="height: 10px;">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: <%= campaign.items_sold * 100 / campaign.batch_size %>%">
-                        <span class="sr-only">40% Complete (success)</span>
-                        </div>
-                      </div>
-                     </div>
-                    <p> <strong> Days left : </strong> <%= campaign.days_left %></p>
-                    <%= link_to "Details", dashboard_campaign_path(campaign), {class: "button"} %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <%#= render "shared/card" %>
-          </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
 
-
+<%= render "dashboard/campaigns/cards",  campaigns: @campaigns %>

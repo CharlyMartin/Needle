@@ -3,6 +3,7 @@ class CampaignsController < ApplicationController
 
   def index
     @campaigns = Campaign.all
+    @last_minute_campaigns = Campaign.ending_in_days(9).last(3)
 
   end
 
