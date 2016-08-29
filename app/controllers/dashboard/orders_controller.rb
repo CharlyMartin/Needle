@@ -14,11 +14,16 @@ class Dashboard::OrdersController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @order = @campaign.orders.new(order_params)
     @order.user = current_user
-    @order.save
-    if @campaign.success?
-      @campaign.close!
+
+    if @order.valid?
+      @order.save
+      if @campaign.success?
+        @campaign.close!
+      end
+      redirect_to new_dashboard_order_payment_path(@order)
+    else
+      render 'campaigns/show'
     end
-    redirect_to new_dashboard_order_payment_path(@order)
   end
 
   def destroy
