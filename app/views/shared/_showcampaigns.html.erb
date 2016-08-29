@@ -20,13 +20,17 @@
         <p> <strong> Price : </strong> <%= @campaign.price %> $ </p>
         <p> <strong> Category : </strong> <%= @campaign.category %></p>
         <p> <strong> For : </strong> <%= @campaign.gender %></p>
-        <p> <strong> Status : </strong> <%= @campaign.status_public %></p>
+        <p> <strong> Status : </strong> <%= @campaign.status_private %></p>
 
         <% if @campaign.user == current_user %>
-          <% if @campaign.active? || @campaign.in_production? %>
-            <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
+          <% if @campaign.pending? %>
+            <p>Campaign is still being reviewed!</p>
           <% else %>
-            <p>Campaign is over; can't modify</p>
+            <% if @campaign.active? || @campaign.in_production? %>
+              <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
+            <% else %>
+              <p>Campaign is over; can't modify</p>
+            <% end %>
           <% end %>
         <% else %>
           <% if @campaign.active? || @campaign.in_production? %>

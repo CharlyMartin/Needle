@@ -7,7 +7,6 @@ class Dashboard::CampaignsController < ApplicationController
   end
 
   def show
-
     @order = Order.new
   end
 
@@ -41,10 +40,6 @@ class Dashboard::CampaignsController < ApplicationController
   def campaign_params
     params.require(:campaign).permit(:title, :batch_size, :duration, :date_start, :date_end, :description, :spec, :price, :category, :gender, photos: [])
   end
-
-  # def campaign_update_params
-  #   params.require(:campaign).permit(:title, :description, :spec, :category, :gender, :photo)
-  # end
 end
 
 
