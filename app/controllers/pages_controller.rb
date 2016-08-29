@@ -12,6 +12,7 @@ class PagesController < ApplicationController
       "https://static.pexels.com/photos/6409/pencils-crayons-crayon-colored-pencils.jpg"
     ]
     @campaigns = Campaign.all
+    @latest_campaigns = Campaign.latest(3)
   end
 
 end
