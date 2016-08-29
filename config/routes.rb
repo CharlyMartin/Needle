@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     resources :campaigns, only: [:index, :show, :new, :create, :edit, :update] do
       resources :orders, only: [:create]
     end
-    resources :orders, only: [:index, :show, :destroy]
+
+    resources :orders, only: [:index, :show, :destroy] do
+      resources :payments, only: [:new, :create]
+    end
+
     resources :followings, only: [:create, :destroy]
   end
   mount Attachinary::Engine => "/attachinary"

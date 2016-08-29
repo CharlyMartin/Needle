@@ -42,7 +42,8 @@ puts "saving designer"
 # CREATING 1 ON-GOING CAMPAING FOR THE DESIGNER Ysl
 
 Campaign.create(
-  title: "Bag-Awesomeness",
+  title: "Bag Awesomeness",
+  sku: "bag-awesomeness",
   batch_size: 150,
   date_start: Date.today - 4,
   date_end: Date.today + 6,
@@ -97,7 +98,8 @@ Campaign.create(
 # CREATING 2 CAMPAING FOR Felix
 #
 Campaign.create(
-  title: "Be tie",
+  title: "Be Tie",
+  sku: "be-tie",
   batch_size: 300,
   duration: 20,
   description: "Office is your kingdom, style your business",
@@ -110,6 +112,7 @@ Campaign.create(
   )
 Campaign.create(
   title: "Night Grooving",
+  sku: "night-grooving",
   batch_size: 150,
   duration: 30,
   description: "Lets dance tonight with theses crazy shoes, built to resist to evry single step on the counter",
