@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :campaigns, only: [:index, :show, :new, :create, :edit, :update] do
       resources :orders, only: [:create]
     end
+
     resources :orders, only: [:index, :show, :create, :destroy] do
       resources :payments, only: [:new, :create]
     end
