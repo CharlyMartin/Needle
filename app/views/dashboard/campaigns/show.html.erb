@@ -1,12 +1,8 @@
 <%= render "shared/showcampaigns", campaigns: @campaigns %>
 
-
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
-
 
   <% if  @campaign.accepted? && @campaign.status_public == nil %>
     <%= link_to "launch", campaign_path(@campaign), method: :patch %>
   <% end %>
 
-
-</div>

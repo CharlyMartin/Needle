@@ -1,4 +1,9 @@
-<h1>Purchase of a campaign <%= @order.campaign_sku %></h1>
+<h1>Your purchase for <%= @order.campaign.title %></h1>
+<p>Size: <%= @order.item_size %></p>
+<p>Number of items: <%= @order.number_of_items %></p>
+<p>Delivery Address: <%= @order.delivery_address %></p>
+
+
 <%= form_tag dashboard_order_payments_path(@order) do %>
   <article>
     <label class="amount">
@@ -8,8 +13,9 @@
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Order"
-    data-description="Order <%= @order.campaign_sku %>"
+    data-email="<%= @user.email %>"
+    data-name="<%= @order.campaign.title %>"
+    data-description="Payment for <%= pluralize(@order.number_of_items, 'item') %> "
     data-amount="<%= @order.campaign.price_cents %>"
     data-currency="EUR">
   </script>

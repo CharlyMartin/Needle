@@ -3,6 +3,8 @@ class Dashboard::PaymentsController < ApplicationController
   before_action :set_order
 
   def new
+    # @campaign = Campaign.find(params[:id])
+    @user = current_user
   end
 
   def create
