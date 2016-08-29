@@ -12,6 +12,20 @@
 
 </div>
 
+<div class="container">
+  <h2>Trends<h2>
+
+    <% @campaigns.each do |campaign| %>
+      <% if campaign.active? || campaign.in_production? %>
+        <% if campaign.items_sold > 100 %>
+        <%= render "dashboard/campaigns/cards", campaigns: @campaigns_trends %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <hr>
+
+</div>
+
 <%= render "dashboard/campaigns/cards", campaigns: @campaigns %>
 
 
