@@ -1,29 +1,16 @@
-<div class="container">
+
+
+<div class="container" id="last">
+
   <h2>last minute<h2>
-
-    <% @campaigns.each do |campaign| %>
-      <% if campaign.active? || campaign.in_production? %>
-        <% if campaign.days_left <= 9 %>
-        <%= render "dashboard/campaigns/cards", campaigns: @last_minute_campaigns %>
-      <% end %>
-    <% end %>
-  <% end %>
+    <%= render "dashboard/campaigns/cards", campaigns: @last_minute_campaigns %>
   <hr>
-
 </div>
 
-<div class="container">
+<div class="container" id="trends">
   <h2>Trends<h2>
-
-    <% @campaigns.each do |campaign| %>
-      <% if campaign.active? || campaign.in_production? %>
-        <% if campaign.items_sold > 100 %>
-        <%= render "dashboard/campaigns/cards", campaigns: @campaigns_trends %>
-      <% end %>
-    <% end %>
-  <% end %>
+    <%= render "dashboard/campaigns/cards", campaigns: @campaigns_trends %>
   <hr>
-
 </div>
 
 <%= render "dashboard/campaigns/cards", campaigns: @campaigns %>
