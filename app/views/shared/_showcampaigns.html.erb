@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+    <% @campaign.photos.each do |photo| %>
+      <%= cl_image_tag photo.path, crop: :fill %>
+    <% end %>
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+        <h2><%= @campaign.title.upcase %></h2>
+      </div>
+      <div class="row">
+        <p> <strong> Batch size : </strong> <%= @campaign.batch_size %></p>
+        <p> <strong> From : </strong> <%= @campaign.date_start %></p>
+        <p> <strong> To :  </strong> <%= @campaign.date_end %></p>
+        <p> <strong> Duration :  </strong> <%= @campaign.duration %></p>
+        <br>
+        <p> <strong> Description : </strong> <%= @campaign.description %></p>
+        <p> <strong> Specs : </strong> <%= @campaign.spec %></p>
+        <p> <strong> Price : </strong> <%= @campaign.price %> $ </p>
+        <p> <strong> Category : </strong> <%= @campaign.category %></p>
+        <p> <strong> For : </strong> <%= @campaign.gender %></p>
+        <p> <strong> Status : </strong> <%= @campaign.status_public %></p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <% if @campaign.user == current_user %>
+    <% if @campaign.active? || @campaign.in_production? %>
+      <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
+    <% else %>
+      <p>Campaign is over; can't modify</p>
+    <% end %>
+  <% else %>
+    <% if @campaign.active? || @campaign.in_production? %>
+      <% if @order.id %>
+        <%= link_to "Cancel my order", dashboard_order_path(@order), method: :delete, "data-confirm" => "Are you sure" %>
+      <% else %>
+        <%= render "dashboard/orders/form", campaign: @campaign, order: @order %>
+      <% end %>
+    <% else %>
+      <h2>Campaign is over!</h2>
+    <% end %>
+  <% end %>
+</div>
+
+

@@ -1,3 +1,5 @@
+<%= render "shared/showcampaigns", campaigns: @campaigns %>
+
 <div class="container">
   <h2><%= @campaign.title.upcase %></h2>
   <% @campaign.photos.each do |photo| %>
