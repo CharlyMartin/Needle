@@ -21,29 +21,27 @@
         <p> <strong> Category : </strong> <%= @campaign.category %></p>
         <p> <strong> For : </strong> <%= @campaign.gender %></p>
         <p> <strong> Status : </strong> <%= @campaign.status_public %></p>
+
+        <% if @campaign.user == current_user %>
+          <% if @campaign.active? || @campaign.in_production? %>
+            <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
+          <% else %>
+            <p>Campaign is over; can't modify</p>
+          <% end %>
+        <% else %>
+          <% if @campaign.active? || @campaign.in_production? %>
+            <% if @order.id %>
+              <%= link_to "Cancel my order", dashboard_order_path(@order), method: :delete, "data-confirm" => "Are you sure" %>
+            <% else %>
+              <%= render "dashboard/orders/form", campaign: @campaign, order: @order %>
+            <% end %>
+          <% else %>
+            <h2>Campaign is over!</h2>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
-
-
-
-  <% if @campaign.user == current_user %>
-    <% if @campaign.active? || @campaign.in_production? %>
-      <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
-    <% else %>
-      <p>Campaign is over; can't modify</p>
-    <% end %>
-  <% else %>
-    <% if @campaign.active? || @campaign.in_production? %>
-      <% if @order.id %>
-        <%= link_to "Cancel my order", dashboard_order_path(@order), method: :delete, "data-confirm" => "Are you sure" %>
-      <% else %>
-        <%= render "dashboard/orders/form", campaign: @campaign, order: @order %>
-      <% end %>
-    <% else %>
-      <h2>Campaign is over!</h2>
-    <% end %>
-  <% end %>
 </div>
 
 

@@ -19,6 +19,7 @@ class Campaign < ApplicationRecord
 
   scope :ending_in_days, -> (days) { active.select {|c| c.days_left <= days  } }
   scope :items_ordered, -> (items) { active.select {|c| c.items_sold > items  } }
+  scope :latest, -> (number) { order('date_start DESC').limit(number) }
 
 
   # def self.ending_in_days(days)
@@ -76,11 +77,12 @@ class Campaign < ApplicationRecord
   end
 
   def items_sold
-  items = 0
-  self.orders.each do |order|
-    items += order.number_of_items
-  end
-  items
+    items = 0
+    self.orders.each do |order|
+      items += order.number_of_items
+    end
+    items
   end
 
 end
+

@@ -1,34 +1,8 @@
 <%= render "shared/showcampaigns", campaigns: @campaigns %>
 
-<div class="container">
-  <h2><%= @campaign.title.upcase %></h2>
-  <% @campaign.photos.each do |photo| %>
-    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
-
-  <p> <strong> Batch size : </strong> <%= @campaign.batch_size %></p>
-  <% if @campaign.active? %>
-    <p> <strong> From : </strong> <%= @campaign.date_start %></p>
-    <p> <strong> To :  </strong> <%= @campaign.date_end %></p>
-    <p> <strong> Duration :  </strong> <%= @campaign.duration %> days</p>
-  <% else %>
-    <p> <strong> Duration :  </strong> <%= @campaign.duration %></p>
-  <% end %>
-  <br>
-  <p> <strong> Description : </strong> <%= @campaign.description %></p>
-  <p> <strong> Specs : </strong> <%= @campaign.spec %></p>
-  <p> <strong> Price : </strong> <%= humanized_money_with_symbol(@campaign.price) %></p>
-  <p> <strong> Category : </strong> <%= @campaign.category %></p>
-  <p> <strong> For : </strong> <%= @campaign.gender %></p>
-
-  <p> <strong> Status : </strong> <%= @campaign.status_private %></p>
 
   <%= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-primary"} %>
 
-  <% if @campaign.active? || @campaign.in_production? %>
-    <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-primary"} %>
-  <% else %>
-  <% end %>
 
   <% if  @campaign.accepted? && @campaign.status_public == nil %>
     <%= link_to "launch", campaign_path(@campaign), method: :patch %>

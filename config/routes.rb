@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
 
   root to: 'pages#home'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    post '/followings', to: 'dashboard/followings#create', as: :create_following
+  end
 
   resources :campaigns, only: [:index, :show, :update]
 
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
       resources :payments, only: [:new, :create]
     end
 
-    resources :followings, only: [:create, :destroy]
+    resources :followings, only: [:destroy]
   end
   mount Attachinary::Engine => "/attachinary"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
