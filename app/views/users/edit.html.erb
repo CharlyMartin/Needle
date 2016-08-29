@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
-   <div class="col-md-6 col-md-offset-3">
-     <%= simple_form_for @user, url: dashboard_campaigns_path, method: :post do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :description %>
-      <%= f.input :batch_size, collection: [150, 250, 300] %>
-     <p>(number of days)<%= f.input :duration, collection: [10, 20, 30] %></p>
-      <%= f.input :description %>
+    <div class="col-md-6 col-md-offset-3">
+      <%= simple_form_for @user, url: dashboard_campaigns_path, method: :post do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :description %>
+        <%= f.input :batch_size, collection: [150, 250, 300] %>
+        <p>(number of days)<%= f.input :duration, collection: [10, 20, 30] %></p>
+        <%= f.input :description %>
 
-      <%= f.input :gender, collection: ["Men", "Women", "Unisex"] %>
-      <%= f.input :photo, as: :attachinary %>
-       <div class="text-center">
-         <%= f.button :submit, class: "btn btn-primary" %>
-       </div>
-       <% end %>
-     </div>
+        <%= f.input :gender, collection: ["Men", "Women", "Unisex"] %>
+        <%= f.input :photo, as: :attachinary %>
+        <div class="text-center">
+          <%= f.button :submit, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
