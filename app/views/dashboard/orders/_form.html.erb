@@ -2,6 +2,17 @@
   <%= f.error_notification %>
   <%= f.input :item_size, collection: ["XS", "S", "M", "L", "XL"] %>
   <%= f.input :number_of_items, collection: (1..((campaign.batch_size - campaign.items_sold) > 10 ? campaign.batch_size - campaign.items_sold : campaign.batch_size - campaign.items_sold)).to_a %>
-  <%= f.input :delivery_address %>
-  <%= f.button :submit, class: "btn btn-default", value: "Buy this product" %>
+  <!-- TO BE FIXED -->
+<hr>
+  <%= f.input :address %>
+  <%= f.input :further_details %>
+  <%= f.input :zip_code %>
+  <%= f.input :city %>
+  <%= f.input :country, priority: [ 'FR' ] %>
+
+  <%= f.button :submit, class: "btn btn-primary", value: "Buy this product" %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDqiOo3Z5kyrdKTEXBtqrXtsoUEHnXzSOo"></script>
 <% end %>
