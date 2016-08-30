@@ -37,7 +37,15 @@ Felix.save
 puts "saving designer"
 
 
+Coat = Category.new(
+  name: "Coat"
+)
+Coat.save
+Dress = Category.new(
+  name: "Dress"
+)
 
+Dress.save
 ###########################################################
 # CREATING 1 ON-GOING CAMPAING FOR THE DESIGNER Ysl
 
@@ -51,7 +59,7 @@ Campaign.create(
   description: "By far, one of the most interresting project I had to work on, lots of different materials and cuts. ",
   spec: "Fabric outer/Twin handles/Zip top closure/Interior slip pocket/Wipe with a damp cloth/100% Nylon/H: 39cm/15' W: 54cm/21' D: 22cm/9",
   price: 90,
-  category: "Bag",
+  category: Dress,
   gender: "Both",
   status_public: "active",
   user: Ysl
@@ -71,10 +79,11 @@ Campaign.create(
   description: "Classy Go To shirt thought for outdoor livin",
   spec: "Woven fabric/High ruffle neckline/Button placket/Floral print detail",
   price: 45,
-  category: "Shirt",
+  category: Dress,
   gender: "Women",
   status_public: "successful",
-  user: Ysl
+  user: Ysl,
+
   )
 
 Campaign.create(
@@ -86,10 +95,11 @@ Campaign.create(
   description: "Fabulous t-shirt with a trendy cut for every office day",
   spec: "Lightweight jersey/Oil wash/Crew neck/Dropped shoulders/100cotton",
   price: 60,
-  category: "T-shirt",
+  category: Coat,
   gender: "Men",
   status_public: "failed",
-  user: Ysl
+  user: Ysl,
+
   )
 
   puts "creating a campaign"
@@ -105,10 +115,11 @@ Campaign.create(
   description: "Office is your kingdom, style your business",
   spec: "Lightweight silky jersey/Dropped tie/100silk",
   price: 35,
-  category: "Tie",
+  category: Coat,
   gender: "Men",
   status_private: "accepted",
-  user: Felix
+  user: Felix,
+
   )
 Campaign.create(
   title: "Night Grooving",
@@ -118,15 +129,14 @@ Campaign.create(
   description: "Lets dance tonight with theses crazy shoes, built to resist to evry single step on the counter",
   spec: "Heavy leather with jersey/Handmade craft/Iron",
   price: 250,
-  category: "Shoes",
+  category: Coat,
   gender: "Men",
   status_private: "pending",
-  user: Felix
+  user: Felix,
+
   )
   puts "creating a campaign"
 
 #orders a faire et campagne a nous
-
-
 
 

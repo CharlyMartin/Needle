@@ -9,7 +9,9 @@
       <%= f.input :description, label: "Give the best description you can" %>
       <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
       <%= f.input :price %>
-      <%= f.input :category, placeholder: 'ex: Shirts, Shoes, Dresses, ...' %>
+      <%= f.simple_fields_for :cat do |c| %>
+        <%= c.input :cat, collection: @categories.pluck(:name) %>
+      <% end %>
       <%= f.input :gender, label: "Who cares ?", collection: ["Men", "Women", "Both"] %>
       <%= f.input :photos, as: :attachinary %>
        <div class="text-center">
