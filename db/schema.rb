@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830085935) do
+ActiveRecord::Schema.define(version: 20160830100100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20160830085935) do
     t.integer  "zip_code"
     t.string   "city"
     t.string   "country"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["campaign_id"], name: "index_orders_on_campaign_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end

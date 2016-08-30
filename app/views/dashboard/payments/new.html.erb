@@ -1,8 +1,7 @@
 <h1>Your purchase for <%= @order.campaign.title %></h1>
 <p>Size: <%= @order.item_size %></p>
 <p>Number of items: <%= @order.number_of_items %></p>
-<p>Delivery Address: <%= @order.delivery_address %></p>
-
+<p>Delivery Address: <%= @order.full_address %></p>
 
 <%= form_tag dashboard_order_payments_path(@order) do %>
   <article>
