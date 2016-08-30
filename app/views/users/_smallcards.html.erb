@@ -1,9 +1,8 @@
 <div class="col-md-4">
-  <% if campaign.user == current_user %>
-    <%= link_to dashboard_campaign_path(campaign) do %>
+
       <div class="cards-profile">
         <% if campaign.photos? %>
-          <div class="top" style="background-image: <%= cl_image_tag campaign.photos.last.path, width: 262.48, height: 140, crop: :fill %></div>
+          <div class="top" style="background-image: url(<%= cl_image_path campaign.photos.last.path, crop: :fill, height: 140, width: 263 %>)"></div>
         <% else %>
           <div class="top" style="background-image: url(<%= image_url('home/fashion-design-illustration-lady-in-black-dress.jpg') %>)"></div>
         <% end %>
@@ -14,24 +13,11 @@
           </div>
         </div>
         <p class="fixed-days"> Days left : <%= campaign.days_left %></p>
-      </div>
-    <% end %>
-  <% else %>
-     <%= link_to campaign_path(campaign) do %>
-      <div class="cards-profile">
-        <% if campaign.photos? %>
-          <div class="top" style="background-image: <%= cl_image_tag campaign.photos.last.path, width: 262.48, height: 140, crop: :fill %></div>
+        <% if campaign.user == current_user %>
+          <%= link_to dashboard_campaign_path(campaign) %>
         <% else %>
-          <div class="top" style="background-image: url(<%= image_url('home/fashion-design-illustration-lady-in-black-dress.jpg') %>)"></div>
+         <%= link_to campaign_path(campaign) %>
         <% end %>
-        <h3><%= campaign.title.upcase %></h3>
-        <div class="progress" style="height: 10px;">
-          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: <%= campaign.items_sold * 100 / campaign.batch_size %>%">
-            <span class="sr-only">40% Complete (success)</span>
-          </div>
-        </div>
-        <p class="fixed-days"> Days left : <%= campaign.days_left %></p>
       </div>
-    <% end %>
-  <% end %>
+
 </div>
