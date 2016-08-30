@@ -2,7 +2,8 @@
   <div class="profile-background", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.8) 60%), url('https://static.pexels.com/photos/92961/pexels-photo-92961.jpeg'); ">
 
   <div class="container">
-    <div class="card profile-card mid-screen">
+    <div class="col-lg-3">
+    <div class="card profile-card ">
       <div class="profile-picture text-center">
         <div class="edit-link"> <%= link_to "edit", edit_user_registration_path(@user) %></div>
         <% if current_user.facebook_picture_url %>
@@ -39,52 +40,50 @@
       <button type="button" class="btn btn-lg text-center btn-follow">Follow</button>
       <div class="profile-text"> </div>
     </div>
-  </div>
-  <div class="card current-card">
+    </div>
 
-
-  </div>
-</div>
-
-
-
-
-<p>Current campaigns</p>
+    <div class="col-lg-9">
+      <div class="row row-fix">
+        <p class="text-center">CURRENT CAMPAIGNS</p>
+      </div>
+      <div class="row">
+        <% @campaigns.each do |campaign| %>
+          <% if campaign.active? || campaign.in_production? %>
+            <% if campaign.user == current_user %>
+              <%= link_to dashboard_campaign_path(campaign) do %>
+                <div class="col-md-4">
+                  <div class="cards-vertical">
+                    <% if campaign.photos? %>
+                      <div class="top" style="background-image: image-url(<%= campaign.photos.last.path %>)"></div>
+                      <!-- <#= cl_image_tag campaign.photos.last.path %> -->
+                    <% else %>
+                      <div class="top" style="background-image: image-url('home/fashion-design-illustration-lady-in-black-dress.jpg')"></div>
+                    <% end %>
+                    <h3><%= campaign.title %></h3>
+                    <p> <%= campaign.price %> $ </p>
+                    <p> <%= campaign.items_sold %> / <%= campaign.batch_size %></p>
+                    <div class="progress" style="height: 10px;">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: <%= campaign.items_sold * 100 / campaign.batch_size %>%">
+                      <span class="sr-only">40% Complete (success)</span>
+                    </div>
+                  </div>
+                  <p class="fixed-days"> Days left : </strong> <%= campaign.days_left %></p>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to campaign_path(campaign) do %>
+                <!-- Truc à faire -->
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
       <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-      <% @campaigns.active.last(3).each do |campaign| %>
-        <div>
-          <hr>
-          <%= campaign.photos %>
-          <%= campaign.title %> /
-          <%= campaign.batch_size %> /
-          <%= campaign.date_end %> /
-          <%= campaign.price %> €
-        </div>
-      <% end %>
-    <hr>
-
-
-  <p>My orders</p>
-  <!-- past campaigns à refaire -->
-  <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-  <% @campaigns.successful.last(3).each do |campaign| %>
-    <div>
-      <hr>
-      <%= campaign.photos %>
-      <%= campaign.title %> /
-      <%= campaign.batch_size %> /
-      <%= campaign.date_end %> /
-      <%= campaign.price %> €
-      <hr>
-      <div>
-      <p>FOLLOW ME</p>
     </div>
-      <div>
-      <p>Social links</p>
-    </div>
-  <% end %>
+  </div>
 
   <%= @user.followers.count %>
   <%= @user.designers.count %>
-</div>
+
+
 
