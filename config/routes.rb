@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+
+  resources :categories, only: [:index, :show]
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: :registrations }
 
 
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :campaigns, only: [:index, :show, :new, :create, :edit, :update] do
-      resources :orders, only: [:create]
+      resources :orders, only: [:new, :create]
     end
 
     resources :orders, only: [:index, :show, :destroy] do

@@ -12,10 +12,14 @@ class Dashboard::CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    @categories = Category.all
   end
 
   def create
     @campaign = current_user.campaigns.new(campaign_params)
+    @categories = Category.all
+    category = Category.find_by_name(params[:campaign][:cat][:cat])
+    @campaign.category_id = category.id
     if @campaign.save
       redirect_to dashboard_campaigns_path(), notice: "Your campaign has been created !"
     else
@@ -38,7 +42,7 @@ class Dashboard::CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:title, :batch_size, :duration, :date_start, :date_end, :description, :spec, :price, :category, :gender, photos: [])
+    params.require(:campaign).permit(:title, :batch_size, :duration, :date_start, :date_end, :description, :spec, :price, :category, :gender, :cat, photos: [])
   end
 end
 

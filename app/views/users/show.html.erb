@@ -81,13 +81,14 @@
               <%= render partial: "smallcards", locals: {campaign: campaign} %>
             <% end %>
           <% end %>
+          <p>followers : <%= @user.followers.count %> </p>
+          <p>designers :<%= @user.designers.count %> </p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<p>followers : <%= @user.followers.count %> </p>
-<p>designers :<%= @user.designers.count %> </p>
+
 
 

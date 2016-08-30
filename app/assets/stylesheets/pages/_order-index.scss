@@ -1,0 +1,36 @@
+.order-title h2 {
+  font-family: 'Amatic SC', cursive;
+}
+
+.order-card {
+  background: white;
+  box-shadow: 1px 1px 3px $gray-lighter;
+  border-radius: 2px;
+  padding: 20px 25px 10px 25px;
+  margin: 5px 0px;
+
+  h1 {
+    font-size: 25px;
+    font-family: Raleway;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  p {
+    font-weight: lighter;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+}
+
+html, body {
+  height: 100%;
+}
