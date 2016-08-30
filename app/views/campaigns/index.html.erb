@@ -1,18 +1,17 @@
-
-
 <div class="container" id="last">
-
-  <h2>last minute<h2>
-    <%= render "dashboard/campaigns/cards", campaigns: @last_minute_campaigns %>
+  <h2 style="font-family: 'Amatic SC', cursive">Last Minute<h2>
+  <%= render "dashboard/campaigns/cards", campaigns: @last_minute_campaigns %>
   <hr>
 </div>
 
 <div class="container" id="trends">
-  <h2>Trends<h2>
-    <%= render "dashboard/campaigns/cards", campaigns: @campaigns_trends %>
+  <h2 style="font-family: 'Amatic SC', cursive">Trends<h2>
+  <%= render "dashboard/campaigns/cards", campaigns: @campaigns_trends %>
   <hr>
 </div>
 
-<%= render "dashboard/campaigns/cards", campaigns: @campaigns %>
-
-
+<div class="container">
+  <h2 style="font-family: 'Amatic SC', cursive">All<h2>
+  <%= render "dashboard/campaigns/cards", campaigns: @campaigns %>
+  <hr>
+</div>

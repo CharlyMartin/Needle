@@ -77,11 +77,11 @@ class Campaign < ApplicationRecord
   end
 
   def items_sold
-    items_sold = 0
+    items = 0
     self.orders.each do |order|
-      items_sold += order.number_of_items
+      items += order.number_of_items
     end
-    items_sold
+    items
   end
 
 end
