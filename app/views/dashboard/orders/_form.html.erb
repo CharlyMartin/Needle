@@ -8,7 +8,11 @@
   <%= f.input :further_details %>
   <%= f.input :zip_code %>
   <%= f.input :city %>
-  <%= f.input :country %>
+  <%= f.input :country, priority: [ 'FR' ] %>
 
   <%= f.button :submit, class: "btn btn-primary", value: "Buy this product" %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script src=""></script>
 <% end %>
