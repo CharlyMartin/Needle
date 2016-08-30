@@ -64,6 +64,8 @@
           <% @campaigns.last(3).each do |campaign| %>
             <%= render partial: "smallcards", locals: {campaign: campaign} %>
           <% end %>
+          <p>followers : <%= @user.followers.count %> </p>
+          <p>designers :<%= @user.designers.count %> </p>
         </div>
       </div>
     </div>
@@ -72,6 +74,5 @@
   </div>
 </div>
 
-<p>followers : <%= @user.followers.count %> </p>
-<p>designers :<%= @user.designers.count %> </p>
+
 
