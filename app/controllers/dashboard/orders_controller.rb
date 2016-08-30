@@ -36,7 +36,8 @@ class Dashboard::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit([:item_size, :number_of_items, :delivery_address, :user_id, :campaign_id])
+    params.require(:order).permit([:item_size, :number_of_items, :address,
+      :further_details, :zip_code, :city, :country, :user_id, :campaign_id])
   end
 
 end
