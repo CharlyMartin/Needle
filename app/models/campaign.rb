@@ -73,6 +73,7 @@ class Campaign < ApplicationRecord
   end
 
   def days_left
+    return "Not launched yet" unless self.live?
     ((self.date_end - Time.now) /86400).to_i
   end
 

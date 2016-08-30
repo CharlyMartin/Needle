@@ -32,7 +32,7 @@
   background-color: white;
   position: relative;
   max-width: 300px;
-  height: 420px;
+  height: 450px;
   padding: 20px;
   margin-top: 65px;
   border-radius: 3px;
@@ -71,6 +71,7 @@
   //top: 130px;
   align-items: center;
   justify-content: space-around;
+  padding-bottom: 20px;
 }
 
 
@@ -99,6 +100,7 @@
     left: 0;
     border-radius: 0 0 3px 3px;
     outline: none;
+    padding-top: 10px;
 
     &:hover {
       color: white;
@@ -110,5 +112,99 @@
   right: 20px;
   color: $gray-lighter;
   }
+
+    //current-cards
+
+.progress {
+  margin: 0px 15px;
+}
+.cards-vertical {
+  background-color: white;
+  height: 225px;
+  box-shadow: 0px 1px 4px lightgrey;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  object-fit: fill;
+
+  h3 {
+      font-size: 12px;
+      font-weight: bolder;
+      line-height: 1px;
+      padding-left: 5px;
+      padding-bottom: 10px;
+    }
+
+  .top {
+    height: 140px;
+    img {
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 100%;
+      min-height: 100%;
+      background-image: contain;
+      margin-top: 17px;
+      object-fit: contain;
+    }
+  }
+  .bottom {
+    padding: 0px 15px 15px 15px;
+    margin-top: 5px;
+    .left {
+      text-align: end;
+    }
+    h3 {
+      font-size: 8px;
+      font-weight: bolder;
+      line-height: 1px;
+    }
+    p {
+      font-size: 10px;
+      margin: 5px 0 11px;
+    }
+    .button {
+      padding: 10px 20px;
+      border-radius: 4px;
+      line-height: 40px;
+      background-color: white;
+      color: #bbbbbf;
+      font-size: 14px;
+      border: 1px solid #bbbbbf;
+      &:hover {
+        text-decoration: none;
+        color: black;
+        background: white;
+        border-color: black;
+      }
+    }
+  }
+}
+.row-current-fix {
+  padding-top: 65px;
+
+  p {
+    color: white;
+    font-family: Raleway;
+    font-weight: 100;
+    font-size: 20px;
+  }
+}
+
+.row-past-fix {
+  padding-top: 20px;
+
+  p {
+      color: white;
+      font-family: Raleway;
+      font-weight: 100;
+      font-size: 20px;
+    }
+  }
+
+.fixed-days {
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: 10px;
+}
+
 
 
