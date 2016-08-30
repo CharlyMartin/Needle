@@ -1,13 +1,18 @@
 class Dashboard::OrdersController < ApplicationController
 
   def index
-    @campaign = Campaign.find(params[:campaign_id])
-    @orders = Order.all
+    @orders = current_user.orders
   end
 
   def show
     @campaign = Campaign.find(params[:id])
     @order = Order.where(state: 'paid').find(params[:id])
+  end
+
+  def new
+     @campaign = Campaign.find(params[:campaign_id])
+     @order = Order.where(campaign: @campaign).find_by(user: current_user)
+     @order = Order.new if @order.nil?
   end
 
   def create
