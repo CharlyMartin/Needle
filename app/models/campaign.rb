@@ -1,6 +1,7 @@
 class Campaign < ApplicationRecord
   has_many :orders
   belongs_to :user
+  belongs_to :category
 
   validates :title, presence: true
   validates :batch_size, presence: true
@@ -20,6 +21,7 @@ class Campaign < ApplicationRecord
   scope :ending_in_days, -> (days) { active.select {|c| c.days_left <= days  } }
   scope :items_ordered, -> (items) { active.select {|c| c.items_sold > items  } }
   scope :latest, -> (number) { order('date_start DESC').limit(number) }
+
 
 
   # def self.ending_in_days(days)
