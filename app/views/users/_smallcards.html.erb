@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <div class="cards-vertical">
     <% if campaign.photos? %>
-      <div class="top" style="background-image: <%= cl_image_tag campaign.photos.last.path, width: 262.48, height: 140, crop: :fill %>"></div>
+      <div class="top" style="background-image: <%= cl_image_tag campaign.photos.last.path, width: 262.48, height: 140, crop: :fill %></div>
       <!-- <#= cl_image_tag campaign.photos.last.path %> -->
     <% else %>
       <div class="top" style="background-image: url(<%= image_url('home/fashion-design-illustration-lady-in-black-dress.jpg') %>)"></div>
