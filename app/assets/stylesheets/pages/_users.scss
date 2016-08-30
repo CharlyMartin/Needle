@@ -10,8 +10,11 @@
   display: flex;
 }
 
-.mid-screen {
+.quarter-screen {
   width: 25%
+}
+.threequarter-screen {
+  width: 75%
 }
 
 .profile-picture img {
@@ -54,15 +57,6 @@
   position: relative;
   font-family: Raleway;
   font-weight: 300;
-
-}
-
-.profile-container {
-  //width: 450px;
-  //height: 100%;
-  //margin-left: 200px;
-  //background: white;
-  //position: absolute;
 }
 
 .share-links {
@@ -73,8 +67,6 @@
   justify-content: space-around;
   padding-bottom: 20px;
 }
-
-
 
 .share-link {
   flex: 0 0 24%;
@@ -113,7 +105,7 @@
   color: $gray-lighter;
   }
 
-    //current-cards
+  //current-cards
 
 .progress {
   margin: 0px 15px;
@@ -153,7 +145,7 @@
       text-align: end;
     }
     h3 {
-      font-size: 8px;
+      font-size: 10px;
       font-weight: bolder;
       line-height: 1px;
     }
@@ -178,6 +170,7 @@
     }
   }
 }
+
 .row-current-fix {
   padding-top: 65px;
 
@@ -205,6 +198,5 @@
   padding-left: 5px;
   font-size: 10px;
 }
-
 
 
