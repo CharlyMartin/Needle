@@ -5,14 +5,14 @@
     <div class="row">
       <div class="col-md-3">
         <div class="card profile-card">
-          <div class="profile-picture text-center">
-            <% if @user = current_user %>
-            <div class="edit-link">
+          <div class="edit-link">
+              <% if @user == current_user %>
               <%= link_to edit_user_registration_path(@user) do %>
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <% end %>
               <% end %>
             </div>
-            <% end %>
+          <div class="profile-picture center-block">
             <% if current_user.facebook_picture_url %>
             <%= image_tag current_user.facebook_picture_url  %>
             <% else %>
@@ -50,17 +50,24 @@
           <% end %>
           <% end %>
           <div class="profile-text"> </div>
+          <% if @user == current_user %>
+            <div class="text-center">
+              <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="card current-card col-md-9">
         <div class="row row-current-fix">
           <div class="col-md-12">
-            <p>CURRENT CAMPAIGNS / <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %></p>
+            <p>CURRENT CAMPAIGNS</p>
           </div>
         </div>
         <div class="row">
           <% @campaigns.last(3).each do |campaign| %>
-            <%= render partial: "smallcards", locals: {campaign: campaign} %>
+            <% if campaign.active? || campaign.in_production? %>
+              <%= render partial: "smallcards", locals: {campaign: campaign} %>
+            <% end %>
           <% end %>
         </div>
         <div class="row row-past-fix">
@@ -70,7 +77,9 @@
         </div>
         <div class="row">
           <% @campaigns.last(3).each do |campaign| %>
-            <%= render partial: "smallcards", locals: {campaign: campaign} %>
+            <% if campaign.successful? || campaign.failed? %>
+              <%= render partial: "smallcards", locals: {campaign: campaign} %>
+            <% end %>
           <% end %>
         </div>
       </div>

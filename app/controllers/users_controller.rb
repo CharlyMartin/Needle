@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @campaigns = Campaign.all
+    @campaigns = @user.campaigns
   end
 
   def edit
