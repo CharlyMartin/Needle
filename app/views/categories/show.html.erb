@@ -1,0 +1,9 @@
+<h1>Categories#show</h1>
+<p>Find me in app/views/categories/show.html.erb</p>
+
+<% @campaigns.each do |campaign| %>
+
+ <%= render "dashboard/campaigns/cards", campaigns: @campaigns  %>
+<% end %>
+
+

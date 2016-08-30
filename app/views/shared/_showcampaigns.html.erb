@@ -64,7 +64,7 @@
                 <%= link_to "Cancel my order", dashboard_order_path(@order), class: "btn btn-default", method: :delete, "data-confirm" => "Are you sure?" %>
               </div>
             <% else %>
-              <%= render "dashboard/orders/form", campaign: @campaign, order: @order %>
+              <%= link_to 'Buy', new_dashboard_campaign_order_path(@campaign), class: "btn btn-default" %>
             <% end %>
           <% else %>
             <h2 class="text-center">Campaign is over!</h2>
