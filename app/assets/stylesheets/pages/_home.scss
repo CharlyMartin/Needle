@@ -2,6 +2,26 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+//
+.carousel-button {
+  padding: 10px 20px;
+  border-radius: 50px;
+  line-height: 40px;
+  background-color: transparent;
+  color: white;
+  font-weight: bolder;
+  font-size: 14px;
+  border: 1px solid white;
+}
+
+.carousel-button:hover {
+  color: black;
+  background: white;
+  border-color: black;
+}
+//
+
 .carousel {
   height: 600px;
   background-color: #F1F0F6;
