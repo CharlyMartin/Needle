@@ -2,91 +2,76 @@
   <div class="profile-background", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.8) 60%), url('https://static.pexels.com/photos/92961/pexels-photo-92961.jpeg'); ">
 
   <div class="container">
-    <div class="card profile-card mid-screen">
-      <div class="profile-picture text-center">
-        <div class="edit-link"> <%= link_to "edit", edit_user_registration_path(@user) %></div>
-        <% if current_user.facebook_picture_url %>
-        <%= image_tag current_user.facebook_picture_url  %>
-        <% else %>
-          <% if @user.photo %>
-            <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
-          <% else %>
-            <%= image_tag('avatar.png') %>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card profile-card">
+          <div class="profile-picture text-center">
+            <div class="edit-link"> <%= link_to "edit", edit_user_registration_path(@user) %></div>
+            <% if current_user.facebook_picture_url %>
+            <%= image_tag current_user.facebook_picture_url  %>
+            <% else %>
+              <% if @user.photo %>
+                <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
+              <% else %>
+                <%= image_tag('avatar.png') %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="profile-name text-center">
+              <%= @user.first_name + " " + @user.last_name %>
+          </div>
+          <div class="profile-description text-center">
+            <p> " <%= @user.description %> " </p>
+          </div>
+
+          <div class="share-links">
+            <a href="#" class="share-link bg-facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#" class="share-link bg-twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="share-link bg-email">
+              <i class="fa fa-envelope-o"></i>
+            </a>
+            <a href="#" class="share-link bg-text">
+              <i class="fa fa-mobile"></i>
+            </a>
+          </div>
+          <%= link_to user_create_following_path(@user), method: :post do %>
+          <button type="button" class="btn btn-lg text-center btn-follow">Follow</button>
           <% end %>
-        <% end %>
-      </div>
-      <div class="profile-name text-center">
-          <%= @user.first_name + " " + @user.last_name %>
-      </div>
-      <div class="profile-description text-center">
-        <p> " <%= @user.description %> " </p>
-      </div>
-
-      <div class="share-links">
-        <a href="#" class="share-link bg-facebook">
-          <i class="fa fa-facebook"></i>
-        </a>
-        <a href="#" class="share-link bg-twitter">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a href="#" class="share-link bg-email">
-          <i class="fa fa-envelope-o"></i>
-        </a>
-        <a href="#" class="share-link bg-text">
-          <i class="fa fa-mobile"></i>
-        </a>
-      </div>
-      <%= link_to user_create_following_path(@user), method: :post do %>
-      <button type="button" class="btn btn-lg text-center btn-follow">Follow</button>
-      <% end %>
-      <div class="profile-text"> </div>
-    </div>
-  </div>
-  <div class="card current-card">
-
-
-  </div>
-</div>
-
-
-
-
-<p>Current campaigns</p>
-      <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-      <% @campaigns.active.last(3).each do |campaign| %>
-        <div>
-          <hr>
-          <%= campaign.photos %>
-          <%= campaign.title %> /
-          <%= campaign.batch_size %> /
-          <%= campaign.date_end %> /
-          <%= campaign.price %> €
+          <div class="profile-text"> </div>
         </div>
-      <% end %>
-    <hr>
-
-
-  <p>My orders</p>
-  <!-- past campaigns à refaire -->
-  <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
-  <% @campaigns.successful.last(3).each do |campaign| %>
-    <div>
-      <hr>
-      <%= campaign.photos %>
-      <%= campaign.title %> /
-      <%= campaign.batch_size %> /
-      <%= campaign.date_end %> /
-      <%= campaign.price %> €
-      <hr>
-      <div>
-      <p>FOLLOW ME</p>
+      </div>
+      <div class="card current-card col-md-9">
+        <div class="row row-current-fix">
+          <div class="col-md-12">
+            <p>CURRENT CAMPAIGNS / <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %></p>
+          </div>
+        </div>
+        <div class="row">
+          <% @campaigns.last(3).each do |campaign| %>
+            <%= render partial: "smallcards", locals: {campaign: campaign} %>
+          <% end %>
+        </div>
+        <div class="row row-past-fix">
+          <div class="col-md-12">
+            <p>PAST CAMPAIGNS</p>
+          </div>
+        </div>
+        <div class="row">
+          <% @campaigns.last(3).each do |campaign| %>
+            <%= render partial: "smallcards", locals: {campaign: campaign} %>
+          <% end %>
+        </div>
+      </div>
     </div>
-      <div>
-      <p>Social links</p>
-    </div>
-  <% end %>
 
-  <p>followers : <%= @user.followers.count %> </p>
-  <p>designers :<%= @user.designers.count %> </p>
+
+  </div>
 </div>
+
+<p>followers : <%= @user.followers.count %> </p>
+<p>designers :<%= @user.designers.count %> </p>
 
