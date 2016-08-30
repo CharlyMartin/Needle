@@ -3,10 +3,12 @@
 <p>Number of items: <%= @order.number_of_items %></p>
 <p>Delivery Address: <%= @order.full_address %></p>
 
+<% check_out_price = @order.campaign.price_cents * @order.number_of_items %>
+
 <%= form_tag dashboard_order_payments_path(@order) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.campaign.price) %></span>
+      <span>Amount: <%= humanized_money_with_symbol(check_out_price / 100) %></span>
     </label>
   </article>
 
@@ -15,7 +17,7 @@
     data-email="<%= @user.email %>"
     data-name="<%= @order.campaign.title %>"
     data-description="Payment for <%= pluralize(@order.number_of_items, 'item') %> "
-    data-amount="<%= @order.campaign.price_cents %>"
+    data-amount="<%= check_out_price %>"
     data-currency="EUR">
   </script>
 <% end %>

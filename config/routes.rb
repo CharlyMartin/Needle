@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :campaigns, only: [:index, :show, :new, :create, :edit, :update] do
-      resources :orders, only: [:create]
+      resources :orders, only: [:new, :create]
     end
 
     resources :orders, only: [:index, :show, :destroy] do

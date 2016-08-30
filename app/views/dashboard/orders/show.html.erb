@@ -1,2 +1,3 @@
-<p>Your order has been registered</p>
-
+<p>YOUR ORDER HAS BEEN REGISTERED</p>
+<p> You just ordered <%= pluralize(@order.number_of_items, 'item') %> for <strong><%= @order.campaign.title %></strong> </p>
+<p> Thank you for <strong><%= @order.campaign.user.first_name %></strong> ! </p>
