@@ -85,6 +85,13 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
+    countries (1.2.5)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.7.0)
+    country_select (2.5.2)
+      countries (~> 1.2.0)
+      sort_alphabetical (~> 1.0)
+    currencies (0.4.2)
     debug_inspector (0.0.2)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
@@ -99,12 +106,14 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
+    geocoder (1.3.7)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.4)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    i18n_data (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -130,6 +139,16 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    monetize (1.4.0)
+      money (~> 6.7)
+    money (6.7.1)
+      i18n (>= 0.6.4, <= 0.7.0)
+      sixarm_ruby_unaccent (>= 1.1.1, < 2)
+    money-rails (1.6.2)
+      activesupport (>= 3.0)
+      monetize (~> 1.4.0)
+      money (~> 6.7)
+      railties (>= 3.0)
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -212,7 +231,10 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    sixarm_ruby_unaccent (1.1.1)
     slop (3.6.0)
+    sort_alphabetical (1.0.2)
+      unicode_utils (>= 1.2.2)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -224,6 +246,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stripe (1.51.0)
+      rest-client (>= 1.4, < 3.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -234,6 +258,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
+    unicode_utils (1.4.0)
     warden (1.2.6)
       rack (>= 1.0)
     websocket-driver (0.6.4)
@@ -251,14 +276,18 @@ DEPENDENCIES
   bootstrap-sass
   cloudinary (= 1.1.0)
   coffee-rails
+  coffee-script
+  country_select
   devise!
   faker
   figaro
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.0)
   jquery-fileupload-rails
   jquery-rails
   listen (~> 3.0.5)
+  money-rails
   omniauth-facebook
   pg
   pry-byebug
@@ -270,6 +299,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  stripe
   uglifier
 
 RUBY VERSION

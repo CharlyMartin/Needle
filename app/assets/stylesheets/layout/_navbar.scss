@@ -38,6 +38,9 @@
   color: black;
   font-family: 'Amatic SC', cursive;
   padding: 15px;
+  &:hover {
+    color: black;
+  }
 }
 
 /* Navbar right section (with form, links, button) */

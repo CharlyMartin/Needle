@@ -11,6 +11,11 @@ gem 'redis'
 
 gem 'omniauth-facebook'
 gem 'faker'
+gem 'coffee-script'
+gem 'money-rails'
+gem 'stripe'
+gem 'geocoder'
+gem 'country_select'
 
 gem 'sass-rails'
 gem 'jquery-rails'

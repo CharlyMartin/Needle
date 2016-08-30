@@ -1,0 +1,77 @@
+<div class="wrapper-grey">
+  <div class="container">
+    <div class="row">
+      <div class="text-center row show-title">
+        <h2><%= @campaign.title.upcase %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center row show-name">
+        <p>By <strong><%= @campaign.user.first_name %> <%= @campaign.user.last_name %></strong></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-2">
+        <div class="show-image">
+          <% @campaign.photos.each do |photo| %>
+            <%= cl_image_tag photo.path, crop: :fill %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-4 show-info">
+        <h3><%= @campaign.items_sold %>  / <%= @campaign.batch_size %> </h3>
+        <p>items sold</p>
+        <h3><%= humanized_money_with_symbol(@campaign.price) %></h3>
+        <p>market price $200</p>
+        <h3><%= @campaign.days_left %></h3>
+        <p>days left</p>
+      </div>
+    </div>
+    <div class="row show-specs">
+      <div class="col-lg-6 col-lg-offset-2">
+        <div class="row">
+          <div class="col-lg-3">
+            <p><i class="fa fa-tags" aria-hidden="true"></i> <%= @campaign.category %></p>
+          </div>
+          <div class="col-lg-3">
+            <p><i class="fa fa-venus-mars" aria-hidden="true"></i> <%= @campaign.gender %></p>
+          </div>
+        </div>
+        <br>
+        <p> <strong> Specs </strong> </p>
+        <p><%= @campaign.spec %></p>
+        <br>
+        <p> <strong> Description </strong> </p>
+        <p><%= @campaign.description %></p>
+      </div>
+      <div class="col-lg-4">
+        <% if @campaign.user == current_user %>
+          <% if @campaign.pending? %>
+            <p>Campaign is still being reviewed!</p>
+          <% else %>
+            <% if @campaign.active? || @campaign.in_production? %>
+              <div class="col-lg-6 col-lg-offset-3">
+                <%= link_to "Update my campaign", edit_dashboard_campaign_path(@campaign), {class: "btn btn-default"} %>
+              </div>
+            <% else %>
+              <p class="text-center">Can't update.</p>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% if @campaign.active? || @campaign.in_production? %>
+            <% if @order.id %>
+              <div class="col-lg-6 col-lg-offset-3">
+                <%= link_to "Cancel my order", dashboard_order_path(@order), class: "btn btn-default", method: :delete, "data-confirm" => "Are you sure?" %>
+              </div>
+            <% else %>
+              <%= render "dashboard/orders/form", campaign: @campaign, order: @order %>
+            <% end %>
+          <% else %>
+            <h2 class="text-center">Campaign is over!</h2>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

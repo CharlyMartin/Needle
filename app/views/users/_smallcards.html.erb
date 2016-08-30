@@ -1,0 +1,17 @@
+<div class="col-md-4">
+  <div class="cards-vertical">
+    <% if campaign.photos? %>
+      <div class="top" style="background-image: <%= cl_image_tag campaign.photos.last.path, width: 262.48, height: 140, crop: :fill %>"></div>
+      <!-- <#= cl_image_tag campaign.photos.last.path %> -->
+    <% else %>
+      <div class="top" style="background-image: url(<%= image_url('home/fashion-design-illustration-lady-in-black-dress.jpg') %>)"></div>
+    <% end %>
+    <h3><%= campaign.title.upcase %></h3>
+    <div class="progress" style="height: 10px;">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: <%= campaign.items_sold * 100 / campaign.batch_size %>%">
+        <span class="sr-only">40% Complete (success)</span>
+      </div>
+    </div>
+    <p class="fixed-days"> Days left : <%= campaign.days_left %></p>
+  </div>
+</div>

@@ -34,8 +34,8 @@
 .profile-card {
   background-color: white;
   position: relative;
-  // max-width: 300px;
-  height: 500px;
+  max-width: 300px;
+  height: 450px;
   padding: 20px;
   margin-top: 65px;
   border-radius: 3px;
@@ -65,6 +65,7 @@
   //top: 130px;
   align-items: center;
   justify-content: space-around;
+  padding-bottom: 20px;
 }
 
 .share-link {
@@ -91,6 +92,7 @@
     left: 0;
     border-radius: 0 0 3px 3px;
     outline: none;
+    padding-top: 10px;
 
     &:hover {
       color: white;
@@ -112,9 +114,18 @@
   background-color: white;
   height: 225px;
   box-shadow: 0px 1px 4px lightgrey;
-  margin-top: 10px;
+  margin-top: -5px;
   margin-bottom: 10px;
   object-fit: fill;
+
+  h3 {
+      font-size: 12px;
+      font-weight: bolder;
+      line-height: 1px;
+      padding-left: 5px;
+      padding-bottom: 10px;
+    }
+
   .top {
     height: 140px;
     img {
@@ -159,7 +170,8 @@
     }
   }
 }
-.row-fix {
+
+.row-current-fix {
   padding-top: 65px;
 
   p {
@@ -170,8 +182,21 @@
   }
 }
 
+.row-past-fix {
+  padding-top: 20px;
+
+  p {
+      color: white;
+      font-family: Raleway;
+      font-weight: 100;
+      font-size: 20px;
+    }
+  }
+
 .fixed-days {
-  color: white;
-  padding-top: 5px;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: 10px;
 }
+
 

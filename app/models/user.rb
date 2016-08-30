@@ -4,12 +4,12 @@ class User < ApplicationRecord
 
   has_attachment :photo
 
-  has_many :followings, foreign_key: 'designer_id', dependent: :destroy
-  has_many :followers, through: :followings, foreign_key: 'follower_id'
-  has_many :designers, through: :followings, foreign_key: 'designer_id'
+  # has_many :followings, foreign_key: 'follower_id', dependent: :destroy
+  # has_many :followers, through: :followings, foreign_key: 'follower_id'
+  # has_many :designers, through: :followings, foreign_key: 'designer_id'
 
-  # has_many :followers, :class_name => "Following", :foreign_key => :follower_id
-  # has_many :designers, :class_name => "Following", :foreign_key => :designer_id
+  has_many :followers, :class_name => "Following", :foreign_key => :designer_id
+  has_many :designers, :class_name => "Following", :foreign_key => :follower_id
 
 
 

@@ -2,88 +2,75 @@
   <div class="profile-background", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.8) 60%), url('https://static.pexels.com/photos/92961/pexels-photo-92961.jpeg'); ">
 
   <div class="container">
-    <div class="col-lg-3">
-    <div class="card profile-card ">
-      <div class="profile-picture text-center">
-        <div class="edit-link"> <%= link_to "edit", edit_user_registration_path(@user) %></div>
-        <% if current_user.facebook_picture_url %>
-        <%= image_tag current_user.facebook_picture_url  %>
-        <% else %>
-          <% if @user.photo %>
-            <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
-          <% else %>
-            <%= image_tag('avatar.png') %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="profile-name text-center">
-          <%= @user.first_name + " " + @user.last_name %>
-      </div>
-      <div class="profile-description text-center">
-        <p> " <%= @user.description %> " </p>
-      </div>
-
-      <div class="share-links">
-        <a href="#" class="share-link bg-facebook">
-          <i class="fa fa-facebook"></i>
-        </a>
-        <a href="#" class="share-link bg-twitter">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a href="#" class="share-link bg-email">
-          <i class="fa fa-envelope-o"></i>
-        </a>
-        <a href="#" class="share-link bg-text">
-          <i class="fa fa-mobile"></i>
-        </a>
-      </div>
-      <button type="button" class="btn btn-lg text-center btn-follow">Follow</button>
-      <div class="profile-text"> </div>
-    </div>
-    </div>
-
-    <div class="col-lg-9">
-      <div class="row row-fix">
-        <p class="text-center">CURRENT CAMPAIGNS</p>
-      </div>
-      <div class="row">
-        <% @campaigns.each do |campaign| %>
-          <% if campaign.active? || campaign.in_production? %>
-            <% if campaign.user == current_user %>
-              <%= link_to dashboard_campaign_path(campaign) do %>
-                <div class="col-md-4">
-                  <div class="cards-vertical">
-                    <% if campaign.photos? %>
-                      <div class="top" style="background-image: image-url(<%= campaign.photos.last.path %>)"></div>
-                      <!-- <#= cl_image_tag campaign.photos.last.path %> -->
-                    <% else %>
-                      <div class="top" style="background-image: image-url('home/fashion-design-illustration-lady-in-black-dress.jpg')"></div>
-                    <% end %>
-                    <h3><%= campaign.title %></h3>
-                    <p> <%= campaign.price %> $ </p>
-                    <p> <%= campaign.items_sold %> / <%= campaign.batch_size %></p>
-                    <div class="progress" style="height: 10px;">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: <%= campaign.items_sold * 100 / campaign.batch_size %>%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
-                  </div>
-                  <p class="fixed-days"> Days left : </strong> <%= campaign.days_left %></p>
-                </div>
-              <% end %>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card profile-card">
+          <div class="profile-picture text-center">
+            <div class="edit-link"> <%= link_to "edit", edit_user_registration_path(@user) %></div>
+            <% if current_user.facebook_picture_url %>
+            <%= image_tag current_user.facebook_picture_url  %>
             <% else %>
-              <%= link_to campaign_path(campaign) do %>
-                <!-- Truc à faire -->
+              <% if @user.photo %>
+                <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
+              <% else %>
+                <%= image_tag('avatar.png') %>
               <% end %>
             <% end %>
+          </div>
+          <div class="profile-name text-center">
+              <%= @user.first_name + " " + @user.last_name %>
+          </div>
+          <div class="profile-description text-center">
+            <p> " <%= @user.description %> " </p>
+          </div>
+
+          <div class="share-links">
+            <a href="#" class="share-link bg-facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#" class="share-link bg-twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#" class="share-link bg-email">
+              <i class="fa fa-envelope-o"></i>
+            </a>
+            <a href="#" class="share-link bg-text">
+              <i class="fa fa-mobile"></i>
+            </a>
+          </div>
+          <%= link_to user_create_following_path(@user), method: :post do %>
+          <button type="button" class="btn btn-lg text-center btn-follow">Follow</button>
           <% end %>
-        <% end %>
+          <div class="profile-text"> </div>
+        </div>
       </div>
-      <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %>
+      <div class="card current-card col-md-9">
+        <div class="row row-current-fix">
+          <div class="col-md-12">
+            <p>CURRENT CAMPAIGNS / <%= link_to "view all campaigns", dashboard_campaigns_path(@user) %></p>
+          </div>
+        </div>
+        <div class="row">
+          <% @campaigns.last(3).each do |campaign| %>
+            <%= render partial: "smallcards", locals: {campaign: campaign} %>
+          <% end %>
+        </div>
+        <div class="row row-past-fix">
+          <div class="col-md-12">
+            <p>PAST CAMPAIGNS</p>
+          </div>
+        </div>
+        <div class="row">
+          <% @campaigns.last(3).each do |campaign| %>
+            <%= render partial: "smallcards", locals: {campaign: campaign} %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
-  <%= @user.followers.count %>
-  <%= @user.designers.count %>
-
+<p>followers : <%= @user.followers.count %> </p>
+<p>designers :<%= @user.designers.count %> </p>
 
 
