@@ -3,8 +3,25 @@
 
 User.destroy_all
 Campaign.destroy_all
+Category.destroy_all
 
 puts "destroying users (and linked tables)"
+
+Skirt = Category.new(
+  name: "Skirt"
+  )
+Skirt.save
+
+Dress = Category.new(
+  name: "Dress"
+  )
+Dress.save
+
+Coat = Category.new(
+  name: "Coat"
+  )
+Coat.save
+
 
 Ysl = User.new(
   first_name: "Yves",
@@ -37,15 +54,7 @@ Felix.save
 puts "saving designer"
 
 
-Coat = Category.new(
-  name: "Coat"
-)
-Coat.save
-Dress = Category.new(
-  name: "Dress"
-)
 
-Dress.save
 ###########################################################
 # CREATING 1 ON-GOING CAMPAING FOR THE DESIGNER Ysl
 
@@ -129,7 +138,7 @@ Campaign.create(
   description: "Lets dance tonight with theses crazy shoes, built to resist to evry single step on the counter",
   spec: "Heavy leather with jersey/Handmade craft/Iron",
   price: 250,
-  category: Coat,
+  category: Skirt,
   gender: "Men",
   status_private: "pending",
   user: Felix,
