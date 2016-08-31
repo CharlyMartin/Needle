@@ -13,8 +13,3 @@ function flip() {
 }
 
 
-$('button').on('click', function() {
-    whichtab = $(this).data('opentab');
-    $('#myModal').modal('show');
-    $('.nav-tabs li:eq('+whichtab+') a').tab('show');
-});
