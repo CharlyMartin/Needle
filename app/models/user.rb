@@ -46,6 +46,10 @@ class User < ApplicationRecord
     designers.find_by(designer: designer)
   end
 
+  def following follower
+    designers.find_by(follower: follower)
+  end
+
   def follow? designer
     !!following(designer)
   end
