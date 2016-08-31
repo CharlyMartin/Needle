@@ -51,8 +51,20 @@
 
   .carousel-inner {
     overflow: visible;
-
+    height: 100%;
     .item {
+      height: 100%;
+      // background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
+      z-index: 2;
+      .un {
+       background: image-url('home/atelier.jpg');
+      }
+      .deux{
+        background: image-url('home/fashionworkshop-home-slider.jpg');
+      }
+      .trois {
+        background: image-url('home/hands-people-woman-working.jpg');
+      }
       h2 {
         text-transform: uppercase;
         text-shadow: none;
@@ -69,7 +81,7 @@
       }
 
       .carousel-caption {
-        top: 35px;
+        top: 190px;
         bottom: 0;
 
         img {
@@ -234,6 +246,7 @@ i:hover {
 
 .wrapper-grey {
   background: #FAFAFA;
+  padding-top: 40px;
   h2 {
     font-family: Raleway;
     font-weight: 100;
