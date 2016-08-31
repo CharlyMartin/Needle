@@ -1,35 +1,37 @@
-<div class="container">
-  <div class="col-lg-8 col-lg-offset-2">
-    <h1>Your purchase for <%= @order.campaign.title %></h1>
-    <p>Size: <%= @order.item_size %></p>
-    <p>Number of items: <%= @order.number_of_items %></p>
-    <p>Delivery Address: <%= @order.full_address %></p>
+<div class="wrapper-grey">
+  <div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+      <h1>Your purchase for <%= @order.campaign.title %></h1>
+      <p>Size: <%= @order.item_size %></p>
+      <p>Number of items: <%= @order.number_of_items %></p>
+      <p>Delivery Address: <%= @order.full_address %></p>
 
-    <% if @order.campaign.active? %>
-      <% check_out_price = @active_price * @order.number_of_items %>
-    <% elsif @order.campaign.in_production? %>
-      <% check_out_price = @in_production_price * @order.number_of_items %>
-    <% end %>
-
-    <br>
-
-    <div class="text-center">
-      <%= form_tag dashboard_order_payments_path(@order) do %>
-        <article>
-          <label class="amount">
-            <span>Amount: <%= humanized_money_with_symbol(check_out_price / 100) %></span>
-          </label>
-        </article>
-
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-email="<%= @user.email %>"
-          data-name="<%= @order.campaign.title %>"
-          data-description="Payment for <%= pluralize(@order.number_of_items, 'item') %> "
-          data-amount="<%= check_out_price %>"
-          data-currency="EUR">
-        </script>
+      <% if @order.campaign.active? %>
+        <% check_out_price = @active_price * @order.number_of_items %>
+      <% elsif @order.campaign.in_production? %>
+        <% check_out_price = @in_production_price * @order.number_of_items %>
       <% end %>
+
+      <br>
+
+      <div class="text-center">
+        <%= form_tag dashboard_order_payments_path(@order) do %>
+          <article>
+            <label class="amount">
+              <span>Amount: <%= humanized_money_with_symbol(check_out_price / 100) %></span>
+            </label>
+          </article>
+
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-email="<%= @user.email %>"
+            data-name="<%= @order.campaign.title %>"
+            data-description="Payment for <%= pluralize(@order.number_of_items, 'item') %> "
+            data-amount="<%= check_out_price %>"
+            data-currency="EUR">
+          </script>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

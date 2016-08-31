@@ -1,3 +1,9 @@
-<p>YOUR ORDER HAS BEEN REGISTERED</p>
-<p> You just ordered <%= pluralize(@order.number_of_items, 'item') %> for <strong><%= @order.campaign.title %></strong> </p>
-<p> Thank you for <strong><%= @order.campaign.user.first_name %></strong> ! </p>
+<div class="wrapper-grey">
+  <div class="container">
+    <div class="col-lg-8 col-lg-offest-2">
+      <h2>YOUR ORDER HAS BEEN REGISTERED</h2>
+      <p> You just ordered <%= pluralize(@order.number_of_items, 'item') %> for <strong><%= @order.campaign.title %></strong> </p>
+      <p> Thank you for <strong><%= @order.campaign.user.first_name %></strong> ! </p>
+    </div>
+  </div>
+</div>
