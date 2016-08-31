@@ -8,6 +8,8 @@ class Dashboard::CampaignsController < ApplicationController
 
   def show
     @order = Order.new
+    @active_price = @campaign.price * 0.4
+    @production_price = @campaign.price * 0.7
   end
 
   def new

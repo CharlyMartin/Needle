@@ -3,8 +3,10 @@ class Dashboard::PaymentsController < ApplicationController
   before_action :set_order
 
   def new
-    # @campaign = Campaign.find(params[:id])
+    @campaign =  @order.campaign
     @user = current_user
+    @active_price = @campaign.price_cents * 0.4
+    @production_price = @campaign.price_cents * 0.7
   end
 
   def create

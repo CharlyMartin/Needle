@@ -5,7 +5,11 @@
     <p>Number of items: <%= @order.number_of_items %></p>
     <p>Delivery Address: <%= @order.full_address %></p>
 
-    <% check_out_price = @order.campaign.price_cents * @order.number_of_items %>
+    <% if @order.campaign.active? %>
+      <% check_out_price = @active_price * @order.number_of_items %>
+    <% elsif @order.campaign.in_production? %>
+      <% check_out_price = @in_production_price * @order.number_of_items %>
+    <% end %>
 
     <br>
 
