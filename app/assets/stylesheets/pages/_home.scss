@@ -26,14 +26,6 @@
   height: 600px;
   background-color: #F1F0F6;
 
-  img {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // min-width: 100%;
-    // height: 100%;
-  }
-
   .carousel-indicators {
     top: 20px;
     bottom: 0;
@@ -50,10 +42,7 @@
   }
 
   .carousel-inner {
-    overflow: visible;
-    height: 100%;
     .item {
-      position: relative;
       h2 {
         text-transform: uppercase;
         text-shadow: none;
@@ -91,6 +80,13 @@
 
         }
       }
+    }
+  }
+
+  &.carousel-framed {
+    height: 430px;
+    .carousel-inner .item img {
+      height: 430px;
     }
   }
 }

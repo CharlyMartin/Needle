@@ -20,8 +20,10 @@ class Dashboard::CampaignsController < ApplicationController
   def create
     @campaign = current_user.campaigns.new(campaign_params)
     @categories = Category.all
-    category = Category.find_by_name(params[:campaign][:cat][:cat])
-    @campaign.category_id = category.id
+    if params[:campaign][:cat][:cat].present?
+      category = Category.find_by_name(params[:campaign][:cat][:cat])
+      @campaign.category_id = category.id
+    end
     if @campaign.save
       redirect_to dashboard_campaigns_path(), notice: "Your campaign has been created !"
     else
