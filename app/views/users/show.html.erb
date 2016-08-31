@@ -23,13 +23,13 @@
               <% end %>
             </div>
             <div class="profile-name text-center">
-                <%= @user.first_name + " " + @user.last_name %>
+                <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %>
             </div>
             <div id="follow-stats">
               <%= render "followings/stats", user: @user %>
             </div>
             <div class="profile-description text-center">
-              <p> " <%= @user.description %> " </p>
+              <p> "<%= @user.description %>" </p>
             </div>
 
             <div class="share-links">
