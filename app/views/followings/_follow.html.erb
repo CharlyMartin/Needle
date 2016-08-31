@@ -2,7 +2,7 @@
 
   <% if current_user.follow?(user) %>
     <%= link_to current_user.following(user), method: :delete, remote: true do %>
-      <button type="button" class="btn btn-lg text-center btn-danger">unfollow</button>
+      <button type="button" class="btn btn-lg text-center btn-unfollow">Unfollow</button>
     <% end %>
   <% else %>
     <%= link_to user_followings_path(user), method: :post, remote: true do %>
