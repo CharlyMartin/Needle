@@ -13,6 +13,8 @@ class PagesController < ApplicationController
     ]
     @campaigns = Campaign.all
     @latest_campaigns = Campaign.latest(3)
+
+
   end
 
 end
