@@ -53,18 +53,7 @@
     overflow: visible;
     height: 100%;
     .item {
-      height: 100%;
-      // background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
-      z-index: 2;
-      .un {
-       background: image-url('home/atelier.jpg');
-      }
-      .deux{
-        background: image-url('home/fashionworkshop-home-slider.jpg');
-      }
-      .trois {
-        background: image-url('home/hands-people-woman-working.jpg');
-      }
+      position: relative;
       h2 {
         text-transform: uppercase;
         text-shadow: none;
@@ -74,10 +63,20 @@
         color: white;
         text-shadow: 1px 1px 3px black;
       }
-
       img {
         width: 1280px;
         height: 600px;
+        object-fit: cover;
+        position: relative;
+      }
+
+      .carousel-gradient {
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
 
       .carousel-caption {
@@ -105,7 +104,7 @@
   height: 520px;
   background-image: image-url('home/dress.jpg');
   &:hover {
-    opacity: 0.7;
+    // opacity: 0.7;
   }
   &:after {
     content: "";
@@ -140,7 +139,7 @@
   background-image: image-url('home/designer.jpg');
   background-size: cover;
   &:hover {
-    opacity: 0.7;
+    // opacity: 0.7;
   }
   &:after {
     content: "";
@@ -176,7 +175,7 @@
   background-color: $light-taupe;
   position: relative;
   &:hover {
-    opacity: 0.7;
+    // opacity: 0.7;
   }
   span {
     margin-bottom: 15px;
@@ -200,7 +199,7 @@
   justify-content: center;
   background-color: $light-blue;
   &:hover {
-    opacity: 0.7;
+    // opacity: 0.7;
   }
 
   span {
@@ -226,7 +225,7 @@
   background-image: image-url('home/sketch.png');
   background-size: cover;
   &:hover {
-    opacity: 0.7;
+    // opacity: 0.7;
   }
   span {
     margin-bottom: 15px;
@@ -252,5 +251,48 @@ i:hover {
     font-weight: 100;
     margin-top: 10px;
   }
+}
+
+.hvr-sweep-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 
