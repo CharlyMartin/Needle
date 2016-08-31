@@ -7,7 +7,9 @@
     </div>
     <div class="row">
       <div class="text-center row show-name">
+      <%= link_to user_path(@user) do %>
         <p>By <strong><%= @campaign.user.first_name %> <%= @campaign.user.last_name %></strong></p>
+      <% end %>
       </div>
     </div>
     <div class="row">
