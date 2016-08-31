@@ -52,19 +52,10 @@ class Campaign < ApplicationRecord
   end
 
   def success?
-    items_sold = 0
-    self.orders.each do |order|
-      items_sold += order.number_of_items
-    end
     items_sold >= self.batch_size
   end
 
   def funded?
-    items_sold = 0
-    self.orders.each do |order|
-      items_sold += order.number_of_items
-    end
-
     items_sold >= (self.batch_size*3)/4 #-> pas closed
   end
 
@@ -80,11 +71,9 @@ class Campaign < ApplicationRecord
   end
 
   def items_sold
-    items = 0
-    self.orders.each do |order|
-      items += order.number_of_items
-    end
-    items
+    self.orders
+      .where(state: "paid")
+      .reduce(0) { |sum, order| sum + order.number_of_items }
   end
 
 end

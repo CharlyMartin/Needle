@@ -15,7 +15,7 @@
               <h2> <%= humanized_money_with_symbol (order.campaign.price * order.number_of_items) %> </h2>
             </div>
             </div>
-            <p><%= order.created_at.strftime("Order placed on %A %B %Y") %>
+            <p><%= order.created_at.strftime("Order placed on %A, %d %B %Y") %>
             <%= order.created_at.strftime(" at %I:%M%p") %></p>
             <br>
             <p><%= pluralize order.number_of_items, 'item' %> in

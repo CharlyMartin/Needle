@@ -1,7 +1,7 @@
 class Dashboard::OrdersController < ApplicationController
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.where(state: 'paid')
   end
 
   def show
@@ -22,11 +22,6 @@ class Dashboard::OrdersController < ApplicationController
 
     if @order.valid?
       @order.save
-      if @campaign.success?
-        @campaign.close!
-      elsif @campaign.funded?
-        @campaign.in_production!
-      end
       redirect_to new_dashboard_order_payment_path(@order)
     else
       render 'new'
