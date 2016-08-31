@@ -224,4 +224,21 @@ background-size: 100vh;
   font-size: 12px;
 }
 
+  .btn-unfollow {
+    position: relative;
+    background-color: $gray-lighter;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    border-radius: 0 0 3px 3px;
+    outline: none;
+    padding-top: 10px;
+
+    &:hover {
+      color: white;
+      background-color: $gray-dark;
+    }
+  }
 
