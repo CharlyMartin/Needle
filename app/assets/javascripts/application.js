@@ -7,3 +7,8 @@
 //= require attachinary
 
 $('.carousel').carousel()
+
+function flip() {
+    $('.card').toggleClass('flipped');
+}
+

@@ -5,12 +5,15 @@ class CampaignsController < ApplicationController
     @campaigns = Campaign.all
     @last_minute_campaigns = Campaign.ending_in_days(9).last(3)
     @campaigns_trends = Campaign.items_ordered(100)
+    @categories = Category.all
   end
 
   def show
     @campaign = Campaign.find(params[:id])
     @order = Order.where(campaign: @campaign).find_by(user: current_user)
     @order = Order.new if @order.nil?
+    @active_price = @campaign.price * 0.4
+    @production_price = @campaign.price * 0.7
   end
 
   def update

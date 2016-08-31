@@ -1,6 +1,10 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper-back {
+background: #FAFAFA;
+background-size: 100vh;
+}
 
 .profile-background {
   width: 100%;
@@ -27,7 +31,7 @@
 
 .profile-text {
   position: relative;
-  bottom: 12px;
+  bottom: 14px;
 }
 
 .profile-card {
@@ -109,7 +113,7 @@
 .progress {
   margin: 0px 15px;
 }
-.cards-profile {
+.cards-products {
   background-color: white;
   height: 225px;
   box-shadow: 0px 1px 4px lightgrey;
@@ -126,6 +130,7 @@
     z-index: 2;
     background: black;
     opacity: 0;
+
   }
   h3 {
       font-size: 12px;
@@ -184,7 +189,7 @@
   padding-top: 65px;
 
   p {
-    color: white;
+    color: black;
     font-family: Raleway;
     font-weight: 100;
     font-size: 20px;
@@ -195,7 +200,7 @@
   padding-top: 20px;
 
   p {
-      color: white;
+      color: black;
       font-family: Raleway;
       font-weight: 100;
       font-size: 20px;
@@ -206,6 +211,17 @@
   padding-top: 10px;
   padding-left: 5px;
   font-size: 10px;
+}
+
+.card-link:hover{
+  opacity: 0.8;
+  box-shadow: 0 2px px rgba(0,0,0,0.15);
+  //color: white;
+  background-color: white;
+}
+
+.followings {
+  font-size: 12px;
 }
 
 

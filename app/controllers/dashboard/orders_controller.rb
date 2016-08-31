@@ -24,10 +24,12 @@ class Dashboard::OrdersController < ApplicationController
       @order.save
       if @campaign.success?
         @campaign.close!
+      elsif @campaign.funded?
+        @campaign.in_production!
       end
       redirect_to new_dashboard_order_payment_path(@order)
     else
-      render 'campaigns/show'
+      render 'new'
     end
   end
 

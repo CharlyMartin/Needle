@@ -1,9 +1,8 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
 
-<% @campaigns.each do |campaign| %>
+<h2 style="font-weight: lighter;"><%= pluralize(@category.campaigns.count, @category.name).upcase %></h2>
+
 
  <%= render "dashboard/campaigns/cards", campaigns: @campaigns  %>
-<% end %>
+
 
 

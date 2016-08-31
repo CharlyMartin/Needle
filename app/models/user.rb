@@ -11,11 +11,6 @@ class User < ApplicationRecord
   has_many :followers, :class_name => "Following", :foreign_key => :designer_id
   has_many :designers, :class_name => "Following", :foreign_key => :follower_id
 
-
-
-
-
-
   has_many :orders, dependent: :destroy
   has_many :campaigns, dependent: :destroy
 
@@ -45,5 +40,13 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def following designer
+    designers.find_by(designer: designer)
+  end
+
+  def follow? designer
+    !!following(designer)
   end
 end
