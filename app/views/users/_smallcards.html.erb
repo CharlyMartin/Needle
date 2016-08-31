@@ -1,6 +1,6 @@
 <div class="col-md-4">
 
-      <div class="cards-profile">
+      <div class="cards-products card-link">
         <% if campaign.photos? %>
           <div class="top" style="background-image: url(<%= cl_image_path campaign.photos.last.path, crop: :fill, height: 140, width: 263 %>)"></div>
         <% else %>
@@ -14,9 +14,9 @@
         </div>
         <p class="fixed-days"> Days left : <%= campaign.days_left %></p>
         <% if campaign.user == current_user %>
-          <%= link_to dashboard_campaign_path(campaign) %>
+          <%= link_to "", dashboard_campaign_path(campaign) %>
         <% else %>
-         <%= link_to campaign_path(campaign) %>
+          <%= link_to "", campaign_path(campaign) %>
         <% end %>
       </div>
 
