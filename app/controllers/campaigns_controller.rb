@@ -5,6 +5,7 @@ class CampaignsController < ApplicationController
     @campaigns = Campaign.all
     @last_minute_campaigns = Campaign.ending_in_days(9).last(3)
     @campaigns_trends = Campaign.items_ordered(100)
+    @categories = Category.all
   end
 
   def show
