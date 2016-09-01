@@ -1,27 +1,26 @@
-<div class="wrapper wrapper-back">
-  <div class="profile-background">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card profile-card">
-            <div class="edit-link">
-                <% if @user == current_user %>
-                <%= link_to edit_user_registration_path(@user) do %>
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
-                  <% end %>
-                <% end %>
-              </div>
-            <div class="profile-picture center-block">
-              <% if current_user.facebook_picture_url %>
-              <%= image_tag current_user.facebook_picture_url  %>
-              <% else %>
-                <% if @user.photo %>
-                  <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
-                <% else %>
-                  <%= image_tag('avatar.png') %>
-                <% end %>
+<div class="profile-background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card profile-card">
+          <div class="edit-link">
+            <% if @user == current_user %>
+              <%= link_to edit_user_registration_path(@user) do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
               <% end %>
-            </div>
+            <% end %>
+          </div>
+          <div class="profile-picture center-block">
+            <% if current_user.facebook_picture_url %>
+            <%= image_tag current_user.facebook_picture_url  %>
+            <% else %>
+              <% if @user.photo %>
+                <%= cl_image_tag @user.photo.path, transformation: [ width: 300, height: 300 ] %>
+              <% else %>
+                <%= image_tag('avatar.png') %>
+              <% end %>
+            <% end %>
+          </div>
             <div class="profile-name text-center">
                 <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %>
             </div>
@@ -49,39 +48,33 @@
             <div id="follow-action">
               <%= render "followings/follow", user: @user %>
             </div>
-            <div class="profile-text"> </div>
             <% if @user == current_user %>
-              <div class="text-center">
-                <p> <%= link_to "My campaigns", dashboard_campaigns_path(@user) %> </p>
-                <p> <%= link_to "My orders", dashboard_orders_path %> </p>
-              </div>
+              <div>
+              <%= link_to dashboard_campaigns_path(@user) do %>
+                <button type="button" class="btn btn-lg text-center btn-view-all">My campaigns</button>
+                <% end %>
+                </div>
             <% end %>
           </div>
         </div>
-        <div class="card current-card col-md-9">
-          <div class="row row-current-fix">
-            <div class="col-md-12">
-              <p>CURRENT CAMPAIGNS</p>
-            </div>
+
+      <div class="card current-card col-md-9">
+        <div class="row row-current-fix">
+          <div class="col-md-12">
+            <p>CURRENT CAMPAIGNS</p>
+             <%= link_to 'My orders', dashboard_orders_path %>
           </div>
-          <div class="row">
-            <% @campaigns.last(3).each do |campaign| %>
-              <% if campaign.active? || campaign.in_production? %>
-                <%= render partial: "smallcards", locals: {campaign: campaign} %>
-              <% end %>
+        </div>
+        <div class="row">
+          <% @campaigns.last(3).each do |campaign| %>
+            <% if campaign.active? || campaign.in_production? %>
+              <%= render partial: "smallcards", locals: {campaign: campaign} %>
             <% end %>
-          </div>
-          <div class="row row-past-fix">
-            <div class="col-md-12">
-              <p>PAST CAMPAIGNS</p>
-            </div>
-          </div>
-          <div class="row">
-            <% @campaigns.last(3).each do |campaign| %>
-              <% if campaign.successful? || campaign.failed? %>
-                <%= render partial: "smallcards", locals: {campaign: campaign} %>
-              <% end %>
-            <% end %>
+          <% end %>
+        </div>
+        <div class="row row-past-fix">
+          <div class="col-md-12">
+            <p>PAST CAMPAIGNS</p>
           </div>
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"   data-target="#myModal">
             Launch demo modal
@@ -121,9 +114,14 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <% @campaigns.last(3).each do |campaign| %>
+            <% if campaign.successful? || campaign.failed? %>
+              <%= render partial: "smallcards", locals: {campaign: campaign} %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-

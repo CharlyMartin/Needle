@@ -42,23 +42,21 @@
   /* for firefox 31 */
   transform: rotateY(0deg);
   background-color: white;
-
-  border-style: solid;
-  border-color: $gray-lighter;
-  border-width: 0.5px;
-   a {
+  border: 0.5px solid $gray-lighter;
+    a {
       color: #7f7f7f;
+      text-decoration: none;
     }
 }
 
 /* back, initially hidden pane */
 .back {
   transform: rotateY(180deg);
-  background-color: #F6EFE0;
-
-  color: #7f7f7f;
-   a {
-    color: #7f7f7f;
+  background-color: #AEC6CF;
+  border: 0.5px solid $gray-lighter;
+  color: white;
+  a {
+    color: white;
   }
 }
 
