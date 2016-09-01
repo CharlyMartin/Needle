@@ -1,7 +1,7 @@
 <div class="wrapper-grey">
   <div class="container">
     <div class="col-lg-12">
-      <h2 style="font-weight: lighter;"><%= pluralize(@category.campaigns.count, @category.name).upcase %></h2>
+      <h2 style="font-weight: lighter;"><%= pluralize(@category.campaigns.active.count, @category.name).upcase %></h2>
     </div>
   </div>
 
