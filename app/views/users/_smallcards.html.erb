@@ -12,7 +12,13 @@
             <span class="sr-only">40% Complete (success)</span>
           </div>
         </div>
-        <p class="fixed-days"> Days left : <%= campaign.days_left %></p>
+        <% if campaign.live? %>
+          <p class="fixed-days"> Days left : <%= campaign.days_left %></p>
+        <% else %>
+          <p class="fixed-days"> Campaign : <%= campaign.status_public %></p>
+        <% end %>
+
+
         <% if campaign.user == current_user %>
           <%= link_to "", dashboard_campaign_path(campaign) %>
         <% else %>
