@@ -3,12 +3,13 @@
   top: 50%;
   right: 0;
   margin-top: -5px;
-  border-left-color: black;
+  border-left-color: $gray-lighter ;
   border-width: 5px 0 5px 5px;
 }
 
 .tooltip-inner {
-  color: #000;
+  color: $gray-light;
   background: #fff;
-  border: solid 1px black;
+  border: solid 1px $gray-light;
+  border-radius: 4px;
 }
