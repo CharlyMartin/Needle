@@ -219,47 +219,54 @@
 
 .followings {
   font-size: 12px;
+
 }
 
-  .btn-unfollow {
-    position: relative;
-    background-color: $gray-lighter;
+.btn-unfollow {
+  position: relative;
+  background-color: $gray-lighter;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  border-radius: 0 0 3px 3px;
+  outline: none;
+  padding-top: 10px;
+
+  &:hover {
     color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    border-radius: 0 0 3px 3px;
-    outline: none;
-    padding-top: 10px;
-
-    &:hover {
-      color: white;
-      background-color: $gray-dark;
-    }
-  }
-
-    .btn-view-all {
-    position: relative;
     background-color: $gray-dark;
-    color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    border-radius: 0 0 3px 3px;
-    outline: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-decoration: none;
-
-
-    &:hover {
-      color: white;
-      background-color: $gray-lighter;
-    }
   }
+}
+
+.btn-view-all {
+position: relative;
+background-color: $gray-dark;
+color: white;
+position: absolute;
+bottom: 0;
+width: 100%;
+left: 0;
+border-radius: 0 0 3px 3px;
+outline: none;
+padding-top: 10px;
+padding-bottom: 10px;
+text-decoration: none;
+  &:hover {
+    color: white;
+    background-color: $gray-lighter;
+  }
+}
+
 .tab-followings {
   width: 50%;
   text-align: center;
 }
+
+
+
+a:focus {
+    outline: none;
+    text-decoration: none;
+  }
