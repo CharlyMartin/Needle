@@ -1,0 +1,33 @@
+.checkout {
+  h2 {
+    font-family: Raleway;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    font-family: Raleway;
+    font-weight: 100;
+    margin: 0;
+    margin: 2px;
+    padding: 0;
+  }
+
+  p {
+    font-family: Open Sans;
+    font-weight: 700;
+    color: $gray;
+    font-size: 14px;
+    margin: 0;
+    padding: 12px 0 0 0;
+  }
+}
+
+.left {
+  text-align: left;
+}
+
+.center-center {
+ text-align: center center;
+}
