@@ -31,9 +31,11 @@
             <div class="profile-name text-center">
                 <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %>
             </div>
-            <div id="follow-stats">
-              <%= render "followings/stats", user: @user %>
-            </div>
+            <a href="#" data-toggle="modal" data-target="#myModal">
+              <div id="follow-stats">
+                <%= render "followings/stats", user: @user %>
+              </div>
+            </a>
             <div class="profile-description text-center">
               <p> "<%= @user.description %>" </p>
             </div>
@@ -82,9 +84,6 @@
           <div class="col-md-12">
             <p>PAST CAMPAIGNS</p>
           </div>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"   data-target="#myModal">
-            Launch demo modal
-          </button>
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -94,24 +93,33 @@
                 <div class="modal-body">
                   <div class="tabbable">
                     <ul class="nav nav-tabs">
-                      <li class="active"><a href="#tab1" data-toggle="tab">Followers</a></li>
-                      <li><a href="#tab2" data-toggle="tab">Following</a></li>
+                      <li class="active tab-followings"><a href="#tab1" data-toggle="tab">Followers</a></li>
+                      <li class="tab-followings"><a href="#tab2" data-toggle="tab">Following</a></li>
                     </ul>
                     <div class="tab-content">
                       <div class="tab-pane active" id="tab1">
                         <br>
+                        <ol>
                           <% @followers.each do |followed| %>
-                            <%= followed.follower.first_name %>
-                            <%= followed.follower.last_name %>
+                            <li>
+                              <%= followed.follower.first_name %>
+                              <%= followed.follower.last_name %>
+                            </li>
+                            <br>
                           <% end %>
+                        </ol>
                       </div>
                       <div class="tab-pane" id="tab2">
                         <br>
-                        <% @designers.each do |following| %>
-                          <%= following.designer.first_name %>
-                          <%= following.designer.last_name %>
-                          <br>
-                        <% end %>
+                        <ol>
+                          <% @designers.each do |following| %>
+                            <li>
+                              <%= following.designer.first_name %>
+                              <%= following.designer.last_name %>
+                            </li>
+                            <br>
+                          <% end %>
+                        </ol>
                       </div>
                     </div>
                   </div>
