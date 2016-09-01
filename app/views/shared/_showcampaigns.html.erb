@@ -91,7 +91,7 @@
           <% end %>
         <% else %>
           <% if @campaign.active? || @campaign.in_production? %>
-            <% if @order.id %>
+            <% if @order.id && @order.state == 'paid' %>
               <div class="col-lg-6 col-lg-offset-3">
                 <%= link_to "Cancel my order", dashboard_order_path(@order), class: "btn btn-default", method: :delete, "data-confirm" => "Are you sure?" %>
               </div>
