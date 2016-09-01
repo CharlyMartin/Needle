@@ -51,9 +51,9 @@
             </div>
             <div class="profile-text"> </div>
             <% if @user == current_user %>
-              <div class="text-center">
-                <%= link_to "View all campaigns", dashboard_campaigns_path(@user) %>
-              </div>
+              <%= link_to dashboard_campaigns_path(@user) do %>
+              <button type="button" class="btn btn-lg text-center btn-view-all">View all campaigns</button>
+              <% end %>
             <% end %>
           </div>
         </div>
