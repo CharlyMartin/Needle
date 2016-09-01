@@ -13,9 +13,10 @@ class PagesController < ApplicationController
     ]
     @campaigns = Campaign.all
     @latest_campaigns = Campaign.latest(3)
-    @user = User.of_the_month.id
-
-
+    if User.of_the_month.respond_to?('first')
+      @user_of_the_month = User.of_the_month.first.id
+    else
+      @user_of_the_month = User.of_the_month.id
+    end
   end
-
 end
