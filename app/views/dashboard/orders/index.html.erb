@@ -5,6 +5,12 @@
     </div>
     <div class="row">
       <% @orders.each do |order| %>
+      <% if order.campaign.active? %>
+        <% check_out_price = order.campaign.price * 0.4 * order.number_of_items %>
+      <% elsif @order.campaign.in_production? %>
+        <% check_out_price = order.campaign.price * 0.7 * order.number_of_items %>
+      <% end %>
+
         <div class="col-lg-8 col-lg-offset-2">
           <div class="order-card">
           <div class="row">
@@ -12,7 +18,7 @@
               <h1><%= order.campaign.title %> </h1>
             </div>
             <div class="col-lg-4 right">
-              <h2> <%= humanized_money_with_symbol (order.campaign.price * order.number_of_items) %> </h2>
+              <h2> <%= humanized_money_with_symbol (check_out_price) %> </h2>
             </div>
             </div>
             <p><%= order.created_at.strftime("Order placed on %A, %d %B %Y") %>
