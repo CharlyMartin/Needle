@@ -73,67 +73,104 @@
             <p>CURRENT CAMPAIGNS</p>
           </div>
         </div>
+
         <div class="row">
-          <% @campaigns.last(3).each do |campaign| %>
-            <% if campaign.active? || campaign.in_production? %>
-              <%= render partial: "smallcards", locals: {campaign: campaign} %>
-            <% end %>
-          <% end %>
+          <div id="carousel-current-campaigns" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner" role="listbox">
+              <% i = 1 %>
+              <% @campaigns.select { |c| c.active? || c.in_production? }.each_slice(3) do |three_campaigns| %>
+                <!-- Wrapper for slides -->
+                <div class="item <%= 'active' if i == 1 %>">
+                  <% three_campaigns.each do |campaign| %>
+                    <%= render partial: "smallcards", locals: {campaign: campaign} %>
+                  <% end %>
+                </div>
+                <% i += 1 %>
+              <% end %>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-current-campaigns" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-current-campaigns" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
         <div class="row row-past-fix">
           <div class="col-md-12">
             <p>PAST CAMPAIGNS</p>
           </div>
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="row">
+          <div id="carousel-past-campaigns" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner" role="listbox">
+              <% j = 1 %>
+              <% @campaigns.select { |c| c.successful? || c.failed? }.each_slice(3) do |three_campaigns| %>
+                <!-- Wrapper for slides -->
+                <div class="item <%= 'active' if j == 1 %>">
+                  <% three_campaigns.each do |campaign| %>
+                    <%= render partial: "smallcards", locals: {campaign: campaign} %>
+                  <% end %>
                 </div>
-                <div class="modal-body">
-                  <div class="tabbable">
-                    <ul class="nav nav-tabs">
-                      <li class="active tab-followings"><a href="#tab1" data-toggle="tab">Followers</a></li>
-                      <li class="tab-followings"><a href="#tab2" data-toggle="tab">Following</a></li>
-                    </ul>
-                    <div class="tab-content">
-                      <div class="tab-pane active" id="tab1">
-                        <br>
-                        <ol>
-                          <% @followers.each do |followed| %>
-                            <li>
-                              <%= followed.follower.first_name %>
-                              <%= followed.follower.last_name %>
-                            </li>
-                            <br>
-                          <% end %>
-                        </ol>
-                      </div>
-                      <div class="tab-pane" id="tab2">
-                        <br>
-                        <ol>
-                          <% @designers.each do |following| %>
-                            <li>
-                              <%= following.designer.first_name %>
-                              <%= following.designer.last_name %>
-                            </li>
-                            <br>
-                          <% end %>
-                        </ol>
-                      </div>
+                <% j += 1 %>
+              <% end %>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-past-campaigns" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-past-campaigns" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <div class="tabbable">
+                  <ul class="nav nav-tabs">
+                    <li class="active tab-followings"><a href="#tab1" data-toggle="tab">Followers</a></li>
+                    <li class="tab-followings"><a href="#tab2" data-toggle="tab">Following</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                      <br>
+                      <ol>
+                        <% @followers.each do |followed| %>
+                          <li>
+                            <%= followed.follower.first_name %>
+                            <%= followed.follower.last_name %>
+                          </li>
+                          <br>
+                        <% end %>
+                      </ol>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                      <br>
+                      <ol>
+                        <% @designers.each do |following| %>
+                          <li>
+                            <%= following.designer.first_name %>
+                            <%= following.designer.last_name %>
+                          </li>
+                          <br>
+                        <% end %>
+                      </ol>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <% @campaigns.last(3).each do |campaign| %>
-            <% if campaign.successful? || campaign.failed? %>
-              <%= render partial: "smallcards", locals: {campaign: campaign} %>
-            <% end %>
-          <% end %>
         </div>
       </div>
     </div>
