@@ -13,6 +13,7 @@ class PagesController < ApplicationController
     ]
     @campaigns = Campaign.all
     @latest_campaigns = Campaign.latest(3)
+    @user = User.of_the_month.id
 
 
   end

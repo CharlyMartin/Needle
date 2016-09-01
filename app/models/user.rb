@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  scope :of_the_month, -> { select("users.*, COUNT(followings.id) AS followings_count").joins("JOIN followings ON followings.designer_id = users.id").group('users.id').order("followings_count DESC").first }
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
