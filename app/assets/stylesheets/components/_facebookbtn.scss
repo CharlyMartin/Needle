@@ -1,0 +1,23 @@
+.facebook-connect {
+  margin-top: 100px;
+  width: 270px;
+  border-color: #3B5998;
+  border-bottom-color: #263a63;
+  background-color: #3B5998;
+  color: #fff;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 27px;
+  padding-right: 53px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+a:hover {
+    text-decoration: none !important ;
+  }
+
