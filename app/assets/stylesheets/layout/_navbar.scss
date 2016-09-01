@@ -20,6 +20,9 @@
   z-index: 1;
   width: 100%;
 }
+.navbar-left {
+  flex: 1 0 33%;
+}
 
 .fa.fa-search {
   cursor: pointer;
@@ -32,8 +35,8 @@
 
 /* Navbar logo */
 .navbar-brand {
-  position: relative;
-  left: 165px;
+  flex: 1 0 33%;
+  text-align: center;
   font-size: 30px;
   color: black;
   font-family: 'Amatic SC', cursive;
@@ -45,6 +48,8 @@
 
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
+  flex: 1 0 33%;
+  text-align: right;
   display: flex;
   align-items: center;
   justify-content: space-between;

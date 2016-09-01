@@ -49,10 +49,11 @@
         <h3><%= @campaign.items_sold %>  / <%= @campaign.batch_size %> </h3>
         <p> item(s) sold </p>
         <% if @campaign.active? %>
-          <h3><%= humanized_money_with_symbol(@active_price) %></h3>
-          <p>(<%= (@active_price / @campaign.price) * 100 %>%)</p>
+          <h3><%= humanized_money_with_symbol(@active_price) %> <span>( - <%= (1 - (@active_price / @campaign.price)) * 100 %>% )</span></h3>
         <% elsif @campaign.in_production? %>
-          <h3><%= humanized_money_with_symbol(@production_price) %></h3> <p>(<%= (@production_price / @campaign.price) * 100 %>%)</p>
+          <h3><%= humanized_money_with_symbol(@production_price) %> <span>( - <%= (1 - (@production_price / @campaign.price)) * 100 %>% )</span></h3>
+        <% else %>
+          <h3> - </h3>
         <% end %>
         <p>retail price <%= humanized_money_with_symbol(@campaign.price) %></p>
 
