@@ -43,7 +43,9 @@
       <h3> <%= @order.further_details unless @order.further_details.empty? %> </h3>
       <h3><%= @order.zip_code.to_s + ", " + @order.city.upcase %></h3>
       <hr>
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=500x500&sensor=true&maptype=roadmap&markers=color:blue|#{@order.address} #{@order.zip_code} #{@order.city}" %>
+      <div class="text-center">
+        <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=550x240&sensor=true&maptype=roadmap&markers=color:blue|#{@order.address} #{@order.zip_code} #{@order.city}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+      </div>
     </div>
   </div>
 </div>
