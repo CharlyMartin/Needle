@@ -13,3 +13,6 @@ function flip() {
 }
 
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
