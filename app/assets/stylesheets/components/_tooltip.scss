@@ -7,6 +7,26 @@
   border-width: 5px 0 5px 5px;
 }
 
+
+.tooltip.right {
+  width: 200px;
+  margin-left: 10px;
+}
+
+.tooltip.left {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-right-color: $gray-lighter;
+  border-width: 5px 5px 5px 0;
+}
+
+
 .tooltip-inner {
   color: $gray-light;
   background: #fff;
