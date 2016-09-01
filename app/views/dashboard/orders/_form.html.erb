@@ -1,7 +1,10 @@
 <%= simple_form_for [campaign, order], url: dashboard_campaign_orders_path(campaign), method: :post do |f| %>
   <%= f.error_notification %>
-  <%= f.input :item_size, collection: ["XS", "S", "M", "L", "XL"] %>
   <%= f.input :number_of_items, collection: (1..((campaign.batch_size - campaign.items_sold) > 10 ? 10 : campaign.batch_size - campaign.items_sold)).to_a %>
+  <div id="container">
+    <%= f.input :item_size, collection: ["XS", "S", "M", "L", "XL"], input_html: { name: "order[item_size][]" } %>
+  </div>
+
 <hr>
   <%= f.input :address %>
   <%= f.input :further_details %>
@@ -14,4 +17,18 @@
 
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDqiOo3Z5kyrdKTEXBtqrXtsoUEHnXzSOo"></script>
+
+  <script type="text/javascript">
+    $('#order_number_of_items').change(function() {
+      var number = $('#order_number_of_items').val();
+      var container = $('#container');
+      var content = '<label class="select required control-label" for="order_item_size"><abbr title="required">*</abbr> Item size</label><select class="select required form-control" name="order[item_size][]" id="order_item_size"><option value=""></option><option value="XS">XS</option><option value="S">S</option><option selected="selected" value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>'
+      while (container.children().length > 0) {
+        container.empty();
+      }
+      for (i=0; i < number; i++) {
+        container.append(content);
+      }
+    });
+  </script>
 <% end %>
