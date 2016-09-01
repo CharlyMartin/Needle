@@ -26,8 +26,8 @@
             <div class="row">
               <div class="col-lg-8">
                 <br>
-                <p><%= pluralize order.number_of_items, 'item' %> in
-                <%= order.item_size %></p>
+                <p><%= pluralize order.number_of_items, 'item' %>
+                (<%= order.item_size %>)</p>
               </div>
               <div class="col-lg-4 right end">
                 <p> <%= link_to "Cancel this order", dashboard_order_path(order), class: "btn btn-default", method: :delete, "data-confirm" => "Are you sure?" %> </p>

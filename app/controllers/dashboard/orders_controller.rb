@@ -18,8 +18,8 @@ class Dashboard::OrdersController < ApplicationController
   def create
     @campaign = Campaign.find(params[:campaign_id])
     @order = @campaign.orders.new(order_params)
+    @order.item_size = order_params[:item_size].join(", ")
     @order.user = current_user
-
     if @order.valid?
       @order.save
       redirect_to new_dashboard_order_payment_path(@order)
@@ -38,7 +38,7 @@ class Dashboard::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit([:item_size, :number_of_items, :address,
-      :further_details, :zip_code, :city, :country, :user_id, :campaign_id])
+    params.require(:order).permit(:number_of_items, :address,
+      :further_details, :zip_code, :city, :country, :user_id, :campaign_id, item_size:[])
   end
 end
