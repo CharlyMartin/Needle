@@ -1,8 +1,11 @@
+<div class="wrapper-green">
+    <% if  @campaign.accepted? && @campaign.status_public == nil %>
+      <div>
+        <%= link_to "launch", campaign_path(@campaign), method: :patch, class: "btn btn-default" %>
+      </div>
+    <% end %>
+</div>
+
 <%= render "shared/showcampaigns", campaigns: @campaigns %>
- <%#= link_to "See all my campaigns", dashboard_campaigns_path(@campaign), {class: "btn btn-default"} %>
-  <% if  @campaign.accepted? && @campaign.status_public == nil %>
-    <div class="col-lg-6 col-lg-offset-6 padded">
-      <%= link_to "launch", campaign_path(@campaign), method: :patch, class: "btn btn-default" %>
-    </div>
-  <% end %>
+
 
