@@ -91,6 +91,13 @@
   }
 }
 
+.carousel-control.right {
+    left: auto;
+    right: 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0) 0%);
+
+}
+
 .block-1 {
   display: flex;
   flex-direction: column;
