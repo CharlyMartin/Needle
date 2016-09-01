@@ -87,8 +87,8 @@
                 <div class="modal-body">
                   <div class="tabbable">
                     <ul class="nav nav-tabs">
-                      <li class="active"><a href="#tab1" data-toggle="tab">Followers</a></li>
-                      <li><a href="#tab2" data-toggle="tab">Following</a></li>
+                      <li class="active tab-followings"><a href="#tab1" data-toggle="tab">Followers</a></li>
+                      <li class="tab-followings"><a href="#tab2" data-toggle="tab">Following</a></li>
                     </ul>
                     <div class="tab-content">
                       <div class="tab-pane active" id="tab1">
@@ -96,15 +96,20 @@
                           <% @followers.each do |followed| %>
                             <%= followed.follower.first_name %>
                             <%= followed.follower.last_name %>
+                            <br>
                           <% end %>
                       </div>
                       <div class="tab-pane" id="tab2">
                         <br>
-                        <% @designers.each do |following| %>
-                          <%= following.designer.first_name %>
-                          <%= following.designer.last_name %>
-                          <br>
-                        <% end %>
+                        <ol>
+                          <% @designers.each do |following| %>
+                            <li>
+                              <%= following.designer.first_name %>
+                              <%= following.designer.last_name %>
+                            </li>
+                            <br>
+                          <% end %>
+                        </ol>
                       </div>
                     </div>
                   </div>
