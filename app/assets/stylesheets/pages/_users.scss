@@ -239,3 +239,24 @@
     }
   }
 
+    .btn-view-all {
+    position: relative;
+    background-color: $gray-dark;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    border-radius: 0 0 3px 3px;
+    outline: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+
+
+    &:hover {
+      color: white;
+      background-color: $gray-lighter;
+    }
+  }
+

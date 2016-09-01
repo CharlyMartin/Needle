@@ -56,8 +56,13 @@
           <h3> - </h3>
         <% end %>
         <p>retail price <%= humanized_money_with_symbol(@campaign.price) %></p>
-        <h3><%= @campaign.days_left %></h3>
-        <p>days left</p>
+
+        <% if @campaign.live? %>
+          <h3> Days left : <%= @campaign.days_left %></h3>
+        <% else %>
+          <p> Campaign : <%= @campaign.status_public %></p>
+        <% end %>
+
       </div>
     </div>
     <div class="row show-specs">

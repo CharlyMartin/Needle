@@ -4,12 +4,12 @@
       <div class="col-md-3">
         <div class="card profile-card">
           <div class="edit-link">
-              <% if @user == current_user %>
+            <% if @user == current_user %>
               <%= link_to edit_user_registration_path(@user) do %>
                 <i class="fa fa-pencil" aria-hidden="true"></i>
-                <% end %>
               <% end %>
-            </div>
+            <% end %>
+          </div>
           <div class="profile-picture center-block">
             <% if current_user.facebook_picture_url %>
             <%= image_tag current_user.facebook_picture_url  %>
@@ -21,6 +21,40 @@
               <% end %>
             <% end %>
           </div>
+            <div class="profile-name text-center">
+                <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %>
+            </div>
+            <div id="follow-stats">
+              <%= render "followings/stats", user: @user %>
+            </div>
+            <div class="profile-description text-center">
+              <p> "<%= @user.description %>" </p>
+            </div>
+
+            <div class="share-links">
+              <a href="#" class="share-link bg-facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="#" class="share-link bg-twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="#" class="share-link bg-email">
+                <i class="fa fa-envelope-o"></i>
+              </a>
+              <a href="#" class="share-link bg-text">
+                <i class="fa fa-mobile"></i>
+              </a>
+            </div>
+            <div id="follow-action">
+              <%= render "followings/follow", user: @user %>
+            </div>
+            <% if @user == current_user %>
+              <%= link_to dashboard_campaigns_path(@user) do %>
+                <button type="button" class="btn btn-lg text-center btn-view-all">View all campaigns</button>
+              <% end %>
+            <% end %>
+          </div>
+
           <div class="profile-name text-center">
               <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %>
           </div>
@@ -73,6 +107,43 @@
           <div class="col-md-12">
             <p>PAST CAMPAIGNS</p>
           </div>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"   data-target="#myModal">
+            Launch demo modal
+          </button>
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                  <div class="tabbable">
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a href="#tab1" data-toggle="tab">Followers</a></li>
+                      <li><a href="#tab2" data-toggle="tab">Following</a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="tab1">
+                        <br>
+                          <% @followers.each do |followed| %>
+                            <%= followed.follower.first_name %>
+                            <%= followed.follower.last_name %>
+                          <% end %>
+                      </div>
+                      <div class="tab-pane" id="tab2">
+                        <br>
+                        <% @designers.each do |following| %>
+                          <%= following.designer.first_name %>
+                          <%= following.designer.last_name %>
+                          <br>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row">
           <% @campaigns.last(3).each do |campaign| %>
@@ -86,3 +157,7 @@
   </div>
 </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 75df5646e344b4645d5b1b4172750cac5d5b8c2c
