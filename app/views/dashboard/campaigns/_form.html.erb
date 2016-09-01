@@ -5,19 +5,32 @@
        <%= simple_form_for @campaign, url: dashboard_campaigns_path, method: :post do |f| %>
         <%= f.error_notification %>
         <div data-toggle="tooltip" data-placement="left" title="Tooltip on left">
-        <%= f.input :title, label: "Your campaign's title" %>
+          <%= f.input :title, label: "Your campaign's title" %>
         </div>
-        <%= f.input :batch_size, collection: [150, 250, 300] %>
+        <div data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+          <%= f.input :batch_size, collection: [150, 250, 300] %>
+        </div>
+        <div class="bonjour" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+          <%= f.input :duration, label: 'Number of days', collection: [10, 20, 30] %>
+        </div>
+        <div data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+          <%= f.input :description, label: "Give the best description you can" %>
+        </div>
+        <div data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+          <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
+        </div>
 
-        <%= f.input :duration, label: 'Number of days', collection: [10, 20, 30] %>
-        <%= f.input :description, label: "Give the best description you can" %>
-        <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
-        <%= f.input :price %>
+        <div class="bonjour" data-toggle="tooltip" data-placement="right" title="Tooltip on rightvnjkvncdjkfsvlnfkjvnjksnvjsklnvjklnvjklznvjk">
+          <%= f.input :price %>
+        </div>
+
         <%= f.simple_fields_for :cat do |c| %>
           <%= c.input :cat, collection: @categories.pluck(:name) %>
         <% end %>
         <%= f.input :gender, label: "Who cares ?", collection: ["Men", "Women", "Both"] %>
-        <%= f.input :photos, as: :attachinary %>
+        <div class="bonjour" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+          <%= f.input :photos, as: :attachinary %>
+        </div>
          <div class="text-center">
            <%= f.button :submit, class: "btn btn-default" %>
          </div>
