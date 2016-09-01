@@ -6,7 +6,14 @@
           <div class="edit-link">
             <% if @user == current_user %>
               <%= link_to edit_user_registration_path(@user) do %>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <i class="fa fa-pencil" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="orders-link">
+             <% if @user == current_user %>
+              <%= link_to dashboard_orders_path(@user) do %>
+                <i class="fa fa-shopping-bag" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="My orders"></i>
               <% end %>
             <% end %>
           </div>
@@ -64,7 +71,6 @@
         <div class="row row-current-fix">
           <div class="col-md-12">
             <p>CURRENT CAMPAIGNS</p>
-             <%= link_to 'My orders', dashboard_orders_path %>
           </div>
         </div>
         <div class="row">
