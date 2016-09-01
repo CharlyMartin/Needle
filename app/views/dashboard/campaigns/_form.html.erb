@@ -4,31 +4,31 @@
      <div class="col-md-6 col-md-offset-3">
        <%= simple_form_for @campaign, url: dashboard_campaigns_path, method: :post do |f| %>
         <%= f.error_notification %>
-        <div data-toggle="tooltip" data-placement="left" title="This title will appear on all campaign's cards">
+        <div data-toggle="tooltip" data-placement="left" title="Think hard about this one, it's for everyone to see!">
           <%= f.input :title, label: "Your campaign's title" %>
         </div>
-        <div data-toggle="tooltip" data-placement="right" title="The batch-size is correlated with your product's type and your reputation.">
+        <div data-toggle="tooltip" data-placement="right" title="The batch size you choose should be determined by the product's type and your reputation.">
           <%= f.input :batch_size, collection: [150, 250, 300] %>
         </div>
-        <div class="bonjour" data-toggle="tooltip" data-placement="left" title="This is the duration of the campaign.">
+        <div data-toggle="tooltip" data-placement="left" title="How long do you want your campaign to last?">
           <%= f.input :duration, label: 'Number of days', collection: [10, 20, 30] %>
         </div>
-        <div data-toggle="tooltip" data-placement="right" title="Add a short description of yourself as a fashion designer.">
+        <div data-toggle="tooltip" data-placement="right" title="The more precise the better! This is what will help get people (and us) hooked.">
           <%= f.input :description, label: "Give the best description you can" %>
         </div>
-        <div data-toggle="tooltip" data-placement="left" title="Give as much information about your product as you can.">
+        <div data-toggle="tooltip" data-placement="left" title="Give as much information about your product as you can, it will help us understand exactly what you're hoping to achieve.">
           <%= f.input :spec, label: "Product specs", placeholder: "ex: coton: 20%, wool: 80%, ..." %>
         </div>
 
-        <div class="bonjour" data-toggle="tooltip" data-placement="right" title="Please give an estimation of the product price.">
+        <div data-toggle="tooltip" data-placement="right" title="Please give an estimation of your product's price.">
           <%= f.input :price %>
         </div>
 
         <%= f.simple_fields_for :cat do |c| %>
-          <%= c.input :cat, collection: @categories.pluck(:name) %>
+          <%= c.input :Category, collection: @categories.pluck(:name) %>
         <% end %>
-        <%= f.input :gender, label: "Who cares ?", collection: ["Men", "Women", "Both"] %>
-        <div class="bonjour" data-toggle="tooltip" data-placement="left" title="Give up to 4 photos of your product">
+        <%= f.input :gender, label: "Gender", collection: ["Men", "Women", "Both"] %>
+        <div data-toggle="tooltip" data-placement="left" title="Upload up to 4 photos of your product (quick tip : the more the merrier!)">
           <%= f.input :photos, as: :attachinary %>
         </div>
          <div class="text-center">
