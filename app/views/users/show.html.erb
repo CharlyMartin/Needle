@@ -49,51 +49,20 @@
               <%= render "followings/follow", user: @user %>
             </div>
             <% if @user == current_user %>
+              <div>
               <%= link_to dashboard_campaigns_path(@user) do %>
-                <button type="button" class="btn btn-lg text-center btn-view-all">View all campaigns</button>
-              <% end %>
+                <button type="button" class="btn btn-lg text-center btn-view-all">My campaigns</button>
+                <% end %>
+                </div>
             <% end %>
           </div>
-
-          <div class="profile-name text-center">
-              <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %>
-          </div>
-          <div id="follow-stats">
-            <%= render "followings/stats", user: @user %>
-          </div>
-          <div class="profile-description text-center">
-            <p> "<%= @user.description %>" </p>
-          </div>
-
-          <div class="share-links">
-            <a href="#" class="share-link bg-facebook">
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a href="#" class="share-link bg-twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a href="#" class="share-link bg-email">
-              <i class="fa fa-envelope-o"></i>
-            </a>
-            <a href="#" class="share-link bg-text">
-              <i class="fa fa-mobile"></i>
-            </a>
-          </div>
-          <div id="follow-action">
-            <%= render "followings/follow", user: @user %>
-          </div>
-          <div class="profile-text"> </div>
-          <% if @user == current_user %>
-            <div class="text-center">
-              <%= link_to "View all campaigns", dashboard_campaigns_path(@user) %>
-            </div>
-          <% end %>
         </div>
-      </div>
+
       <div class="card current-card col-md-9">
         <div class="row row-current-fix">
           <div class="col-md-12">
             <p>CURRENT CAMPAIGNS</p>
+             <%= link_to 'My orders', dashboard_orders_path %>
           </div>
         </div>
         <div class="row">
@@ -156,8 +125,3 @@
     </div>
   </div>
 </div>
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 75df5646e344b4645d5b1b4172750cac5d5b8c2c

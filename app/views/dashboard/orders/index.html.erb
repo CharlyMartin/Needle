@@ -5,21 +5,34 @@
     </div>
     <div class="row">
       <% @orders.each do |order| %>
+      <% if order.campaign.active? %>
+        <% check_out_price = order.campaign.price * 0.4 * order.number_of_items %>
+      <% elsif @order.campaign.in_production? %>
+        <% check_out_price = order.campaign.price * 0.7 * order.number_of_items %>
+      <% end %>
+
         <div class="col-lg-8 col-lg-offset-2">
           <div class="order-card">
-          <div class="row">
-            <div class="col-lg-8">
-              <h1><%= order.campaign.title %> </h1>
+            <div class="row">
+              <div class="col-lg-8">
+                <h1><%= order.campaign.title %> </h1>
+                <p><%= order.created_at.strftime("Order placed on %A, %d %B %Y") %>
+                <%= order.created_at.strftime(" at %I:%M%p") %></p>
+              </div>
+              <div class="col-lg-4 right">
+                <h2> <%= humanized_money_with_symbol (check_out_price) %> </h2>
+              </div>
             </div>
-            <div class="col-lg-4 right">
-              <h2> <%= humanized_money_with_symbol (order.campaign.price * order.number_of_items) %> </h2>
+            <div class="row">
+              <div class="col-lg-8">
+                <br>
+                <p><%= pluralize order.number_of_items, 'item' %> in
+                <%= order.item_size %></p>
+              </div>
+              <div class="col-lg-4 right end">
+                <p> <%= link_to "Cancel this order", dashboard_order_path(order), class: "btn btn-default", method: :delete, "data-confirm" => "Are you sure?" %> </p>
+              </div>
             </div>
-            </div>
-            <p><%= order.created_at.strftime("Order placed on %A, %d %B %Y") %>
-            <%= order.created_at.strftime(" at %I:%M%p") %></p>
-            <br>
-            <p><%= pluralize order.number_of_items, 'item' %> in
-            <%= order.item_size %></p>
           </div>
         </div>
       <% end %>

@@ -1,36 +1,50 @@
+<% if @order.campaign.active? %>
+  <% check_out_price = @active_price * @order.number_of_items %>
+<% elsif @order.campaign.in_production? %>
+  <% check_out_price = @in_production_price * @order.number_of_items %>
+<% end %>
+
+
 <div class="wrapper-grey">
-  <div class="container">
-    <div class="col-lg-8 col-lg-offset-2">
-      <h1>Your purchase for <%= @order.campaign.title %></h1>
-      <p>Size: <%= @order.item_size %></p>
-      <p>Number of items: <%= @order.number_of_items %></p>
-      <p>Delivery Address: <%= @order.full_address %></p>
-
-      <% if @order.campaign.active? %>
-        <% check_out_price = @active_price * @order.number_of_items %>
-      <% elsif @order.campaign.in_production? %>
-        <% check_out_price = @in_production_price * @order.number_of_items %>
-      <% end %>
-
-      <br>
-
-      <div class="text-center">
+  <div class="container checkout text-center">
+    <div class="row">
+      <div class="col-lg-6 left">
+        <p>Your order for</p>
+        <h2><%= @order.campaign.title.upcase %></h2>
+        <hr>
         <%= form_tag dashboard_order_payments_path(@order) do %>
           <article>
             <label class="amount">
-              <span>Amount: <%= humanized_money_with_symbol(check_out_price / 100) %></span>
+              <p>Amount</p>
+              <h3><%= humanized_money_with_symbol(check_out_price / 100) %></h3>
             </label>
+          <br>
+          <br>
           </article>
 
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-email="<%= @user.email %>"
-            data-name="<%= @order.campaign.title %>"
-            data-description="Payment for <%= pluralize(@order.number_of_items, 'item') %> "
-            data-amount="<%= check_out_price %>"
-            data-currency="EUR">
-          </script>
-        <% end %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-email="<%= @user.email %>"
+              data-name="<%= @order.campaign.title %>"
+              data-description="Payment for <%= pluralize(@order.number_of_items, 'item') %> "
+              data-amount="<%= check_out_price %>"
+              data-currency="EUR">
+            </script>
+          <% end %>
+        </div>
+      <div class=" col-lg-6 left">
+        <p>Size</p>
+        <h3><%= @order.item_size %></h3>
+        <p>Quantity</p>
+        <h3><%= @order.number_of_items %></h3>
+        <p>Delivery</p>
+        <h3><%= @order.address %></h3>
+        <h3> <%= @order.further_details unless @order.further_details.empty? %> </h3>
+        <h3><%= @order.zip_code.to_s + ", " + @order.city.upcase %></h3>
+        <hr>
+        <div class="text-center">
+          <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=550x240&sensor=true&maptype=roadmap&markers=color:blue|#{@order.address} #{@order.zip_code} #{@order.city}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+        </div>
       </div>
     </div>
   </div>
