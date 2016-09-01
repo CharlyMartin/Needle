@@ -52,7 +52,8 @@
             <div class="profile-text"> </div>
             <% if @user == current_user %>
               <div class="text-center">
-                <%= link_to "View all campaigns", dashboard_campaigns_path(@user) %>
+                <p> <%= link_to "My campaigns", dashboard_campaigns_path(@user) %> </p>
+                <p> <%= link_to "My orders", dashboard_orders_path %> </p>
               </div>
             <% end %>
           </div>
