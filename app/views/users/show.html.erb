@@ -24,9 +24,11 @@
             <div class="profile-name text-center">
                 <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %>
             </div>
-            <div id="follow-stats">
-              <%= render "followings/stats", user: @user %>
-            </div>
+            <a href="#" data-toggle="modal" data-target="#myModal">
+              <div id="follow-stats">
+                <%= render "followings/stats", user: @user %>
+              </div>
+            </a>
             <div class="profile-description text-center">
               <p> "<%= @user.description %>" </p>
             </div>
@@ -76,9 +78,6 @@
           <div class="col-md-12">
             <p>PAST CAMPAIGNS</p>
           </div>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"   data-target="#myModal">
-            Launch demo modal
-          </button>
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
