@@ -25,7 +25,7 @@
         </div>
 
         <%= f.simple_fields_for :cat do |c| %>
-          <%= c.input :Category, collection: @categories.pluck(:name) %>
+          <%= c.input :category, collection: @categories.pluck(:name) %>
         <% end %>
         <%= f.input :gender, label: "Gender", collection: ["Men", "Women", "Both"] %>
         <div data-toggle="tooltip" data-placement="left" title="Upload up to 4 photos of your product (quick tip : the more the merrier!)">

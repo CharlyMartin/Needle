@@ -20,8 +20,8 @@ class Dashboard::CampaignsController < ApplicationController
   def create
     @campaign = current_user.campaigns.new(campaign_params)
     @categories = Category.all
-    if params[:campaign][:cat][:cat].present?
-      category = Category.find_by_name(params[:campaign][:cat][:cat])
+    if params[:campaign][:cat][:category].present?
+      category = Category.find_by_name(params[:campaign][:cat][:category])
       @campaign.category_id = category.id
     end
     if @campaign.save
