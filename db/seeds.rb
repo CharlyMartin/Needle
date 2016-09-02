@@ -76,6 +76,109 @@ Campaign.create(
 
   puts "creating a campaign"
 
+  Campaign.create(
+  title: "Bag Awesomeness",
+  sku: "bag-awesomeness",
+  batch_size: 150,
+  date_start: Date.today - 4,
+  date_end: Date.today + 6,
+  duration: 10,
+  description: "By far, one of the most interresting project I had to work on, lots of different materials and cuts. ",
+  spec: "Fabric outer/Twin handles/Zip top closure/Interior slip pocket/Wipe with a damp cloth/100% Nylon/H: 39cm/15' W: 54cm/21' D: 22cm/9",
+  price: 90,
+  category: Dress,
+  gender: "Both",
+  status_public: "active",
+  user: Ysl
+  )
+
+  puts "creating a campaign"
+  Campaign.create(
+  title: "Bag Awesomeness",
+  sku: "bag-awesomeness",
+  batch_size: 150,
+  date_start: Date.today - 4,
+  date_end: Date.today + 6,
+  duration: 10,
+  description: "By far, one of the most interresting project I had to work on, lots of different materials and cuts. ",
+  spec: "Fabric outer/Twin handles/Zip top closure/Interior slip pocket/Wipe with a damp cloth/100% Nylon/H: 39cm/15' W: 54cm/21' D: 22cm/9",
+  price: 90,
+  category: Dress,
+  gender: "Both",
+  status_public: "active",
+  user: Ysl
+  )
+
+  puts "creating a campaign"
+  Campaign.create(
+  title: "Bag Awesomeness",
+  sku: "bag-awesomeness",
+  batch_size: 150,
+  date_start: Date.today - 4,
+  date_end: Date.today + 6,
+  duration: 10,
+  description: "By far, one of the most interresting project I had to work on, lots of different materials and cuts. ",
+  spec: "Fabric outer/Twin handles/Zip top closure/Interior slip pocket/Wipe with a damp cloth/100% Nylon/H: 39cm/15' W: 54cm/21' D: 22cm/9",
+  price: 90,
+  category: Dress,
+  gender: "Both",
+  status_public: "active",
+  user: Ysl
+  )
+
+  puts "creating a campaign"
+  Campaign.create(
+  title: "Bag Awesomeness",
+  sku: "bag-awesomeness",
+  batch_size: 150,
+  date_start: Date.today - 4,
+  date_end: Date.today + 6,
+  duration: 10,
+  description: "By far, one of the most interresting project I had to work on, lots of different materials and cuts. ",
+  spec: "Fabric outer/Twin handles/Zip top closure/Interior slip pocket/Wipe with a damp cloth/100% Nylon/H: 39cm/15' W: 54cm/21' D: 22cm/9",
+  price: 90,
+  category: Dress,
+  gender: "Both",
+  status_public: "active",
+  user: Ysl
+  )
+
+  puts "creating a campaign"
+  Campaign.create(
+  title: "Bag Awesomeness",
+  sku: "bag-awesomeness",
+  batch_size: 150,
+  date_start: Date.today - 4,
+  date_end: Date.today + 6,
+  duration: 10,
+  description: "By far, one of the most interresting project I had to work on, lots of different materials and cuts. ",
+  spec: "Fabric outer/Twin handles/Zip top closure/Interior slip pocket/Wipe with a damp cloth/100% Nylon/H: 39cm/15' W: 54cm/21' D: 22cm/9",
+  price: 90,
+  category: Dress,
+  gender: "Both",
+  status_public: "active",
+  user: Ysl
+  )
+
+  puts "creating a campaign"
+  Campaign.create(
+  title: "Bag Awesomeness",
+  sku: "bag-awesomeness",
+  batch_size: 150,
+  date_start: Date.today - 4,
+  date_end: Date.today + 6,
+  duration: 10,
+  description: "By far, one of the most interresting project I had to work on, lots of different materials and cuts. ",
+  spec: "Fabric outer/Twin handles/Zip top closure/Interior slip pocket/Wipe with a damp cloth/100% Nylon/H: 39cm/15' W: 54cm/21' D: 22cm/9",
+  price: 90,
+  category: Dress,
+  gender: "Both",
+  status_public: "active",
+  user: Ysl
+  )
+
+  puts "creating a campaign"
+
 ###########################################################
 # CREATING 2 PAST CAMPAINGS FOR THE DESIGNER Ysl
 

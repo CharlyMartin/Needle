@@ -6,7 +6,13 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 
-$('.carousel').carousel()
+$('.carousel').carousel();
+
+$(function () {
+  $('#carousel-current-campaigns').carousel('pause');
+  $('#carousel-past-campaigns').carousel('pause');
+});
+
 
 function flip() {
     $('.card').toggleClass('flipped');
