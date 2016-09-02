@@ -1,0 +1,24 @@
+<div class="tab-pane active" id="tab1">
+  <br>
+  <ol>
+    <% followers.each do |followed| %>
+      <li>
+        <%= followed.follower.first_name %>
+        <%= followed.follower.last_name %>
+      </li>
+      <br>
+    <% end %>
+  </ol>
+</div>
+<div class="tab-pane" id="tab2">
+  <br>
+  <ol>
+    <% designers.each do |following| %>
+      <li>
+        <%= following.designer.first_name %>
+        <%= following.designer.last_name %>
+      </li>
+      <br>
+    <% end %>
+  </ol>
+</div>
