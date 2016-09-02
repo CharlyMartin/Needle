@@ -1,2 +1,3 @@
 $('#follow-action').html('<%= j render "followings/follow", user: @following.designer %>');
 $('#follow-stats').html('<%= j render "followings/stats", user: @following.designer %>');
+$('#followings-list').html('<%= j render "followings/list", followers: @following.designer.followers, designers: @following.designer.designers %>');
