@@ -70,38 +70,49 @@
       <div class="card current-card col-md-9">
         <div class="row row-current-fix">
           <div class="col-md-12">
-            <p>CURRENT CAMPAIGNS</p>
+            <% if @user.campaigns.active.count >= 1 %>
+              <p>CURRENT CAMPAIGNS</p>
+            <% else %>
+              <p> LAST PURSHASES </p>
+            <% end %>
           </div>
         </div>
 
         <div class="row">
-          <div id="carousel-current-campaigns" class="carousel slide" data-ride="carousel" data-interval="false">
-            <div class="carousel-inner" role="listbox">
-              <% i = 1 %>
-              <% @campaigns.select { |c| c.active? || c.in_production? }.each_slice(3) do |three_campaigns| %>
-                <!-- Wrapper for slides -->
-                <div class="item <%= 'active' if i == 1 %>">
-                  <% three_campaigns.each do |campaign| %>
-                    <%= render partial: "smallcards", locals: {campaign: campaign} %>
-                  <% end %>
-                </div>
-                <% i += 1 %>
-              <% end %>
+          <% if @user.campaigns.active.count >= 1 %>
+
+            <div id="carousel-current-campaigns" class="carousel slide" data-ride="carousel" data-interval="false">
+              <div class="carousel-inner" role="listbox">
+
+                <% i = 1 %>
+                <% @campaigns.select { |c| c.active? || c.in_production? }.each_slice(3) do |three_campaigns| %>
+                  <!-- Wrapper for slides -->
+                  <div class="item <%= 'active' if i == 1 %>">
+                    <% three_campaigns.each do |campaign| %>
+                      <%= render partial: "smallcards", locals: {campaign: campaign} %>
+                    <% end %>
+                  </div>
+                  <% i += 1 %>
+                <% end %>
+
+              </div>
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-current-campaigns" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#carousel-current-campaigns" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-current-campaigns" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-current-campaigns" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
+          <% end %>
         </div>
         <div class="row row-past-fix">
           <div class="col-md-12">
+
             <p>PAST CAMPAIGNS</p>
+
           </div>
         </div>
         <div class="row">
@@ -117,6 +128,7 @@
                 </div>
                 <% j += 1 %>
               <% end %>
+
             </div>
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-past-campaigns" role="button" data-slide="prev">
