@@ -21,7 +21,6 @@
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border: white 3px solid;
-
   img {
   width: 120px;
   }
@@ -82,30 +81,34 @@
   cursor: pointer;
   background-color: #f4f4f4;
   border-radius: 50%;
-  }
+  &:hover {
 
-  .btn-follow {
-    position: relative;
-    background-color: $gray-dark;
-    color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    border-radius: 0 0 3px 3px;
-    outline: none;
-    padding-top: 10px;
-
-    &:hover {
-      color: white;
-      background-color: $gray-lighter;
-    }
   }
-  .edit-link {
+}
+
+.btn-follow {
+  position: relative;
+  background-color: $gray-dark;
+  color: white;
   position: absolute;
-  right: 20px;
-  color: $gray-lighter;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  border-radius: 0 0 3px 3px;
+  outline: none;
+  padding-top: 10px;
+
+  &:hover {
+    color: white;
+    background-color: $gray-lighter;
   }
+}
+
+.edit-link {
+position: absolute;
+right: 20px;
+color: $gray-lighter;
+}
 
   //current-cards
 

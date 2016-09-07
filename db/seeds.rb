@@ -180,7 +180,7 @@ Campaign.create(
   puts "creating a campaign"
 
 ###########################################################
-# CREATING 2 PAST CAMPAINGS FOR THE DESIGNER Ysl
+# CREATING 2 PAST CAMPAIGNS FOR THE DESIGNER Ysl
 
 Campaign.create(
   title: "The ultimate blouse",
@@ -217,8 +217,8 @@ Campaign.create(
   puts "creating a campaign"
 
 ###########################################################
-# CREATING 2 CAMPAING FOR Felix
-#
+# CREATING 2 CAMPAIGN FOR Felix
+
 Campaign.create(
   title: "Be Tie",
   sku: "be-tie",

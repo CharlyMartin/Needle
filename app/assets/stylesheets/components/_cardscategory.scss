@@ -1,14 +1,12 @@
 /* entire container, keeps perspective */
 .flip-container {
   perspective: 500px;
-
-
-
 }
-  /* flip the pane when hovered */
-  .flip-container:hover .flipper, .flip-container.hover .flipper {
-    transform: rotateY(180deg);
-  }
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
 
 .flip-container, .front, .back {
   width: 100px;
@@ -24,7 +22,6 @@
   transform-style: preserve-3d;
 
   position: relative;
-
 }
 
 /* hide back of pane during swap */
@@ -43,10 +40,10 @@
   transform: rotateY(0deg);
   background-color: white;
   border: 0.5px solid $gray-lighter;
-    a {
-      color: #7f7f7f;
-      text-decoration: none;
-    }
+  a {
+    color: #7f7f7f;
+    text-decoration: none;
+  }
 }
 
 /* back, initially hidden pane */
