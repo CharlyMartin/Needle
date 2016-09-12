@@ -60,9 +60,6 @@
         <% if @campaign.active? || @campaign.in_production? %>
           <h3><%= @campaign.days_left %></h3>
           <p>days left</p>
-            <% if @campaign.days_left <= 5 %>
-              <h2> Hurry Up !</h2>
-            <% end %>
         <% else %>
           <p> Campaign : <%= @campaign.status_public || @campaign.status_private %></p>
         <% end %>
