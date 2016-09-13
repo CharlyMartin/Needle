@@ -18,7 +18,7 @@ class Campaign < ApplicationRecord
   enum status_private: [:pending, :accepted, :declined]
   enum status_public: [:active, :in_production, :successful, :failed]
 
-  # scope :ending_in_days, -> (days) { active.select {|c| c.days_left <= days  } }
+  scope :ending_in_days, -> (days) { active.select {|c| c.days_left <= days  } }
   scope :items_ordered, -> (items) { active.select {|c| c.items_sold > items  } }
   scope :latest, -> (number) { order('date_start DESC').limit(number) }
 
