@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  ActiveAdmin.routes(self)
   resources :categories, only: [:index, :show]
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: :registrations }
