@@ -20,7 +20,12 @@
       height: 100%;
       background-image: contain;
       object-fit: cover;
+      &:hover {
+        opacity: 0.5;
+        transition: 0.7s;
+      }
     }
+
   }
   .bottom {
     padding: 0px 15px 0px 15px;
