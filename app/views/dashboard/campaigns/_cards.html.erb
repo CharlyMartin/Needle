@@ -7,9 +7,26 @@
               <div class="col-lg-12">
                 <div class="top">
                   <% if campaign.photos? %>
-                    <%= cl_image_tag campaign.photos.last.path, crop: :fill %>
+                    <% if campaign.user == current_user %>
+                      <%= link_to  dashboard_campaign_path(campaign) do %>
+                        <%= cl_image_tag campaign.photos.last.path, crop: :fill %>
+                      <% end %>
+                    <% else %>
+                      <%= link_to campaign_path(campaign) do %>
+                        <%= cl_image_tag campaign.photos.last.path, crop: :fill %>
+                      <% end %>
+                    <% end %>
+
                   <% else %>
-                    <%= image_tag 'home/fashion-design-illustration-lady-in-black-dress.jpg', alt:'' %>
+                    <% if campaign.user == current_user %>
+                      <%= link_to dashboard_campaign_path(campaign) do %>
+                        <%= image_tag 'home/fashion-design-illustration-lady-in-black-dress.jpg', alt:'' %>
+                      <% end %>
+                    <% else %>
+                      <%= link_to campaign_path(campaign) do %>
+                        <%= image_tag 'home/fashion-design-illustration-lady-in-black-dress.jpg', alt:'' %>
+                      <% end %>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
