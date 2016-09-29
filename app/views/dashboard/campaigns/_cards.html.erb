@@ -2,6 +2,7 @@
   <% @campaigns.each do |campaign| %>
     <% if campaign.active? || campaign.in_production? %>
         <div class="col-lg-6">
+          <div class="col-lg-10 col-lg-offset-1">
           <div class="cards-vertical">
             <div class="row">
               <div class="col-lg-12">
@@ -63,6 +64,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
 
     <% end %>
