@@ -4,7 +4,7 @@
 .cards-vertical {
   background: white;
 
-  height: 600px;
+  height: 525px;
   width: 100%;
   box-shadow: 0px 1px 4px lightgrey;
   margin-top: 40px;
@@ -12,7 +12,7 @@
 
   object-fit: fill;
   .top {
-    height: 470px;
+    height: 410px;
     width: 100%;
     img {
       max-width: 100%;
@@ -33,6 +33,7 @@
   .bottom {
     padding: 0px 15px 0px 15px;
     margin-top: 5px;
+    height: 100%;
     .left {
       text-align: end;
     }
