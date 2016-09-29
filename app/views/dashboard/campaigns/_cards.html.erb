@@ -58,11 +58,7 @@
                     </div>
                    </div>
                   <p> <strong> Days left : </strong> <%= campaign.days_left %></p>
-                  <% if campaign.user == current_user %>
-                    <%= link_to "Details", dashboard_campaign_path(campaign), {class: "button"} %>
-                  <% else %>
-                    <%= link_to "Details", campaign_path(campaign), {class: "button"} %>
-                  <% end %>
+
                 </div>
               </div>
             </div>
