@@ -3,8 +3,9 @@
 }
 .cards-vertical {
   background: white;
+
   height: 600px;
-  width: 430px;
+  width: 100%;
   box-shadow: 0px 1px 4px lightgrey;
   margin-top: 40px;
   margin-bottom: 10px;
@@ -12,6 +13,7 @@
   object-fit: fill;
   .top {
     height: 470px;
+    width: 100%;
     img {
       max-width: 100%;
       min-width: 100%;
