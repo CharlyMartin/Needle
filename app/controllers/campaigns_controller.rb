@@ -14,6 +14,7 @@ class CampaignsController < ApplicationController
     @production_price = @campaign.price * 0.7
     @order = Order.where(campaign: @campaign).find_by(user: current_user)
     @order = Order.new if @order.nil?
+    @user = User.find(params[:id])
   end
 
   def update

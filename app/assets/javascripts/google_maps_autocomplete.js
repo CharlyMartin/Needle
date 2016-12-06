@@ -59,3 +59,6 @@ function getAddressComponents(place) {
     country_code: country_code
   };
 }
+
+
+
